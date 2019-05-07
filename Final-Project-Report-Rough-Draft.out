@@ -1,0 +1,116 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Work Distribution}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Project Objectives and Success Criteria}{}% 3
+\BOOKMARK [2][-]{subsection.2.1}{Main Objectives}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Simple success criteria}{section.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Completed}{subsection.2.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Not Completed}{subsection.2.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Ambitious success criteria}{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Completed}{subsection.2.3}% 9
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Not Completed}{subsection.2.3}% 10
+\BOOKMARK [1][-]{section.3}{High-Level Requirements}{}% 11
+\BOOKMARK [1][-]{section.4}{Assumptions, Constraints, and Standards}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{Assumptions}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Constraints}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Relevant Information Learned from Past Courses}{section.4}% 15
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Data Storage}{subsection.4.3}% 16
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Translate Detected Markings into Coordinate System \(Stepper Motor Rotations\)}{subsection.4.3}% 17
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Stepper Motor System Design}{subsection.4.3}% 18
+\BOOKMARK [3][-]{subsubsection.4.3.4}{Microcontroller Involvement}{subsection.4.3}% 19
+\BOOKMARK [3][-]{subsubsection.4.3.5}{Shortest Path Algorithm}{subsection.4.3}% 20
+\BOOKMARK [3][-]{subsubsection.4.3.6}{Image Processing}{subsection.4.3}% 21
+\BOOKMARK [3][-]{subsubsection.4.3.7}{Wireless Connectivity}{subsection.4.3}% 22
+\BOOKMARK [3][-]{subsubsection.4.3.8}{Ultrasonic Sensor Proximity Detection}{subsection.4.3}% 23
+\BOOKMARK [2][-]{subsection.4.4}{Standards}{section.4}% 24
+\BOOKMARK [1][-]{section.5}{Project Description and Boundaries}{}% 25
+\BOOKMARK [2][-]{subsection.5.1}{Major Components}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.2}{Minor Components}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.3}{Software Components}{section.5}% 28
+\BOOKMARK [3][-]{subsubsection.5.3.1}{SPI Communication}{subsection.5.3}% 29
+\BOOKMARK [3][-]{subsubsection.5.3.2}{I2C Communication}{subsection.5.3}% 30
+\BOOKMARK [3][-]{subsubsection.5.3.3}{UART Communication}{subsection.5.3}% 31
+\BOOKMARK [3][-]{subsubsection.5.3.4}{Grayscale Conversion from RGB565}{subsection.5.3}% 32
+\BOOKMARK [3][-]{subsubsection.5.3.5}{Sobel Edge Detection}{subsection.5.3}% 33
+\BOOKMARK [3][-]{subsubsection.5.3.6}{Socket Programming for Wireless Communication}{subsection.5.3}% 34
+\BOOKMARK [3][-]{subsubsection.5.3.7}{Stepper Motor Operations}{subsection.5.3}% 35
+\BOOKMARK [3][-]{subsubsection.5.3.8}{Moving the Eraser to the Markings}{subsection.5.3}% 36
+\BOOKMARK [3][-]{subsubsection.5.3.9}{Proximity Sensing Using the Ultrasonic Sensor}{subsection.5.3}% 37
+\BOOKMARK [2][-]{subsection.5.4}{Physical Technological Components}{section.5}% 38
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Arducam}{subsection.5.4}% 39
+\BOOKMARK [3][-]{subsubsection.5.4.2}{PSoC 6 Microcontroller}{subsection.5.4}% 40
+\BOOKMARK [3][-]{subsubsection.5.4.3}{Stepper Motors}{subsection.5.4}% 41
+\BOOKMARK [3][-]{subsubsection.5.4.4}{Stepper Motor Drivers}{subsection.5.4}% 42
+\BOOKMARK [3][-]{subsubsection.5.4.5}{HUZZAH32 for Stepper Motor Wireless Communication}{subsection.5.4}% 43
+\BOOKMARK [3][-]{subsubsection.5.4.6}{PCBs}{subsection.5.4}% 44
+\BOOKMARK [3][-]{subsubsection.5.4.7}{Additional Power}{subsection.5.4}% 45
+\BOOKMARK [2][-]{subsection.5.5}{Physical Mechanical Components}{section.5}% 46
+\BOOKMARK [3][-]{subsubsection.5.5.1}{Linear Motion Track System}{subsection.5.5}% 47
+\BOOKMARK [3][-]{subsubsection.5.5.2}{Stepper Motor Mounts}{subsection.5.5}% 48
+\BOOKMARK [3][-]{subsubsection.5.5.3}{Pulley System}{subsection.5.5}% 49
+\BOOKMARK [2][-]{subsection.5.6}{Prototype Mounting Components}{section.5}% 50
+\BOOKMARK [2][-]{subsection.5.7}{Boundaries}{section.5}% 51
+\BOOKMARK [2][-]{subsection.5.8}{Technical Advisor Backgrounds}{section.5}% 52
+\BOOKMARK [1][-]{section.6}{High-Level Risks}{}% 53
+\BOOKMARK [1][-]{section.7}{Milestone Schedule}{}% 54
+\BOOKMARK [1][-]{section.8}{Test Plan}{}% 55
+\BOOKMARK [1][-]{section.9}{Gantt Charts}{}% 56
+\BOOKMARK [1][-]{section.10}{Equipment and Budget}{}% 57
+\BOOKMARK [1][-]{section.11}{Roles of Team Members}{}% 58
+\BOOKMARK [2][-]{subsection.11.1}{Heather Libecki}{section.11}% 59
+\BOOKMARK [2][-]{subsection.11.2}{Chris Quesada}{section.11}% 60
+\BOOKMARK [2][-]{subsection.11.3}{Juan Colin}{section.11}% 61
+\BOOKMARK [1][-]{section.12}{Analysis and Design}{}% 62
+\BOOKMARK [2][-]{subsection.12.1}{I2C Communication - PSoC 6 to Arducam}{section.12}% 63
+\BOOKMARK [2][-]{subsection.12.2}{SPI communication - PSoC 6 to Arducam}{section.12}% 64
+\BOOKMARK [2][-]{subsection.12.3}{Image Processing}{section.12}% 65
+\BOOKMARK [3][-]{subsubsection.12.3.1}{Resolution}{subsection.12.3}% 66
+\BOOKMARK [3][-]{subsubsection.12.3.2}{Output Format}{subsection.12.3}% 67
+\BOOKMARK [3][-]{subsubsection.12.3.3}{Resolution}{subsection.12.3}% 68
+\BOOKMARK [3][-]{figure.caption.55}{Grayscale Results}{subsection.12.3}% 69
+\BOOKMARK [3][-]{subsubsection.12.3.5}{Sobel Edge Detection}{subsection.12.3}% 70
+\BOOKMARK [3][-]{subsubsection.12.3.6}{Results of Sobel Edge Detection}{subsection.12.3}% 71
+\BOOKMARK [3][-]{subsubsection.12.3.7}{UART Communication - PSoC 6 to HUZZAH32 \(server\)}{subsection.12.3}% 72
+\BOOKMARK [2][-]{subsection.12.4}{The Original Plan for Wireless Communication}{section.12}% 73
+\BOOKMARK [3][-]{subsubsection.12.4.1}{Arduino Wireless Communication}{subsection.12.4}% 74
+\BOOKMARK [2][-]{subsection.12.5}{The Current Wireless Communication System}{section.12}% 75
+\BOOKMARK [3][-]{subsubsection.12.5.1}{Server}{subsection.12.5}% 76
+\BOOKMARK [3][-]{subsubsection.12.5.2}{Clients}{subsection.12.5}% 77
+\BOOKMARK [3][-]{subsubsection.12.5.3}{Square\137Detection.C Algorithm}{subsection.12.5}% 78
+\BOOKMARK [3][-]{subsubsection.12.5.4}{Serpentine.C Algorithm}{subsection.12.5}% 79
+\BOOKMARK [3][-]{subsubsection.12.5.5}{Stepper Motor Movement}{subsection.12.5}% 80
+\BOOKMARK [2][-]{subsection.12.6}{Hardware}{section.12}% 81
+\BOOKMARK [3][-]{subsubsection.12.6.1}{Using the Logic Analyzer}{subsection.12.6}% 82
+\BOOKMARK [3][-]{subsubsection.12.6.2}{Testing with the Arduino and Arducam}{subsection.12.6}% 83
+\BOOKMARK [3][-]{subsubsection.12.6.3}{Stepper Motor and Driver Connections}{subsection.12.6}% 84
+\BOOKMARK [3][-]{subsubsection.12.6.4}{Power Parameters}{subsection.12.6}% 85
+\BOOKMARK [3][-]{subsubsection.12.6.5}{PCBs}{subsection.12.6}% 86
+\BOOKMARK [2][-]{subsection.12.7}{Project Prototype - Planning}{section.12}% 87
+\BOOKMARK [3][-]{subsubsection.12.7.1}{Initial Prototype Design}{subsection.12.7}% 88
+\BOOKMARK [3][-]{subsubsection.12.7.2}{Final Prototype Design and Dimensions}{subsection.12.7}% 89
+\BOOKMARK [2][-]{subsection.12.8}{Project Prototype - Building}{section.12}% 90
+\BOOKMARK [3][-]{subsubsection.12.8.1}{Component Mounting Steps}{subsection.12.8}% 91
+\BOOKMARK [3][-]{subsubsection.12.8.2}{Final Product}{subsection.12.8}% 92
+\BOOKMARK [1][-]{section.13}{Stakeholder List}{}% 93
+\BOOKMARK [1][-]{section.14}{Project Approval Requirements}{}% 94
+\BOOKMARK [1][-]{section.15}{Approvals}{}% 95
+\BOOKMARK [1][-]{section*.85}{References}{}% 96
+\BOOKMARK [1][-]{section.16}{Appendices}{}% 97
+\BOOKMARK [2][-]{subsection.16.1}{Appendix 1 - transmitter\137xy.ino}{section.16}% 98
+\BOOKMARK [2][-]{subsection.16.2}{Appendix 2 - receiver\137x.ino}{section.16}% 99
+\BOOKMARK [2][-]{subsection.16.3}{Appendix 3 - main.c}{section.16}% 100
+\BOOKMARK [2][-]{subsection.16.4}{Appendix 4 - SPImaster.c}{section.16}% 101
+\BOOKMARK [2][-]{subsection.16.5}{Appendix 5 - SPImaster.h}{section.16}% 102
+\BOOKMARK [2][-]{subsection.16.6}{Appendix 6 - I2Cmaster.c}{section.16}% 103
+\BOOKMARK [2][-]{subsection.16.7}{Appendix 7 - I2Cmaster.h}{section.16}% 104
+\BOOKMARK [2][-]{subsection.16.8}{Appendix 8 - Arducam.c}{section.16}% 105
+\BOOKMARK [2][-]{subsection.16.9}{Appendix 9 - Arducam.h}{section.16}% 106
+\BOOKMARK [2][-]{subsection.16.10}{Appendix 10 - Improc.c}{section.16}% 107
+\BOOKMARK [2][-]{subsection.16.11}{Appendix 11 - Improc.h}{section.16}% 108
+\BOOKMARK [2][-]{subsection.16.12}{Appendix 12 - interface.h}{section.16}% 109
+\BOOKMARK [2][-]{subsection.16.13}{Appendix 13 - square\137detection.c}{section.16}% 110
+\BOOKMARK [2][-]{subsection.16.14}{Appendix 14 - serpentine.c}{section.16}% 111
+\BOOKMARK [2][-]{subsection.16.15}{Appendix 15 - stepper\137motors.py}{section.16}% 112
+\BOOKMARK [2][-]{subsection.16.16}{Appendix 16 - SMserver.py}{section.16}% 113
+\BOOKMARK [2][-]{subsection.16.17}{Appendix 17 - SMclient.py}{section.16}% 114
+\BOOKMARK [2][-]{subsection.16.18}{Appendix 18 - ultrasonic.py}{section.16}% 115
+\BOOKMARK [2][-]{subsection.16.19}{Appendix 19 - np\137lights.py}{section.16}% 116
