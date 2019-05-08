@@ -1,71 +1,71 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Design overview of the final product\relax }}{11}{figure.caption.8}
-\contentsline {figure}{\numberline {2}{\ignorespaces Bits corresponding to a system SPI read \cite {arducam}\relax }}{19}{figure.caption.9}
-\contentsline {figure}{\numberline {3}{\ignorespaces Bits corresponding to a system SPI write \cite {arducam}\relax }}{20}{figure.caption.10}
-\contentsline {figure}{\numberline {4}{\ignorespaces Bits corresponding to a system I\textsuperscript {2}C write \cite {arducam}\relax }}{20}{figure.caption.11}
-\contentsline {figure}{\numberline {5}{\ignorespaces How an RGB565 pixel value is stored in memory \cite {rgb565}\relax }}{21}{figure.caption.12}
-\contentsline {figure}{\numberline {6}{\ignorespaces Kernel convolution used in sobel edge detection \cite {sobel}\relax }}{21}{figure.caption.13}
-\contentsline {figure}{\numberline {7}{\ignorespaces Socket communication protocol between server and client \cite {socket}\relax }}{22}{figure.caption.14}
-\contentsline {figure}{\numberline {8}{\ignorespaces Rotation instructions for the stepper motor \cite {smdataR}\relax }}{22}{figure.caption.15}
-\contentsline {figure}{\numberline {9}{\ignorespaces Concept behind the two algorithms that move the eraser to the markings\relax }}{23}{figure.caption.16}
-\contentsline {figure}{\numberline {10}{\ignorespaces Flowchart of the logic behind the \textit {square\_detection.c} program\relax }}{24}{figure.caption.17}
-\contentsline {figure}{\numberline {11}{\ignorespaces Flowchart of the logic behind the \textit {serpentine.c} program\relax }}{25}{figure.caption.18}
-\contentsline {figure}{\numberline {12}{\ignorespaces The Arducam Mini Module 5MP OV5642 Camera \cite {smdataR}\relax }}{26}{figure.caption.19}
-\contentsline {figure}{\numberline {13}{\ignorespaces The PSoC 6 microcontroller by Cypress\relax }}{26}{figure.caption.20}
-\contentsline {figure}{\numberline {14}{\ignorespaces 4-lead bipolar NEMA23 stepper motor \cite {smR}\relax }}{27}{figure.caption.21}
-\contentsline {figure}{\numberline {15}{\ignorespaces Limited parameters of the DM542T stepper motor drivers \cite {smdataDD}\relax }}{27}{figure.caption.22}
-\contentsline {figure}{\numberline {16}{\ignorespaces Adafruit's HUZZAH32 Feather Board with ESP32 chip \cite {huzzah}\relax }}{28}{figure.caption.23}
-\contentsline {figure}{\numberline {17}{\ignorespaces 9V lithium rechargeable batteries \cite {ebl}\relax }}{28}{figure.caption.24}
-\contentsline {figure}{\numberline {18}{\ignorespaces Linear track system specifications \cite {accuride}\relax }}{29}{figure.caption.25}
-\contentsline {figure}{\numberline {19}{\ignorespaces Mounting brackets for the stepper motors \cite {bracket}\relax }}{29}{figure.caption.26}
-\contentsline {figure}{\numberline {20}{\ignorespaces Pulley flange \cite {uxcell}\relax }}{29}{figure.caption.27}
-\contentsline {figure}{\numberline {21}{\ignorespaces Pulley belt \cite {merc}\relax }}{29}{figure.caption.28}
-\contentsline {figure}{\numberline {22}{\ignorespaces Rough image of the prototype stand\relax }}{30}{figure.caption.29}
-\contentsline {figure}{\numberline {23}{\ignorespaces Front view of the Smart Eraser system with dimensions\relax }}{31}{figure.caption.30}
-\contentsline {figure}{\numberline {24}{\ignorespaces Side view of the Smart Eraser system with dimensions\relax }}{31}{figure.caption.31}
-\contentsline {figure}{\numberline {25}{\ignorespaces Test Plan for the Smart Eraser - Part 1\relax }}{36}{figure.caption.35}
-\contentsline {figure}{\numberline {26}{\ignorespaces Test Plan for the Smart Eraser - Part 2\relax }}{37}{figure.caption.36}
-\contentsline {figure}{\numberline {27}{\ignorespaces Test Plan for the Smart Eraser - Part 3\relax }}{38}{figure.caption.37}
-\contentsline {figure}{\numberline {28}{\ignorespaces Test Plan for the Smart Eraser - Part 4\relax }}{39}{figure.caption.38}
-\contentsline {figure}{\numberline {29}{\ignorespaces Test Plan for the Smart Eraser - Part 5\relax }}{40}{figure.caption.39}
-\contentsline {figure}{\numberline {30}{\ignorespaces GANTT chart for Senior Design Semester 1 - Research Phase\relax }}{41}{figure.caption.40}
-\contentsline {figure}{\numberline {31}{\ignorespaces GANTT chart for Senior Design Semester 2 - Implementation Phase\relax }}{41}{figure.caption.41}
-\contentsline {figure}{\numberline {32}{\ignorespaces Simple overview of an I2C message \cite {I2C}\relax }}{45}{figure.caption.44}
-\contentsline {figure}{\numberline {33}{\ignorespaces Arducam module block diagram \cite {arducam}\relax }}{45}{figure.caption.45}
-\contentsline {figure}{\numberline {34}{\ignorespaces Hardware Configuration of I2C\relax }}{46}{figure.caption.46}
-\contentsline {figure}{\numberline {35}{\ignorespaces Simple overview of SPI communication \cite {SPI}\relax }}{47}{figure.caption.47}
-\contentsline {figure}{\numberline {36}{\ignorespaces Hardware configuration of SPI (1)\relax }}{48}{figure.caption.48}
-\contentsline {figure}{\numberline {37}{\ignorespaces Hardware configuration of SPI (2)\relax }}{48}{figure.caption.49}
-\contentsline {figure}{\numberline {38}{\ignorespaces Pixel Information being received through SPI from Arducam\relax }}{49}{figure.caption.50}
-\contentsline {figure}{\numberline {39}{\ignorespaces How red, green, and blue intensities are seperated from one another\relax }}{50}{figure.caption.51}
-\contentsline {figure}{\numberline {40}{\ignorespaces Scaling seperated red green and blue intensities up to 8 bit numbers\relax }}{51}{figure.caption.52}
-\contentsline {figure}{\numberline {41}{\ignorespaces Luminance method for converting RGB to grayscale\relax }}{51}{figure.caption.53}
-\contentsline {figure}{\numberline {42}{\ignorespaces Process in reverse: In order to create gray RGB pixel\relax }}{52}{figure.caption.54}
-\contentsline {figure}{\numberline {43}{\ignorespaces Reuslts of grayscale algorithm from PSoC 6 (1)\relax }}{53}{figure.caption.55}
-\contentsline {figure}{\numberline {44}{\ignorespaces Reuslts of grayscale algorithm from PSoC 6 (2)\relax }}{53}{figure.caption.56}
-\contentsline {figure}{\numberline {45}{\ignorespaces Sobel Kernels\relax }}{54}{figure.caption.57}
-\contentsline {figure}{\numberline {46}{\ignorespaces Visual of what happens if the the sobel kernel is convolved along a boundary\relax }}{54}{figure.caption.58}
-\contentsline {figure}{\numberline {47}{\ignorespaces Operation of the vertical kernel\relax }}{55}{figure.caption.59}
-\contentsline {figure}{\numberline {48}{\ignorespaces Operation of the Horizontal kernel\relax }}{55}{figure.caption.60}
-\contentsline {figure}{\numberline {49}{\ignorespaces Using Pythagorean theorem to determine the magnitude of the gradient\relax }}{56}{figure.caption.61}
-\contentsline {figure}{\numberline {50}{\ignorespaces Results of Sobel edge detection\relax }}{56}{figure.caption.62}
-\contentsline {figure}{\numberline {51}{\ignorespaces UART Communication \cite {UARToverview}\relax }}{57}{figure.caption.63}
-\contentsline {figure}{\numberline {52}{\ignorespaces UART packet contents \cite {UARTmessage}\relax }}{57}{figure.caption.64}
-\contentsline {figure}{\numberline {53}{\ignorespaces Image and pin layout of the MKR1000 WiFi module by Arduino \cite {mkr}\relax }}{58}{figure.caption.65}
-\contentsline {figure}{\numberline {54}{\ignorespaces Image and pin layout of the Kuman nRF24L01 transceivers\cite {trans1}\relax }}{59}{figure.caption.66}
-\contentsline {figure}{\numberline {55}{\ignorespaces Pin connections between the MKR1000 microcontroller and the wireless transceiver to create the transmitter module\relax }}{59}{figure.caption.67}
-\contentsline {figure}{\numberline {56}{\ignorespaces Pin layout on the Arduino UNO R3 \cite {uno}\relax }}{60}{figure.caption.68}
-\contentsline {figure}{\numberline {57}{\ignorespaces Pin connections between the UNO R3 microcontroller and the wireless transceiver to create the receiver modules\relax }}{61}{figure.caption.69}
-\contentsline {figure}{\numberline {58}{\ignorespaces Overview of client/server interaction \cite {socket}\relax }}{62}{figure.caption.70}
-\contentsline {figure}{\numberline {59}{\ignorespaces Visualization of \textit {square\_detection.c} and \textit {serpentine.c} working together to eraser markings on the whiteboard\relax }}{63}{figure.caption.71}
-\contentsline {figure}{\numberline {60}{\ignorespaces Result of \textit {square\_detection.c} program with the dummy matrix introduced within it for testing\relax }}{64}{figure.caption.72}
-\contentsline {figure}{\numberline {61}{\ignorespaces Result of \textit {serpentine.c} program with the dummy matrix introduced within it for testing\relax }}{65}{figure.caption.73}
-\contentsline {figure}{\numberline {62}{\ignorespaces Rotor and coil layout in the bipolar 2-phase NEMA 23 stepper motor\relax }}{65}{figure.caption.74}
-\contentsline {figure}{\numberline {63}{\ignorespaces Labeling of lead colors corresponding to winding inputs\relax }}{66}{figure.caption.75}
-\contentsline {figure}{\numberline {64}{\ignorespaces Stepper motor driver for the NEMA 23 \cite {smdataD}\relax }}{67}{figure.caption.76}
-\contentsline {figure}{\numberline {65}{\ignorespaces TDK Lambda power supply \cite {smdataD}\relax }}{68}{figure.caption.77}
-\contentsline {figure}{\numberline {66}{\ignorespaces A rough initial image of the prototype\relax }}{68}{figure.caption.78}
-\contentsline {figure}{\numberline {67}{\ignorespaces A rough side view with dimensions of the prototype\relax }}{69}{figure.caption.79}
-\contentsline {figure}{\numberline {68}{\ignorespaces The front view of the prototype stand schematic\relax }}{70}{figure.caption.80}
-\contentsline {figure}{\numberline {69}{\ignorespaces The side view of the prototype stand schematic\relax }}{70}{figure.caption.81}
-\contentsline {figure}{\numberline {70}{\ignorespaces The building of the prototype stand in progress\relax }}{72}{figure.caption.82}
-\contentsline {figure}{\numberline {71}{\ignorespaces The front view of the actual prototype stand\relax }}{72}{figure.caption.83}
+\contentsline {figure}{\numberline {1}{\ignorespaces Design overview of the final product\relax }}{12}{figure.caption.8}
+\contentsline {figure}{\numberline {2}{\ignorespaces Bits corresponding to a system SPI read \cite {arducam}\relax }}{20}{figure.caption.9}
+\contentsline {figure}{\numberline {3}{\ignorespaces Bits corresponding to a system SPI write \cite {arducam}\relax }}{21}{figure.caption.10}
+\contentsline {figure}{\numberline {4}{\ignorespaces Bits corresponding to a system I\textsuperscript {2}C write \cite {arducam}\relax }}{21}{figure.caption.11}
+\contentsline {figure}{\numberline {5}{\ignorespaces How an RGB565 pixel value is stored in memory \cite {rgb565}\relax }}{22}{figure.caption.12}
+\contentsline {figure}{\numberline {6}{\ignorespaces Kernel convolution used in sobel edge detection \cite {sobel}\relax }}{22}{figure.caption.13}
+\contentsline {figure}{\numberline {7}{\ignorespaces Socket communication protocol between server and client \cite {socket}\relax }}{23}{figure.caption.14}
+\contentsline {figure}{\numberline {8}{\ignorespaces Rotation instructions for the stepper motor \cite {smdataR}\relax }}{23}{figure.caption.15}
+\contentsline {figure}{\numberline {9}{\ignorespaces Concept behind the two algorithms that move the eraser to the markings\relax }}{24}{figure.caption.16}
+\contentsline {figure}{\numberline {10}{\ignorespaces Flowchart of the logic behind the \textit {square\_detection.c} program\relax }}{25}{figure.caption.17}
+\contentsline {figure}{\numberline {11}{\ignorespaces Flowchart of the logic behind the \textit {serpentine.c} program\relax }}{26}{figure.caption.18}
+\contentsline {figure}{\numberline {12}{\ignorespaces The Arducam Mini Module 5MP OV5642 Camera \cite {smdataR}\relax }}{27}{figure.caption.19}
+\contentsline {figure}{\numberline {13}{\ignorespaces The PSoC 6 microcontroller by Cypress\relax }}{27}{figure.caption.20}
+\contentsline {figure}{\numberline {14}{\ignorespaces 4-lead bipolar NEMA23 stepper motor \cite {smR}\relax }}{28}{figure.caption.21}
+\contentsline {figure}{\numberline {15}{\ignorespaces Limited parameters of the DM542T stepper motor drivers \cite {smdataDD}\relax }}{28}{figure.caption.22}
+\contentsline {figure}{\numberline {16}{\ignorespaces Adafruit's HUZZAH32 Feather Board with ESP32 chip \cite {huzzah}\relax }}{29}{figure.caption.23}
+\contentsline {figure}{\numberline {17}{\ignorespaces 9V lithium rechargeable batteries \cite {ebl}\relax }}{29}{figure.caption.24}
+\contentsline {figure}{\numberline {18}{\ignorespaces Linear track system specifications \cite {accuride}\relax }}{30}{figure.caption.25}
+\contentsline {figure}{\numberline {19}{\ignorespaces Mounting brackets for the stepper motors \cite {bracket}\relax }}{30}{figure.caption.26}
+\contentsline {figure}{\numberline {20}{\ignorespaces Pulley flange \cite {uxcell}\relax }}{30}{figure.caption.27}
+\contentsline {figure}{\numberline {21}{\ignorespaces Pulley belt \cite {merc}\relax }}{30}{figure.caption.28}
+\contentsline {figure}{\numberline {22}{\ignorespaces Rough image of the prototype stand\relax }}{31}{figure.caption.29}
+\contentsline {figure}{\numberline {23}{\ignorespaces Front view of the Smart Eraser system with dimensions\relax }}{32}{figure.caption.30}
+\contentsline {figure}{\numberline {24}{\ignorespaces Side view of the Smart Eraser system with dimensions\relax }}{32}{figure.caption.31}
+\contentsline {figure}{\numberline {25}{\ignorespaces Test Plan for the Smart Eraser - Part 1\relax }}{37}{figure.caption.35}
+\contentsline {figure}{\numberline {26}{\ignorespaces Test Plan for the Smart Eraser - Part 2\relax }}{38}{figure.caption.36}
+\contentsline {figure}{\numberline {27}{\ignorespaces Test Plan for the Smart Eraser - Part 3\relax }}{39}{figure.caption.37}
+\contentsline {figure}{\numberline {28}{\ignorespaces Test Plan for the Smart Eraser - Part 4\relax }}{40}{figure.caption.38}
+\contentsline {figure}{\numberline {29}{\ignorespaces Test Plan for the Smart Eraser - Part 5\relax }}{41}{figure.caption.39}
+\contentsline {figure}{\numberline {30}{\ignorespaces GANTT chart for Senior Design Semester 1 - Research Phase\relax }}{42}{figure.caption.40}
+\contentsline {figure}{\numberline {31}{\ignorespaces GANTT chart for Senior Design Semester 2 - Implementation Phase\relax }}{42}{figure.caption.41}
+\contentsline {figure}{\numberline {32}{\ignorespaces Simple overview of an I2C message \cite {I2C}\relax }}{46}{figure.caption.44}
+\contentsline {figure}{\numberline {33}{\ignorespaces Arducam module block diagram \cite {arducam}\relax }}{46}{figure.caption.45}
+\contentsline {figure}{\numberline {34}{\ignorespaces Hardware Configuration of I2C\relax }}{47}{figure.caption.46}
+\contentsline {figure}{\numberline {35}{\ignorespaces Simple overview of SPI communication \cite {SPI}\relax }}{48}{figure.caption.47}
+\contentsline {figure}{\numberline {36}{\ignorespaces Hardware configuration of SPI (1)\relax }}{49}{figure.caption.48}
+\contentsline {figure}{\numberline {37}{\ignorespaces Hardware configuration of SPI (2)\relax }}{49}{figure.caption.49}
+\contentsline {figure}{\numberline {38}{\ignorespaces Pixel Information being received through SPI from Arducam\relax }}{50}{figure.caption.50}
+\contentsline {figure}{\numberline {39}{\ignorespaces How red, green, and blue intensities are seperated from one another\relax }}{51}{figure.caption.51}
+\contentsline {figure}{\numberline {40}{\ignorespaces Scaling seperated red green and blue intensities up to 8 bit numbers\relax }}{52}{figure.caption.52}
+\contentsline {figure}{\numberline {41}{\ignorespaces Luminance method for converting RGB to grayscale\relax }}{52}{figure.caption.53}
+\contentsline {figure}{\numberline {42}{\ignorespaces Process in reverse: In order to create gray RGB pixel\relax }}{53}{figure.caption.54}
+\contentsline {figure}{\numberline {43}{\ignorespaces Reuslts of grayscale algorithm from PSoC 6 (1)\relax }}{54}{figure.caption.55}
+\contentsline {figure}{\numberline {44}{\ignorespaces Reuslts of grayscale algorithm from PSoC 6 (2)\relax }}{54}{figure.caption.56}
+\contentsline {figure}{\numberline {45}{\ignorespaces Sobel Kernels\relax }}{55}{figure.caption.57}
+\contentsline {figure}{\numberline {46}{\ignorespaces Visual of what happens if the the sobel kernel is convolved along a boundary\relax }}{55}{figure.caption.58}
+\contentsline {figure}{\numberline {47}{\ignorespaces Operation of the vertical kernel\relax }}{56}{figure.caption.59}
+\contentsline {figure}{\numberline {48}{\ignorespaces Operation of the Horizontal kernel\relax }}{56}{figure.caption.60}
+\contentsline {figure}{\numberline {49}{\ignorespaces Using Pythagorean theorem to determine the magnitude of the gradient\relax }}{57}{figure.caption.61}
+\contentsline {figure}{\numberline {50}{\ignorespaces Results of Sobel edge detection\relax }}{57}{figure.caption.62}
+\contentsline {figure}{\numberline {51}{\ignorespaces UART Communication \cite {UARToverview}\relax }}{58}{figure.caption.63}
+\contentsline {figure}{\numberline {52}{\ignorespaces UART packet contents \cite {UARTmessage}\relax }}{58}{figure.caption.64}
+\contentsline {figure}{\numberline {53}{\ignorespaces Image and pin layout of the MKR1000 WiFi module by Arduino \cite {mkr}\relax }}{59}{figure.caption.65}
+\contentsline {figure}{\numberline {54}{\ignorespaces Image and pin layout of the Kuman nRF24L01 transceivers\cite {trans1}\relax }}{60}{figure.caption.66}
+\contentsline {figure}{\numberline {55}{\ignorespaces Pin connections between the MKR1000 microcontroller and the wireless transceiver to create the transmitter module\relax }}{60}{figure.caption.67}
+\contentsline {figure}{\numberline {56}{\ignorespaces Pin layout on the Arduino UNO R3 \cite {uno}\relax }}{61}{figure.caption.68}
+\contentsline {figure}{\numberline {57}{\ignorespaces Pin connections between the UNO R3 microcontroller and the wireless transceiver to create the receiver modules\relax }}{62}{figure.caption.69}
+\contentsline {figure}{\numberline {58}{\ignorespaces Overview of client/server interaction \cite {socket}\relax }}{63}{figure.caption.70}
+\contentsline {figure}{\numberline {59}{\ignorespaces Visualization of \textit {square\_detection.c} and \textit {serpentine.c} working together to eraser markings on the whiteboard\relax }}{64}{figure.caption.71}
+\contentsline {figure}{\numberline {60}{\ignorespaces Result of \textit {square\_detection.c} program with the dummy matrix introduced within it for testing\relax }}{65}{figure.caption.72}
+\contentsline {figure}{\numberline {61}{\ignorespaces Result of \textit {serpentine.c} program with the dummy matrix introduced within it for testing\relax }}{66}{figure.caption.73}
+\contentsline {figure}{\numberline {62}{\ignorespaces Rotor and coil layout in the bipolar 2-phase NEMA 23 stepper motor\relax }}{66}{figure.caption.74}
+\contentsline {figure}{\numberline {63}{\ignorespaces Labeling of lead colors corresponding to winding inputs\relax }}{67}{figure.caption.75}
+\contentsline {figure}{\numberline {64}{\ignorespaces Stepper motor driver for the NEMA 23 \cite {smdataD}\relax }}{68}{figure.caption.76}
+\contentsline {figure}{\numberline {65}{\ignorespaces TDK Lambda power supply \cite {smdataD}\relax }}{69}{figure.caption.77}
+\contentsline {figure}{\numberline {66}{\ignorespaces A rough initial image of the prototype\relax }}{69}{figure.caption.78}
+\contentsline {figure}{\numberline {67}{\ignorespaces A rough side view with dimensions of the prototype\relax }}{70}{figure.caption.79}
+\contentsline {figure}{\numberline {68}{\ignorespaces The front view of the prototype stand schematic\relax }}{71}{figure.caption.80}
+\contentsline {figure}{\numberline {69}{\ignorespaces The side view of the prototype stand schematic\relax }}{71}{figure.caption.81}
+\contentsline {figure}{\numberline {70}{\ignorespaces The building of the prototype stand in progress\relax }}{73}{figure.caption.82}
+\contentsline {figure}{\numberline {71}{\ignorespaces The front view of the actual prototype stand\relax }}{73}{figure.caption.83}

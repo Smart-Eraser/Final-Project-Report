@@ -1,121 +1,121 @@
 \contentsline {section}{Revision History}{1}{section*.1}
 \contentsline {section}{Abstract}{3}{section*.4}
-\contentsline {section}{Table of Contents}{6}{section*.5}
-\contentsline {section}{List of Figures}{8}{section*.6}
-\contentsline {section}{List of Tables}{9}{section*.7}
-\contentsline {section}{\numberline {I}Introduction}{10}{section.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {I-A}}Work Distribution}{12}{subsection.1.1}
-\contentsline {section}{\numberline {II}Project Objectives and Success Criteria}{13}{section.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Main Objectives}{13}{subsection.2.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Simple success criteria}{13}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-B}1}Completed}{14}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-B}2}Not Completed}{14}{subsubsection.2.2.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Ambitious success criteria}{14}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}1}Completed}{14}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}2}Not Completed}{14}{subsubsection.2.3.2}
-\contentsline {section}{\numberline {III}High-Level Requirements}{15}{section.3}
-\contentsline {section}{\numberline {IV}Assumptions, Constraints, and Standards}{15}{section.4}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Assumptions}{15}{subsection.4.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Constraints}{15}{subsection.4.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Relevant Information Learned from Past Courses}{15}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}1}Data Storage}{16}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}2}Translate Detected Markings into Coordinate System (Stepper Motor Rotations)}{16}{subsubsection.4.3.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}3}Stepper Motor System Design}{17}{subsubsection.4.3.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}4}Microcontroller Involvement}{17}{subsubsection.4.3.4}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}5}Shortest Path Algorithm}{17}{subsubsection.4.3.5}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}6}Image Processing}{17}{subsubsection.4.3.6}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}7}Wireless Connectivity}{17}{subsubsection.4.3.7}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}8}Ultrasonic Sensor Proximity Detection}{17}{subsubsection.4.3.8}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Standards}{18}{subsection.4.4}
-\contentsline {section}{\numberline {V}Project Description and Boundaries}{18}{section.5}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Major Components}{18}{subsection.5.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Minor Components}{19}{subsection.5.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Software Components}{19}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}1}SPI Communication}{19}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}2}I\textsuperscript {2}C Communication}{20}{subsubsection.5.3.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}3}UART Communication}{20}{subsubsection.5.3.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}4}Grayscale Conversion from RGB565}{20}{subsubsection.5.3.4}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}5}Sobel Edge Detection}{21}{subsubsection.5.3.5}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}6}Socket Programming for Wireless Communication}{21}{subsubsection.5.3.6}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}7}Stepper Motor Operations}{22}{subsubsection.5.3.7}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}8}Moving the Eraser to the Markings}{22}{subsubsection.5.3.8}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}9}Proximity Sensing Using the Ultrasonic Sensor}{25}{subsubsection.5.3.9}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Physical Technological Components}{26}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}1}Arducam}{26}{subsubsection.5.4.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}2}PSoC 6 Microcontroller}{26}{subsubsection.5.4.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}3}Stepper Motors}{26}{subsubsection.5.4.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}4}Stepper Motor Drivers}{27}{subsubsection.5.4.4}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}5}HUZZAH32 for Stepper Motor Wireless Communication}{27}{subsubsection.5.4.5}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}6}PCBs}{28}{subsubsection.5.4.6}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}7}Additional Power}{28}{subsubsection.5.4.7}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-E}}Physical Mechanical Components}{28}{subsection.5.5}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-E}1}Linear Motion Track System}{28}{subsubsection.5.5.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-E}2}Stepper Motor Mounts}{29}{subsubsection.5.5.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-E}3}Pulley System}{29}{subsubsection.5.5.3}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-F}}Prototype Mounting Components}{30}{subsection.5.6}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-G}}Boundaries}{32}{subsection.5.7}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-H}}Technical Advisor Backgrounds}{32}{subsection.5.8}
-\contentsline {section}{\numberline {VI}High-Level Risks}{32}{section.6}
-\contentsline {section}{\numberline {VII}Milestone Schedule}{32}{section.7}
-\contentsline {section}{\numberline {VIII}Test Plan}{35}{section.8}
-\contentsline {section}{\numberline {IX}Gantt Charts}{41}{section.9}
-\contentsline {section}{\numberline {X}Equipment and Budget}{42}{section.10}
-\contentsline {section}{\numberline {XI}Roles of Team Members}{43}{section.11}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XI-A}}Heather Libecki}{43}{subsection.11.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XI-B}}Chris Quesada}{43}{subsection.11.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XI-C}}Juan Colin}{44}{subsection.11.3}
-\contentsline {section}{\numberline {XII}Analysis and Design}{44}{section.12}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-A}}I\textsuperscript {2}C Communication - PSoC 6 to Arducam}{44}{subsection.12.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-B}}SPI communication - PSoC 6 to Arducam}{46}{subsection.12.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}}Image Processing}{49}{subsection.12.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}1}Resolution}{49}{subsubsection.12.3.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}2}Output Format}{49}{subsubsection.12.3.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}3}Resolution}{49}{subsubsection.12.3.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}4}Grayscale Results}{52}{figure.caption.55}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}5}Sobel Edge Detection}{53}{subsubsection.12.3.5}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}6}Results of Sobel Edge Detection}{56}{subsubsection.12.3.6}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}7}UART Communication - PSoC 6 to HUZZAH32 (server)}{57}{subsubsection.12.3.7}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-D}}The Original Plan for Wireless Communication}{58}{subsection.12.4}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-D}1}Arduino Wireless Communication}{58}{subsubsection.12.4.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}}The Current Wireless Communication System}{61}{subsection.12.5}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}1}Server}{62}{subsubsection.12.5.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}2}Clients}{62}{subsubsection.12.5.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}3}Square\_Detection.C Algorithm}{62}{subsubsection.12.5.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}4}Serpentine.C Algorithm}{64}{subsubsection.12.5.4}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}5}Stepper Motor Movement}{65}{subsubsection.12.5.5}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}}Hardware}{66}{subsection.12.6}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}1}Using the Logic Analyzer}{66}{subsubsection.12.6.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}2}Testing with the Arduino and Arducam}{66}{subsubsection.12.6.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}3}Stepper Motor and Driver Connections}{66}{subsubsection.12.6.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}4}Power Parameters}{67}{subsubsection.12.6.4}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}5}PCBs}{68}{subsubsection.12.6.5}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}}Project Prototype - Planning}{68}{subsection.12.7}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}1}Initial Prototype Design}{68}{subsubsection.12.7.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}2}Final Prototype Design and Dimensions}{69}{subsubsection.12.7.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}}Project Prototype - Building}{71}{subsection.12.8}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}1}Component Mounting Steps}{71}{subsubsection.12.8.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}2}Final Product}{72}{subsubsection.12.8.2}
-\contentsline {section}{\numberline {XIII}Stakeholder List}{73}{section.13}
-\contentsline {section}{\numberline {XIV}Project Approval Requirements}{73}{section.14}
-\contentsline {section}{\numberline {XV}Approvals}{75}{section.15}
-\contentsline {section}{References}{76}{section*.85}
-\contentsline {section}{\numberline {XVI}Appendices}{77}{section.16}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-A}}Appendix 1 - \textit {transmitter\_xy.ino}}{77}{subsection.16.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-B}}Appendix 2 - \textit {receiver\_x.ino}}{78}{subsection.16.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-C}}Appendix 3 - \textit {main.c}}{79}{subsection.16.3}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-D}}Appendix 4 - \textit {SPImaster.c}}{87}{subsection.16.4}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-E}}Appendix 5 - \textit {SPImaster.h}}{89}{subsection.16.5}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-F}}Appendix 6 - \textit {I2Cmaster.c}}{90}{subsection.16.6}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-G}}Appendix 7 - \textit {I2Cmaster.h}}{93}{subsection.16.7}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-H}}Appendix 8 - \textit {Arducam.c}}{94}{subsection.16.8}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-I}}Appendix 9 - \textit {Arducam.h}}{105}{subsection.16.9}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-J}}Appendix 10 - \textit {Improc.c}}{106}{subsection.16.10}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-K}}Appendix 11 - \textit {Improc.h}}{110}{subsection.16.11}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-L}}Appendix 12 - \textit {interface.h}}{111}{subsection.16.12}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-M}}Appendix 13 - \textit {square\_detection.c}}{112}{subsection.16.13}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-N}}Appendix 14 - \textit {serpentine.c}}{114}{subsection.16.14}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-O}}Appendix 15 - \textit {stepper\_motors.py}}{116}{subsection.16.15}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-P}}Appendix 16 - \textit {SMserver.py}}{117}{subsection.16.16}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-Q}}Appendix 17 - \textit {SMclient.py}}{119}{subsection.16.17}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-R}}Appendix 18 - \textit {ultrasonic.py}}{123}{subsection.16.18}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XVI-S}}Appendix 19 - \textit {np\_lights.py}}{124}{subsection.16.19}
+\contentsline {section}{Table of Contents}{7}{section*.5}
+\contentsline {section}{List of Figures}{9}{section*.6}
+\contentsline {section}{List of Tables}{10}{section*.7}
+\contentsline {section}{\numberline {I}Introduction}{11}{section.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {I-A}}Work Distribution}{13}{subsection.1.1}
+\contentsline {section}{\numberline {II}Project Objectives and Success Criteria}{14}{section.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Main Objectives}{14}{subsection.2.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Simple success criteria}{14}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-B}1}Completed}{15}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-B}2}Not Completed}{15}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Ambitious success criteria}{15}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}1}Completed}{15}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}2}Not Completed}{15}{subsubsection.2.3.2}
+\contentsline {section}{\numberline {III}High-Level Requirements}{16}{section.3}
+\contentsline {section}{\numberline {IV}Assumptions, Constraints, and Standards}{16}{section.4}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Assumptions}{16}{subsection.4.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Constraints}{16}{subsection.4.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Relevant Information Learned from Past Courses}{16}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}1}Data Storage}{17}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}2}Translate Detected Markings into Coordinate System (Stepper Motor Rotations)}{17}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}3}Stepper Motor System Design}{18}{subsubsection.4.3.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}4}Microcontroller Involvement}{18}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}5}Shortest Path Algorithm}{18}{subsubsection.4.3.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}6}Image Processing}{18}{subsubsection.4.3.6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}7}Wireless Connectivity}{18}{subsubsection.4.3.7}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}8}Ultrasonic Sensor Proximity Detection}{18}{subsubsection.4.3.8}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Standards}{19}{subsection.4.4}
+\contentsline {section}{\numberline {V}Project Description and Boundaries}{19}{section.5}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Major Components}{19}{subsection.5.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Minor Components}{20}{subsection.5.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Software Components}{20}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}1}SPI Communication}{20}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}2}I\textsuperscript {2}C Communication}{21}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}3}UART Communication}{21}{subsubsection.5.3.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}4}Grayscale Conversion from RGB565}{21}{subsubsection.5.3.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}5}Sobel Edge Detection}{22}{subsubsection.5.3.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}6}Socket Programming for Wireless Communication}{22}{subsubsection.5.3.6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}7}Stepper Motor Operations}{23}{subsubsection.5.3.7}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}8}Moving the Eraser to the Markings}{23}{subsubsection.5.3.8}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}9}Proximity Sensing Using the Ultrasonic Sensor}{26}{subsubsection.5.3.9}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Physical Technological Components}{27}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}1}Arducam}{27}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}2}PSoC 6 Microcontroller}{27}{subsubsection.5.4.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}3}Stepper Motors}{27}{subsubsection.5.4.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}4}Stepper Motor Drivers}{28}{subsubsection.5.4.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}5}HUZZAH32 for Stepper Motor Wireless Communication}{28}{subsubsection.5.4.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}6}PCBs}{29}{subsubsection.5.4.6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}7}Additional Power}{29}{subsubsection.5.4.7}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-E}}Physical Mechanical Components}{29}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-E}1}Linear Motion Track System}{29}{subsubsection.5.5.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-E}2}Stepper Motor Mounts}{30}{subsubsection.5.5.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-E}3}Pulley System}{30}{subsubsection.5.5.3}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-F}}Prototype Mounting Components}{31}{subsection.5.6}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-G}}Boundaries}{33}{subsection.5.7}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-H}}Technical Advisor Backgrounds}{33}{subsection.5.8}
+\contentsline {section}{\numberline {VI}High-Level Risks}{33}{section.6}
+\contentsline {section}{\numberline {VII}Milestone Schedule}{33}{section.7}
+\contentsline {section}{\numberline {VIII}Test Plan}{36}{section.8}
+\contentsline {section}{\numberline {IX}Gantt Charts}{42}{section.9}
+\contentsline {section}{\numberline {X}Equipment and Budget}{43}{section.10}
+\contentsline {section}{\numberline {XI}Roles of Team Members}{44}{section.11}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XI-A}}Heather Libecki}{44}{subsection.11.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XI-B}}Chris Quesada}{44}{subsection.11.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XI-C}}Juan Colin}{45}{subsection.11.3}
+\contentsline {section}{\numberline {XII}Analysis and Design}{45}{section.12}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-A}}I\textsuperscript {2}C Communication - PSoC 6 to Arducam}{45}{subsection.12.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-B}}SPI communication - PSoC 6 to Arducam}{47}{subsection.12.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}}Image Processing}{50}{subsection.12.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}1}Resolution}{50}{subsubsection.12.3.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}2}Output Format}{50}{subsubsection.12.3.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}3}Resolution}{50}{subsubsection.12.3.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}4}Grayscale Results}{53}{figure.caption.55}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}5}Sobel Edge Detection}{54}{subsubsection.12.3.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}6}Results of Sobel Edge Detection}{57}{subsubsection.12.3.6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-C}7}UART Communication - PSoC 6 to HUZZAH32 (server)}{58}{subsubsection.12.3.7}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-D}}The Original Plan for Wireless Communication}{59}{subsection.12.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-D}1}Arduino Wireless Communication}{59}{subsubsection.12.4.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}}The Current Wireless Communication System}{62}{subsection.12.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}1}Server}{63}{subsubsection.12.5.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}2}Clients}{63}{subsubsection.12.5.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}3}Square\_Detection.C Algorithm}{63}{subsubsection.12.5.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}4}Serpentine.C Algorithm}{65}{subsubsection.12.5.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}5}Stepper Motor Movement}{66}{subsubsection.12.5.5}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}}Hardware}{67}{subsection.12.6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}1}Using the Logic Analyzer}{67}{subsubsection.12.6.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}2}Testing with the Arduino and Arducam}{67}{subsubsection.12.6.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}3}Stepper Motor and Driver Connections}{67}{subsubsection.12.6.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}4}Power Parameters}{68}{subsubsection.12.6.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}5}PCBs}{69}{subsubsection.12.6.5}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}}Project Prototype - Planning}{69}{subsection.12.7}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}1}Initial Prototype Design}{69}{subsubsection.12.7.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}2}Final Prototype Design and Dimensions}{70}{subsubsection.12.7.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}}Project Prototype - Building}{72}{subsection.12.8}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}1}Component Mounting Steps}{72}{subsubsection.12.8.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}2}Final Product}{73}{subsubsection.12.8.2}
+\contentsline {section}{\numberline {XIII}Stakeholder List}{74}{section.13}
+\contentsline {section}{\numberline {XIV}Project Approval Requirements}{74}{section.14}
+\contentsline {section}{\numberline {XV}Approvals}{76}{section.15}
+\contentsline {section}{References}{77}{section*.85}
+\contentsline {section}{\numberline {XVI}Appendices}{78}{section.16}
+\contentsline {section}{Appendix 1 - \textit {transmitter\_xy.ino}}{78}{section*.86}
+\contentsline {section}{Appendix 2 - \textit {receiver\_x.ino}}{79}{section*.87}
+\contentsline {section}{Appendix 3 - \textit {main.c}}{80}{section*.88}
+\contentsline {section}{Appendix 4 - \textit {SPImaster.c}}{88}{section*.89}
+\contentsline {section}{Appendix 5 - \textit {SPImaster.h}}{90}{section*.90}
+\contentsline {section}{Appendix 6 - \textit {I2Cmaster.c}}{91}{section*.91}
+\contentsline {section}{Appendix 7 - \textit {I2Cmaster.h}}{94}{section*.92}
+\contentsline {section}{Appendix 8 - \textit {Arducam.c}}{95}{section*.93}
+\contentsline {section}{Appendix 9 - \textit {Arducam.h}}{106}{section*.94}
+\contentsline {section}{Appendix 10 - \textit {Improc.c}}{107}{section*.95}
+\contentsline {section}{Appendix 11 - \textit {Improc.h}}{111}{section*.96}
+\contentsline {section}{Appendix 12 - \textit {interface.h}}{112}{section*.97}
+\contentsline {section}{Appendix 13 - \textit {square\_detection.c}}{113}{section*.98}
+\contentsline {section}{Appendix 14 - \textit {serpentine.c}}{115}{section*.99}
+\contentsline {section}{Appendix 15 - \textit {stepper\_motors.py}}{117}{section*.100}
+\contentsline {section}{Appendix 16 - \textit {SMserver.py}}{118}{section*.101}
+\contentsline {section}{Appendix 17 - \textit {SMclient.py}}{120}{section*.102}
+\contentsline {section}{Appendix 18 - \textit {ultrasonic.py}}{124}{section*.103}
+\contentsline {section}{Appendix 19 - \textit {np\_lights.py}}{125}{section*.104}
