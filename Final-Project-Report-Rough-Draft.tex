@@ -366,8 +366,9 @@ Electrical and Computer Engineering Department \\
 \thispagestyle{empty}						%This removes the page number from the title page.
 \newpage
 \thispagestyle{empty}
-
- \section*{Revision History}
+\setcounter{page}{1}
+\section*{Revision History}
+\addcontentsline{toc}{section}{Revision History}
 \begin{table} [H]	
 	\normalsize
 	\centering
@@ -401,7 +402,8 @@ Electrical and Computer Engineering Department \\
 	      &			 &				   &	\\
 	      &			 & 				   & New figures were added.\\
 	      &			 &				   &	\\
-	      &			 &				   & Updated GANTT chart to more clearly show dependencies.\\
+	      &			 &				   & Updated GANTT chart to more clearly show\\
+	      &			 &				   & dependencies.\\
 	      &			 &				   &	\\
 	      &			 &				   & More research and background references were used.\\
 	      &			 &				   &	\\
@@ -429,7 +431,8 @@ Electrical and Computer Engineering Department \\
  	      &         		 &              			   & Modified components used to build prototype stand. \\
 		\hline
 \end{tabular} 
-\end{table} 	      
+\end{table} 	
+\thispagestyle{empty}      
 \begin{table} [H]	
 	\normalsize
 	\centering
@@ -442,16 +445,16 @@ Electrical and Computer Engineering Department \\
 		\hline
  	    &          		 &                			   & stay in scope of final product.\\
  	      \hline
-	 4 & 4/12/19  	 & Heather Libecki 		   & Changed the Arduino Uno 3 microcontrollers and the \\ 
-	    &          		 & Chris Quesada   		   & Kuman nRF24 wireless transceivers to 3 HUZZAH23 \\
-	    &        		 &                 			   & Feather Board microcontrollers for the wireless \\ 	
-	    &         		 &                			   & communications.	\\      
+	 4 & 4/12/19  	 & Heather Libecki 		   & Changed the Arduino Uno 3 microcontrollers and  \\ 
+	    &          		 & Chris Quesada   		   & the Kuman nRF24 wireless transceivers to 3  \\
+	    &        		 &                 			   & HUZZAH32 Feather Board microcontrollers for the  \\ 	
+	    &         		 &                			   & wireless communications.	\\      
  	      \hline
- 	 5 & 4/21/19  	 & Heather Libecki		   & Updated Milestone Schedule, GANTT Charts, and Test\\ 
- 	    &         		 & Chris Quesada  		   & Plan.	\\ 	
+ 	 5 & 4/21/19  	 & Heather Libecki		   & Updated Milestone Schedule, GANTT Charts, and \\ 
+ 	    &         		 & Chris Quesada  		   & Test Plan.	\\ 	
  	    \hline
- 	 6 & 4/21/19  	 & Heather Libecki		   & Put finishing touches on each section in \textit{Analysis and}\\ 
- 	    &         		 & Chris Quesada  		   & \textit{Design} section of report.\\
+ 	 6 & 4/21/19  	 & Heather Libecki		   & Put finishing touches on each section in \textit{Analysis}\\ 
+ 	    &         		 & Chris Quesada  		   & \textit{and Design} section of report.\\
  	    &				 & Juan Colin			& \\
 	      
 		\hline
@@ -460,18 +463,24 @@ Electrical and Computer Engineering Department \\
  \newpage
  \thispagestyle{empty}
  \section*{Abstract}
+ \addcontentsline{toc}{section}{Abstract}
 
 The Smart Eraser is an apparatus that scans, detects, and intelligently erases markings on a whiteboard. A camera at a fixed location facing the board records an image and sends it wirelessly to a microcontroller where image-processing is performed in order to locate the markings on the whiteboard. Another programmed algorithm then determines a path to erase all markings on the board, and creates instructions that are sent wirelessly to the x-y axis stepper motors. These motors are attached to the pulleys that move the linear tracking system, which allows the eraser to move across the whiteboard to the marking locations. The eraser then returns to its standby position.
 
  \newpage
  \thispagestyle{empty}
  \tableofcontents
+  \addcontentsline{toc}{section}{Table of Contents}
+ \newpage
  \listoffigures
+ \addcontentsline{toc}{section}{List of Figures}
  \thispagestyle{empty}
+ \newpage
  \listoftables
+ \addcontentsline{toc}{section}{List of Tables}
  
  \newpage
-\setcounter{page}{1}
+
  \section{Introduction}
  The idea of the Smart Eraser originated from the need to maximize the class time utilized for learning. It aims to assist teachers who write lengthy, involved examples on a whiteboard while lecturing by erasing the board in between examples so the teacher can continue to lecture. This would allow students to learn in an environment with less interruptions and distractions from the material being taught, resulting in improved overall time efficiency of the amount of material being taught.
  \par
@@ -1835,7 +1844,9 @@ The HUZZAH32 that will be used for the server will be connected to the PSoC 6 th
 \subsubsection{Clients}
 
 \subsubsection{Square\_Detection.C Algorithm}
-In order to begin the process of the eraser moving to the correct locations on the whiteboard, a rough detection of where the markings are located on the board needs to be found first. Using the array that the sobel edge detection algorithm produced, an algorithm was created to detect essentially the ``square'' in which the data was located. That is, it detects the top-most, left-most, bottom-most, and right-most locations of the white pixels in the finished array in order to create a virtual ``square'' around the data. The flowchart for the logic of the algorithm is shown in \ref{fig:squaredetect} in the \textit{Project Description and Boundaries} section of this report. See the following figure for a visual representation, with an example of the board being divided into an 8x8 grid. In this example, the ``square'' coordinates for the top, left, bottom, and right-most markings is 2, 3, 6, 7 respectively, with the origin of the x and y axis being at the top-left corner of the board. This is how the system will know where to erase the data. The blue-arrowed path in the next figure represents the serpentine.c program, which is explained in the \textit{Serpentine.c} Algorithm section of this report.
+In order to begin the process of the eraser moving to the correct locations on the whiteboard, a rough detection of where the markings are located on the board needs to be found first. Using the array that the sobel edge detection algorithm produced, an algorithm was created to detect essentially the ``square'' in which the data was located. That is, it detects the top-most, left-most, bottom-most, and right-most locations of the white pixels in the finished array in order to create a virtual ``square'' around the data. The flowchart for the logic of the algorithm is shown in \ref{fig:squaredetect} in the \textit{Project Description and Boundaries} section of this report. See the following figure for a visual representation, with an example of the board being divided into an 8x8 grid. In this example, the ``square'' coordinates for the top, left, bottom, and right-most markings is 2, 3, 6, 7 respectively, with the origin of the x and y axis being at the top-left corner of the board. This is how the system will know where to erase the data. The blue-arrowed path in the next figure represents the serpentine.c program, which is explained in the \textit{Serpentine.c} Algorithm section of this report.\par
+\setlength{\parindent}{2.5ex}
+When each client connects to server, they are running independently on their own threads but use the same code, which waits for the global lists that are set when information is received from the UART reads. Each thread has locks set up so that when one is sending information the other has to wait, so the system does not crash. A lock is acquired and then released by each through during each phase of the \textit{UARTread()} function returns from main. This is because within each thread, they are waiting for the global lists to not be empty, indicating data has been received. Whichever thread acquires the lock can then send the data to the appropriate client. The lock will be released after the data has been sent, allowing the other client thread to then acquire the lock and send its data. After all three lists have been sent, the sockets are closed on both sides and threads are terminated.
 
 \begin{figure}[H]
 	\centering
