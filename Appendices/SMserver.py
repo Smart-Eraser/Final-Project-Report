@@ -1,23 +1,23 @@
-'''
-	Simple socket server using threads
-'''
 import socket
 import sys
-from _thread import *
 import time
 import network
+import network
+import socket
+from UART import *
+from _thread import *
 
 class server:
-  
+  List1 = []
+  List2 = []
+  List3 = []
   NW = 'esp32-network'
   password = 'esp32esp32'
   def start(self):
-    NW = input("Enter Wifi Name: ")
-    password = input("Enter password: ")
     station = network.WLAN(network.STA_IF)
     station.active(True)
     try:
-      station.connect(NW,password)
+      station.connect(self.NW,self.password)
     except KeyboardInterrupt:
       print('Connection Failed')
       sys.exit()
@@ -49,36 +49,82 @@ class server:
         conn.sendall(message.encode())
         mes = [b'ACK: ']
         data = ''
-        conn.settimeout(60.0)
       #infinite loop so that function do not terminate and thread do not end.
-        while True:
-            try:
-          #Receiving from client
-                data = conn.recv(1024)
-                mes.append(data)
-                reply = b''.join(mes)
-
-                if not data: 
-                  break
-                print('User ' + addr[0] + ' sent ' + data.decode())
-                conn.send(reply)
-                mes = [b'ACK: ']
-            except Exception as e:
-                print('Thread Closed ', e)
-                conn.close()
-
-      #came out of loop
+        lock = _thread.allocate_lock()
+      
+        while self.List1 == []:
+          pass  
+        while not lock.acquire():
+          pass
+        print(self.List1)  
+        #Send first set of instructions
+        conn.sendall(self.List1)
+        time.sleep(2)
+        lock.release()
+        
+        while self.List2 == []:
+          pass
+        while not lock.acquire():
+          pass
+        print(self.List2)
+        #Send second set of instructions
+        conn.sendall(self.List2)
+        time.sleep(2)
+        lock.release()
+        
+        while self.List3 == []:
+          pass
+        while not lock.acquire():
+          pass
+        print(self.List3)
+        #Send third set of instructions
+        conn.sendall(self.List3)
+        time.sleep(2)
+        lock.release()
+        
         conn.close()
-        print('Thread Closed')
+        return
       
     #now keep talking with the client
     while 1:
-        #wait to accept a connection - blocking call
-      conn, addr = s.accept()
-      print('Connected with ' + str(addr[0]) + ' : ' + str(addr[1]))
+      k = 0
       
-      #start new thread takes 1st argument as a function name to be run, second is the tuple of arguments to the function.
-      start_new_thread(clientthread ,(conn, addr))
+        #wait to accept a connection - blocking call
+      while (k < 2):
+        conn, addr = s.accept()
+        print('Connected with ' + str(addr[0]) + ' : ' + str(addr[1]))
+        
+        #start new thread takes 1st argument as a function name to be run, second is the tuple of arguments to the function.
+        start_new_thread(clientthread ,(conn, addr))
+        k = k + 1
+      
+      self.List1 = []
+      self.List2 = []
+      self.List3 = []
+      self.List1 = UARTread()
+      self.List2 = UARTread()
+      self.List3 = UARTread()
+      time.sleep(5)
+      self.List1 = []
+      self.List2 = []
+      self.List3 = []
+      
+      k = 0
 
     s.close()
+    
 server = server()
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,6 +25,11 @@
 ArduCAM.com, ``{ArduCAM-Mini-5MP-Plus OV5642 Camera Module},''
   \url{http://www.arducam.com/downloads/shields/ArduCAM_Mini_5MP_Plus_OV5642_Camera_Module_Hardware_Application_Note.pdf}.
 
+\bibitem{UARToverview}
+R.~Keim, ``{Back to Basics: The Universal Asynchronous Receiver/Transmitter
+  (UART)},''
+  \url{https://www.allaboutcircuits.com/technical-articles/back-to-basics-the-universal-asynchronous-receiver-transmitter-uart/}.
+
 \bibitem{rgb565}
 gnovice, ``{How can I convert between RGB565 and RGB24 image formats in
   MATLAB?}''
@@ -42,9 +47,13 @@ A.~Anand, ``{Client and Server Chatting Application in Python},''
 STEPPERONLINE, ``{Stepper Motor},''
   \url{https://www.omc-stepperonline.com/download/23HS22-2804S.pdf}.
 
+\bibitem{Ultra2}
+ElecFreaks, ``{Ultrasonic Ranging Module HC - SR04},''
+  \url{https://www.mouser.com/ds/2/813/HCSR04-1022824.pdf}.
+
 \bibitem{smR}
-------, ``{Nema 23 CNC Stepper Motor 2.8A 178.5oz.in/1.26Nm CNC Stepping Motor
-  DIY CNC Mill},''
+STEPPERONLINE, ``{Nema 23 CNC Stepper Motor 2.8A 178.5oz.in/1.26Nm CNC Stepping
+  Motor DIY CNC Mill},''
   \url{https://www.amazon.com/dp/B00PNEPF5I/?coliid=I3APKEM9Y17HEP\&colid=22YAOKWOJAKA9\&psc=0\&ref\_=lv\_ov\_lig\_dp\_it}.
 
 \bibitem{smdataDD}
@@ -87,11 +96,6 @@ C.~Basics, ``{Basics of the I2C Communication Protocol},''
 S.~VHDL, ``{How to Design SPI Controller in VHDL)},''
   \url{https://surf-vhdl.com/how-to-design-spi-controller-in-vhdl/}.
 
-\bibitem{UARToverview}
-R.~Keim, ``{Back to Basics: The Universal Asynchronous Receiver/Transmitter
-  (UART)},''
-  \url{https://www.allaboutcircuits.com/technical-articles/back-to-basics-the-universal-asynchronous-receiver-transmitter-uart/}.
-
 \bibitem{UARTmessage}
 C.~Basics, ``{Basics of UART Communication},''
   \url{http://www.circuitbasics.com/basics-uart-communication/}.
@@ -107,6 +111,10 @@ H.~to~Mechatronics, ``{Arduino Wireless Communication – NRF24L01 Tutorial},''
 \bibitem{uno}
 Bob5421, ``{which pins should i take for i2c on arduino uno},''
   \url{https://stackoverflow.com/questions/42022000/which-pins-should-i-take-for-i2c-on-arduino-uno/42022566}.
+
+\bibitem{Ultra1}
+J.~Wong, ``{How Do Ultrasonic Sensors Work},''
+  \url{https://www.bjultrasonic.com/how-do-ultrasonic-sensors-work/}.
 
 \bibitem{smdataD}
 STEPPERONLINE, ``{STEPPERONLINE CNC Stepper Motor Driver 1.0-4.2A 20-50VDC
@@ -139,5 +147,9 @@ electronicsnotes, ``{Serial data transmission standards},''
 T.~Helland, ``{Seven grayscale conversion algorithms (with pseudocode and VB6
   source code)},''
   \url{http://www.tannerhelland.com/3643/grayscale-image-algorithm-vb6/}.
+
+\bibitem{JohanL}
+JohanL, ``{Convert python byte array to int array},''
+  \url{https://stackoverflow.com/questions/48988266/convert-python-byte-array-to-int-array}.
 
 \end{thebibliography}

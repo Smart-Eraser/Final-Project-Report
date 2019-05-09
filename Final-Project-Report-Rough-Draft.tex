@@ -298,14 +298,30 @@
 	title			={{which pins should i take for i2c on arduino uno}},
 	note			={\url{https://stackoverflow.com/questions/42022000/which-pins-should-i-take-for-i2c-on-arduino-uno/42022566}
 	}
-
 }
 	@misc{socket,
 	author			={Nathan Jennings},
 	title			={{Socket Programming in Python (Guide)}},
 	note			={\url{https://realpython.com/python-sockets/#multi-connection-client}
-	}
-	
+	}	
+}
+	@misc{JohanL,
+	author			={JohanL},
+	title			={{Convert python byte array to int array}},
+	note			={\url{https://stackoverflow.com/questions/48988266/convert-python-byte-array-to-int-array}
+	}	
+}
+@misc{Ultra1,
+	author			={Jessie Wong},
+	title			={{How Do Ultrasonic Sensors Work}},
+	note			={\url{https://www.bjultrasonic.com/how-do-ultrasonic-sensors-work/}
+	}	
+}
+@misc{Ultra2,
+	author			={ElecFreaks},
+	title			={{Ultrasonic Ranging Module HC - SR04}},
+	note			={\url{https://www.mouser.com/ds/2/813/HCSR04-1022824.pdf}
+	}	
 }
 \end{filecontents*}
 
@@ -786,7 +802,13 @@ The purpose of including I\textsuperscript{2}C communication is both to initiali
  \end{figure}
  
  \subsubsection{UART Communication}
- 
+The communication of choice between two micro controllers is often UART as it allows for the simplest method to communicate. Since there is no master and no slave packet transmission is done through a 1 receiver and a 1 transmitter. 
+\begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=.85]{Images/UART.png}}
+	\caption{UART Communication \cite{UARToverview}}
+	\label{fig:UART}
+\end{figure} 
  
  \subsubsection{Grayscale Conversion from RGB565}
  In order to detect objects in an image, the image needs to be converted from RGB to grayscale. This is because the result of the sobel detection algorithm compares light intensity changes against a threshold value. Using RGB pixel information does not provide a way for the intensities to be correctly compared because the R, G, \& B values are used to depict color and not to represent light intensity. By converting to grayscale you are creating an intensity value from the pixel information on a scale from 0-255. This can be done by using the grayscale luminance conversion algorithm which assigns weights to each value ( R, G, \& B) using coefficients from CITE BT.709 :
@@ -860,6 +882,14 @@ The motor moves when these steps are sent to their corresponding lead connection
 \end{figure}
  
  \subsubsection{Proximity Sensing Using the Ultrasonic Sensor}
+ The Ultrasonic Sensor is able to detect changes in distance up to 4 meters. The original thought was to use these changes in distance to interrupt the eraser during its serpentine function. This was to be a safety feature but currently it only displays red if a user is too close to the board while it is erasing.
+ 
+ \begin{figure}[H]
+ 	\centering
+ 	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.8]{Images/Ultra2.jpg}}
+ 	\caption{Ultrasonic sensor \cite{Ultra2}}
+ 	\label{fig:Ult2}
+ \end{figure}
  
  \subsection{Physical Technological Components}
  \subsubsection{Arducam}
@@ -1418,11 +1448,14 @@ As shown in the table for the budget, this project has exceeded the original exp
 				Arduino IDE 	&  Software		& For programming and running the Arduinos when \\
 								&  				& they were being used for the wireless \\
 								&  				& communications. \\
+	    \hline
+				Lucid Charts 	&  Software		& For all figures, flowcharts, and diagrams \\
+								&  				& that were created \\
 		\hline
 				Modus ToolBox IDE 	&  Software		& Programming and setting up the system for the \\
 									&  				& PSoC 6. \\
 		\hline
-				uPyCraft IDE 	&  Software		& Programming the HUZZAH32 Feather Board. \\
+				uPyCraft IDE 	&  Software		& Programming the HUZZAH32 Feather Boards. \\
 		\hline
 				Various connectors and jumper cables	&  Hardware		& For connections between components  \\
 		\hline
@@ -1461,6 +1494,23 @@ Has experience in working with embedded systems and developing code for differen
 	\item Strengths: electrical systems, circuitry design, problem solving, power systems, public relations
 	\item Weaknesses: programming (Assembly, Verilog), technical writing and spelling
 \end{itemize}
+
+\lstset{frame=tb,
+	language=c,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
 
 \section{Analysis and Design}
 
@@ -1607,10 +1657,12 @@ With the newly separated values as is, R and B represent shades of gray on a sca
 	\label{fig:scaling}
 \end{figure}
 
-\noindent \textbf{Code Implementation (Separation and scaling):}\\ 
-R 	= ((pixel \& 0b1111100000000000) >> 11 << 3);\\			 
-G	= ((pixel \& 0b0000011111100000) >> 5 << 2);\\			
-B	= (pixel \& 0b0000000000011111) << 3;\\\\
+\noindent \textbf{Code Implementation (Separation and scaling):}
+\begin{lstlisting}
+R 	= ((pixel \& 0b1111100000000000) >> 11 << 3);		 
+G	= ((pixel \& 0b0000011111100000) >> 5 << 2);			
+B	= (pixel \& 0b0000000000011111) << 3;
+\end{lstlisting}
 \textit{Code is from conv2gray() in ImProc.C located in section ~\ref{A10}}\\
 
 At this point the RGB values are ready to be run through the conversion formula to generate a gray pixel value, in 8 bits. This gray value will then be used as the new R, G and B intensities of the original pixel, creating a shade of gray in the RGB565 format.  To build this new RGB565 pixel, the process up until now is done in reverse. New variables are created to hold “processed” values of RGB that are of type uint16\_t, to match the original pixel data length. 
@@ -1629,12 +1681,15 @@ At this point the RGB values are ready to be run through the conversion formula 
 	\label{fig:reverse}
 \end{figure}
 
-\noindent \textbf{Code Implementation (conversion, descaling, reassigning):}\\ 
-Gray\_pixel = (R * 0.2126) + (G * 0.7152) + (B * 0.0722);\\		
-R\_processed = ((uint16\_t)Gray\_pixel)>> 3 << 11;	\\						
-G\_processed = ((uint16\_t)Gray\_pixel)>> 2 << 5;	\\						
-B\_processed = (uint16\_t)Gray\_pixel >> 3;		\\						
-pixel = (uint16\_t)(R\_processed + G\_processed + B\_processed);\\\\
+\noindent \textbf{Code Implementation (conversion, descaling, reassigning):}
+\begin{lstlisting}
+Gray\_pixel = (R * 0.2126) + (G * 0.7152) + (B * 0.0722);		
+R\_processed = ((uint16\_t)Gray\_pixel)>> 3 << 11;							
+G\_processed = ((uint16\_t)Gray\_pixel)>> 2 << 5;							
+B\_processed = (uint16\_t)Gray\_pixel >> 3;								
+pixel = (uint16\_t)(R\_processed + G\_processed + B\_processed);
+\end{lstlisting}
+
 \textit{Code is from conv2gray() in ImProc.C located in section ~\ref{A10}}\\
 
 \subsubsection{Grayscale Results}
@@ -1674,14 +1729,15 @@ When moving through the image array, the center of the 3x3 kernel must never rea
 	\label{fig:outofBounds}
 \end{figure}
 
-\noindent \textbf{Code Implementation (boundary detection):}\\ 
-for (k = Length + 1; k < bound - Length; k++)\{
-	
-	if ((k + 1) \% Length == 0) \{\\
-	ptr\_GD = ptr\_GD + 2;\\ 
-	ptr\_PD = ptr\_PD + 2;\\
-	k = k + 2;\\
-\}\\
+\noindent \textbf{Code Implementation (boundary detection):} 
+\begin{lstlisting}
+for (k = Length + 1; k < bound - Length; k++){
+		if ((k + 1) \% Length == 0) {
+		ptr\_GD = ptr\_GD + 2;
+		ptr\_PD = ptr\_PD + 2;
+		k = k + 2;
+}
+\end{lstlisting}
 \textit{Code is from sobel() in ImProc.C located in section ~\ref{A10}}\\\\
 Once boundaries are accounted for in the program, the kernel can be convolved through the image array. At each pixel location (inside of boundary pixels) the operation shown in figure (right below) is carried out, both for the X and Y gradient.  
 
@@ -1708,17 +1764,20 @@ Finding the gradient in both the X and Y direction at any given pixel location (
 	\label{fig:Pythag}
 \end{figure}
 
-\noindent \textbf{Code Implementation (kernel convolution):}\\ 
-\noindent Gx =(sobel\_kernel[0])*(*(ptr\_GD - Length + 1)) + (sobel\_kernel[1])*(*(ptr\_GD + 1)) 	            +\\
-(sobel\_kernel[2])*(*(ptr\_GD + Length + 1)) - (sobel\_kernel[0])*(*(ptr\_GD - Length - 1))    	-\\
-(sobel\_kernel[1])*(*(ptr\_GD - 1))			 - 	(sobel\_kernel[2])*(*(ptr\_GD + Length - 1));\\
+\noindent \textbf{Code Implementation (kernel convolution):} 
+\begin{lstlisting}
+Gx =(sobel_kernel[0])*(*(ptr_GD  - Length + 1)) + (sobel_kernel[1])*(*(ptr_GD + 1)) 			+
+	(sobel_kernel[2])*(*(ptr_GD  + Length + 1)) - (sobel_kernel[0])*(*(ptr_GD - Length - 1))    -
+	(sobel_kernel[1])*(*(ptr_GD  - 1))			- (sobel_kernel[2])*(*(ptr_GD + Length - 1));
 
-\noindent Gy =(sobel\_kernel[0])*(*(ptr\_GD - Length + 1)) + (sobel\_kernel[1])*(*(ptr\_GD - Length)) 		+\\
-(sobel\_kernel[2])*(*(ptr\_GD - Length - 1)) - (sobel\_kernel[0])*(*(ptr\_GD + Length + 1))    	-\\
-(sobel\_kernel[1])*(*(ptr\_GD + Length))	 - 	(sobel\_kernel[2])*(*(ptr\_GD + Length - 1)); \\
+Gy =(sobel_kernel[0])*(*(ptr_GD  - Length + 1)) + (sobel_kernel[1])*(*(ptr_GD - Length)) 		+
+	(sobel_kernel[2])*(*(ptr_GD  - Length - 1)) - (sobel_kernel[0])*(*(ptr_GD + Length + 1))    -
+	(sobel_kernel[1])*(*(ptr_GD  + Length))	    - (sobel_kernel[2])*(*(ptr_GD + Length - 1)); 
 
-\noindent G = (sqrt(pow(Gx,2) + pow(Gy,2)));\\\\
-\textit{Code is from sobel() in ImProc.C located in section ~\ref{A10}}\\
+G = (sqrt(pow(Gx,2) + pow(Gy,2)));
+\end{lstlisting}
+
+\textit{Code is from sobel() in ImProc.C located in section ~\ref{A10}}
 
 The total magnitude G is now compared against a threshold value, which can be manipulated to adjust the strength of edge detection. If only sharp changes in intensity are desired, to be recognized as an edge then you would set the threshold value very high and if any change of intensity is desired then the threshold will be set very low. It is a trial and error to see if the image turns out correctly or not and is easily adjustable. Conditional statements are used to then compare against this threshold to set a pixel value to either white (detected edge, G is above threshold) or black (nothing detected, G is below threshold).
 
@@ -1733,15 +1792,32 @@ The total magnitude G is now compared against a threshold value, which can be ma
 	\label{fig:sobelResults}
 \end{figure}
 
-\subsubsection{UART Communication - PSoC 6 to HUZZAH32 (server)}
-Universal Asynchronous Receiver/Transmitter (UART) was chosen as the communication protocol between the main microcontroller (PSoC 6) and server microcontroller (HUZZAH32). This is the simplest of the three communication protocols used in the Smart Eraser. As the name suggests, communication is asynchronous, meaning there is no clock regulating the transfer of data between devices. Instead a baud rate is used, which is defined as the rate information can be transferred along a communication channel. Unlike SPI and I\textsuperscript{2}C, there is no master/slave relationship and thus communication relies on a few, simple parameters. Each device must be set to the same parameters in order to properly communicate. These parameters include; baud rate, parity, stop bit(s). The Smart Eraser system operates with a 115200 baud rate, parity enabled and set to even, with 1 stop bit and aheres to the RS232 standard of serial communication \cite{UARTstandard}.  
+\subsection{Square\_Detection.C Algorithm}
+In order to begin the process of the eraser moving to the correct locations on the whiteboard, a rough detection of where the markings are located on the board needs to be found first. Using the array that the sobel edge detection algorithm produced, an algorithm was created to detect essentially the ``square'' in which the data was located. That is, it detects the top-most, left-most, bottom-most, and right-most locations of the white pixels in the finished array in order to create a virtual ``square'' around the data. The flowchart for the logic of the algorithm is shown in \ref{fig:squaredetect} in the \textit{Project Description and Boundaries} section of this report. See the following figure for a visual representation, with an example of the board being divided into an 8x8 grid. In this example, the ``square'' coordinates for the top, left, bottom, and right-most markings is 2, 3, 6, 7 respectively, with the origin of the x and y axis being at the top-left corner of the board. This is how the system will know where to erase the data. The blue-arrowed path in the next figure represents the serpentine.c program, which is explained in the \textit{Serpentine.c} Algorithm section of this report.
 
 \begin{figure}[H]
 	\centering
-	{\includegraphics[max size={\textwidth}{\textheight}, scale=.85]{Images/UART.png}}
-	\caption{UART Communication \cite{UARToverview}}
-	\label{fig:UART}
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/coordinate_algorithm_concept.png}}
+	\caption{Visualization of \textit{square\_detection.c} and \textit{serpentine.c} working together to eraser markings on the whiteboard}
+	\label{fig:serpentine}
 \end{figure}
+
+The actual code for this algorithm has been completed using a ``dummy'' matrix with random values of 0s and 1s representing blank space and markings. The code for this is in \textit{Appendix 3} of this report. The result with this dummy matrix is shown in the following figure. This program is then combined with the \textit{serpentine.c} algorithm explained in the next section.
+
+\begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/square_dummy_result.png}}
+	\caption{Result of \textit{square\_detection.c} program with the dummy matrix introduced within it for testing}
+	\label{fig:square_result}
+\end{figure}
+
+After combining this program with the image processing program, the results of the program are shown in the following figure.\\
+
+IN PROGRESS. \\
+
+
+\subsection{UART Communication - PSoC 6 to HUZZAH32 (server)}
+Universal Asynchronous Receiver/Transmitter (UART) was chosen as the communication protocol between the main microcontroller (PSoC 6) and server microcontroller (HUZZAH32). This is the simplest of the three communication protocols used in the Smart Eraser. As the name suggests, communication is asynchronous, meaning there is no clock regulating the transfer of data between devices. Instead a baud rate is used, which is defined as the rate information can be transferred along a communication channel. Unlike SPI and I\textsuperscript{2}C, there is no master/slave relationship and thus communication relies on a few, simple parameters. Each device must be set to the same parameters in order to properly communicate. These parameters include; baud rate, parity, stop bit(s). The Smart Eraser system operates with a 115200 baud rate, parity enabled and set to even, with 1 stop bit and aheres to the RS232 standard of serial communication \cite{UARTstandard}.  
 
 \begin{figure}[H]
 	\centering
@@ -1752,20 +1828,26 @@ Universal Asynchronous Receiver/Transmitter (UART) was chosen as the communicati
 
 \noindent The original plan was to communicate with I\textsuperscript{2}C because the PSoC 6 already had a configured SCB for master I\textsuperscript{2}C transferring capabilities. However, due to limitations with the HUZZAH32 (currently only configurable as master (both SPI and I\textsuperscript{2}C)) UART was chosen instead. While researching UART it was found that this is often the chosen method of communication between MCUs so it worked out being the best option anyways. The code implementation of sending packets to the server (written in C) and how the server receives the packets (written in Python) is shown below:\\
 
-\noindent \textbf{Code Implementation (UART TX):}\\ 
-Cy\_SCB\_UART\_PutArray(KIT\_UART\_HW, ptr\_PD, 25);\\
-Cy\_SysLib\_Delay(1);\\
-Cy\_SCB\_UART\_ClearTxFifoStatus(KIT\_UART\_HW, CY\_SCB\_UART\_TX\_DONE);\\\\
+\noindent \textbf{Code Implementation (UART TX):}
+\begin{lstlisting} 
+Cy_SCB_UART_PutArray(KIT_UART_HW, ptr_PD, 25);
+Cy_SysLib_Delay(1);
+Cy_SCB_UART_ClearTxFifoStatus(KIT_UART_HW, CY_SCB_UART_TX_DONE);
+\end{lstlisting}
 \textit{Code is from Process\_Image() in main.C located in section ~\ref{A3}}\\
 
-\noindent \textbf{Code Implementation (UART RX):}\\ 
-def UARTread():\\
-  while(True):\\
-    while (uart.read() == None):\\
-      pass\\
-    buff = uart.read()\\
-    return buff\\\\
-\textit{Code is from UARTread() in UART.py located in section  ~\ref{A3}}\\
+\noindent \textbf{Code Implementation (UART RX):}
+\begin{lstlisting} 
+def UARTread():
+  uart.init(9600, bits = 8, parity = 0, stop = 1, rx = 16, tx = 17)
+  buff = bytearray(8)
+  while not uart.any():
+    pass
+  uart.readinto(buff)
+  uart.init(baudrate = 9600)
+  return buff
+\end{lstlisting}
+\textit{Code is from UARTread() in UART.py located in section  ~\ref{A3}}
 
 \subsection{The Original Plan for Wireless Communication}
 
@@ -1839,34 +1921,70 @@ The decided upon wireless communication system was to use a client/server implem
 \end{figure}
 
 \subsubsection{Server}
-The HUZZAH32 that will be used for the server will be connected to the PSoC 6 through UART so that it can receive the results generated from \textit{Square\_Detection.c}. After initialization is done and the socket is listening for connections, it will stay in an infinite \textit{while loop} to wait for both clients to connect. Each client that connects creates a new client thread on the server. Since there are a maximum of two clients, there will only ever be 2 threads running alongside the main. This worked out for the Smart Eraser system as the HUZZAH32 is much better at working as a client than a server handling multiple clients due to threading limitations in the current firmware. After exactly 2 client threads have been created, the main loop then waits for information to come in over UART. A UARTread() function then waits in a passing loop until information is received. When data is detected through UART, the incoming data is stored in a byte array and returned to the main function.
+The HUZZAH32 used for the server is connected to the PSoC 6 through UART so that it can receive the results generated from \textit{Square\_Detection.c} that runs on the PSoC 6. After initialization is done and the socket is listening for connections, it will stay in an infinite \textit{while loop} to wait for both clients to connect. Each client that connects creates a new client thread on the server. Since there are a maximum of two clients, there will only ever be 2 threads running alongside the main. This worked out for the Smart Eraser system as the HUZZAH32 is much better at working as a client than a server handling multiple clients due to threading limitations in the current firmware. After exactly 2 client threads have been created, the main loop then waits for information to come in over UART. A \textit{UARTread()} function is called which waits in a passing loop until information is received. When data is detected through UART, the incoming data is stored into a byte array and returned to the main function. This process can be seen in figure \ref{fig:Server}.
+
+\begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.8]{Images/Server.png}}
+	\caption{Flowchart of how the Server code works}
+	\label{fig:Server}
+\end{figure}
+
+The client threads wait on this information before they can move any further. Both threads have access to the global byte array that stores the information incoming from UART. As soon as this array is not empty, the threads attempt to acquire the lock. Whichever one doesn't will have to wait until the other one is done sending its information, at which point the lock will be released. This is so that the micro controller does not become overwhelmed with too many parallel processes happening at once. This process happens for each 1/3 of the image that is processed meaning there will be three blocking calls in each thread to received all the information from each section. After the third byte array is received and both threads send the necessary data, each thread will exit (terminate). The only process running at this point should be the main thread waiting for two more client connections, starting the process all over again.\\\\
+
+\noindent \textbf{Code Implementation Server (main thread):}
+\begin{lstlisting}
+while 1:
+ k = 0
+ while (k < 2):
+  conn, addr = s.accept()
+  print('Connected with ' + str(addr[0]) + ' : ' + str(addr[1]))
+  start\_new\_thread(clientthread ,(conn, addr))
+  k = k + 1
+ self.List1 = []
+ self.List2 = []
+ self.List3 = []
+ self.List1 = UARTread()
+ self.List2 = UARTread()
+ self.List3 = UARTread()
+ time.sleep(5)
+ self.List1 = []
+ self.List2 = []
+ self.List3 = []
+ k = 0
+\end{lstlisting}
+\textit{Code is from SMserver.py located in section ~\ref{A16}}\\
+
+\noindent \textbf{Code Implementation Server (client threads waiting for UART):}
+\begin{lstlisting}
+while self.List1 == []:
+ pass  
+while not lock.acquire():
+ pass
+print(self.List1)  
+#Send first set of instructions
+conn.sendall(self.List1)
+time.sleep(2)
+lock.release()
+\end{lstlisting}
+\textit{Code is from SMserver.py located in section ~\ref{A16}}\\
 
 \subsubsection{Clients}
+The two other HUZZAH32's will be used to act as clients, receiving information from the server that will be used to set variables for stepper motor movement. The information being received is in the form of byte arrays, which need to be converted for mathematical operations. Although the solution is quite simple, it took some major digging to come across a solution that was straightforward and actually worked. Most solutions were not able to be implemented with micro python. Thanks to user JohanL on a stack overflow forum under the topic ``Convert python byte ``array'' to int ``array \cite{JohanL}, we were able to convert the byte array to useful data. It turns out that the list constructor in python can translate a bye array into data that can be used with math operations. Therefore, a list was created out of the byte array information received from the server. Once the client has 3 lists of information from the server, they run the \textit{serpentine()} function corresponding to the three different sections in the image.
 
-\subsubsection{Square\_Detection.C Algorithm}
-In order to begin the process of the eraser moving to the correct locations on the whiteboard, a rough detection of where the markings are located on the board needs to be found first. Using the array that the sobel edge detection algorithm produced, an algorithm was created to detect essentially the ``square'' in which the data was located. That is, it detects the top-most, left-most, bottom-most, and right-most locations of the white pixels in the finished array in order to create a virtual ``square'' around the data. The flowchart for the logic of the algorithm is shown in \ref{fig:squaredetect} in the \textit{Project Description and Boundaries} section of this report. See the following figure for a visual representation, with an example of the board being divided into an 8x8 grid. In this example, the ``square'' coordinates for the top, left, bottom, and right-most markings is 2, 3, 6, 7 respectively, with the origin of the x and y axis being at the top-left corner of the board. This is how the system will know where to erase the data. The blue-arrowed path in the next figure represents the serpentine.c program, which is explained in the \textit{Serpentine.c} Algorithm section of this report.\par
-\setlength{\parindent}{2.5ex}
-When each client connects to server, they are running independently on their own threads but use the same code, which waits for the global lists that are set when information is received from the UART reads. Each thread has locks set up so that when one is sending information the other has to wait, so the system does not crash. A lock is acquired and then released by each through during each phase of the \textit{UARTread()} function returns from main. This is because within each thread, they are waiting for the global lists to not be empty, indicating data has been received. Whichever thread acquires the lock can then send the data to the appropriate client. The lock will be released after the data has been sent, allowing the other client thread to then acquire the lock and send its data. After all three lists have been sent, the sockets are closed on both sides and threads are terminated.
-
-\begin{figure}[H]
-	\centering
-	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/coordinate_algorithm_concept.png}}
-	\caption{Visualization of \textit{square\_detection.c} and \textit{serpentine.c} working together to eraser markings on the whiteboard}
-	\label{fig:serpentine}
-\end{figure}
-
-The actual code for this algorithm has been completed using a ``dummy'' matrix with random values of 0s and 1s representing blank space and markings. The code for this is in \textit{Appendix 3} of this report. The result with this dummy matrix is shown in the following figure. This program is then combined with the \textit{serpentine.c} algorithm explained in the next section.
-
-\begin{figure}[H]
-	\centering
-	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/square_dummy_result.png}}
-	\caption{Result of \textit{square\_detection.c} program with the dummy matrix introduced within it for testing}
-	\label{fig:square_result}
-\end{figure}
-
-After combining this program with the image processing program, the results of the program are shown in the following figure.\\
-
-IN PROGRESS. \\
+\noindent \textbf{Code Implementation Server (client threads waiting for UART):}
+\begin{lstlisting}
+while self.List1 == []:
+ pass  
+while not lock.acquire():
+ pass
+print(self.List1)  
+#Send first set of instructions
+conn.sendall(self.List1)
+time.sleep(2)
+lock.release()
+\end{lstlisting}
+\textit{Code is from SMclientX.py located in section ~\ref{A17}}\\
 
 \subsubsection{Serpentine.C Algorithm}
 
@@ -1903,14 +2021,40 @@ Because of the libraries included in the Arduino library, the code for the stepp
 \setlength{\parindent}{2.5ex}
 With the HUZZAH32 microcontrollers, the stepper motor code is also straight forward, as the coding language they use is Micropython. In this language, the code is as simple as putting the correct phases in 4 steps (as shown in \ref{fig:smdata}) by listing them as numbers in an array, then sending those steps to the stepper motor serially. If the motor needs to rotate in the counter clockwise direction, the array with the 4 steps can be reversed using the \textit{.reverse()}. A check condition checks for a negative number in order to perform this operation. The code for this part is in \textit{Appendix 15} of this report. The results of this code running are the stepper motors rotating depending on the number put into the variable `x'.
 
+\subsubsection{HC-SR04 Ultrasonic Sensor}
+The HC-SR04 is an ultrasonic sensor that can detect objects between the range of 2 cm to 4 m. To detect objects, a pulse is sent via the trigger pin (minimum of 10 µs), which triggers an 8 cycle 40 kHz burst of ultrasound. The time it takes to receive the echo of that burst can be used to calculate the distance of the object. Because the frequency is relatively high, the HC-SR04 Is a shorter-range sensor (4m is approximately 13 feet). This means that to increase the range of detection, the frequency would need to be lowered. The sensor needs to be connected to a microcontroller and be provided with 5V (not 3.3V), a ground, and 2 connections to GPIO pins (for the trigger and echo signals). 
+
+\begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/Ultra.jpg}}
+	\caption{How the ultra sonic sensor works \cite{Ultra1}}
+	\label{fig:Ult1}
+\end{figure}
+
+\noindent \textbf{Code Implementation Ultra Sonic Sensor:}
+\begin{lstlisting}
+while self.List1 == []:
+pass  
+while not lock.acquire():
+pass
+print(self.List1)  
+#Send first set of instructions
+conn.sendall(self.List1)
+time.sleep(2)
+lock.release()
+\end{lstlisting}
+\textit{Code is from SMclientX.py located in section ~\ref{A17}}\\
+
 \subsection{Hardware}
 \subsubsection{Using the Logic Analyzer}
+The logic analyzer is vital to figuring out how data is actually being transferred between interfaces. The I\textsuperscript{2}C, SPI and UART communications that were developed for the Smart Eraser system would not have been successfully implemented without using the logic analyzer. While creating the software to interact with these communications the need for APIs was needed in order to do so. Some of these APIs are not 100\% descriptive of what they actually do and was only discoverable through using the analyzer. Figure \ref{fig:LA} shows results of a finally sending and receiving information over SPI successfully. 
 
-IN PROGRESS.
-
-\subsubsection{Testing with the Arduino and Arducam}
-
-IN PROGRESS.
+\begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=1]{Images/LA.png}}
+	\caption{SPI analysis using the logic analyzer}
+	\label{fig:LA}
+\end{figure}
 
 \subsubsection{Stepper Motor and Driver Connections}
 In order to drive a stepper motor, an H-Bridge needs to be used in order for current to flow to the correct coils, which supply the amperage needed to rotate the internal magnetic coil. In this project, the DM542T stepper drivers act as the H-bridge needed. The four different-colored leads (black, green, red, blue) are plugged into the A+, A-, B+, B- nodes, respectively. These nodes will send out the proper pulse signals to the stepper motor, as well as the voltage and current needed to drive them, depending on the inputs given to the PUL and DIR nodes. The PUL+, PUL-, DIR+, and DIR- nodes are connected to the HUZZAH32 Feather board in order to control the stepper motors. These signals are those that need to be coded into the microcontroller in order to be the control behind the motors. The PUL nodes control the pulse signals sent to the bipolar motor coils, and the DIR nodes control the direction of the flow of current into the coils, thus allowing the motors to run both CW and CCW. The driver used is shown in the following figure.
@@ -1922,11 +2066,11 @@ In order to drive a stepper motor, an H-Bridge needs to be used in order for cur
 	\label{fig:smdataD}
 \end{figure}
 
-The stepper driver is able to be modified to alter the current flowing out to the stepper motors. The amperage supplied to the motors is directly proportional to the amount of torque the motors can provide. The Y-axis stepper motor driver’s configuration allowed 1A to flow to the motor, and it was able to pull the weight attached to it. However, because there is a heavier load on the X-axis motor, the configuration had to be changed to allow more current to flow to get more torque to pull the extra weight without difficulty. That driver was set to the next setting up, which is 1.46A, and this allowed it to pull the extra weight fine. The max tolerance of current the motors can take is 2.8A, so if more weight was added as well, the motors would more than be able to handle it.
+The stepper driver is able to be modified to alter the current flowing out to the stepper motors. The amperage supplied to the motors is directly proportional to the amount of torque the motors can provide. The Y-axis stepper motor driver's configuration allowed 1A to flow to the motor, and it was able to pull the weight attached to it. However, because there is a heavier load on the X-axis motor, the configuration had to be changed to allow more current to flow to get more torque to pull the extra weight without difficulty. That driver was set to the next setting up, which is 1.46A, and this allowed it to pull the extra weight fine. The max tolerance of current the motors can take is 2.8A, so if more weight was added as well, the motors would more than be able to handle it.
 
 \subsubsection{Power Parameters}
 
-The power rating for each component was important to take into account when thinking about the power supplies for the wireless components. The stepper motors are rated to have a driving voltage of anywhere from 24-48V, and the stepper drivers a driving voltage of 20-50V. Taking the mobility of the components into account, the final decision for the power sources for the different stepper motor components on the whiteboard wound up being three 9V batteries in series for one setup. Ideally, there would be 27V flowing to each stepper motor through the stepper drivers, but when measured in the lab, it wound up being about 24V flowing to each motor system. This is plenty to move the motors the way they need to, so this is the method that was chosen. For the other setup, a more stable power source will be used. This was decided for two reasons: the first being that the X motor system will not be moving, so it can have a dedicated power system that doesn’t move, and can therefore be plugged into a power outlet if need be. The second reason for this decision was because the X motor needs a higher current due to the higher torque needed to move the heavier load of the Y-axis components. The following equation can be used to understand the power consumption parameters that were taken into account when making sure the batteries would provide enough current for the mobile part of the system. Figure \ref{fig:power_supply} shows an image of the separate power supply.\\
+The power rating for each component was important to take into account when thinking about the power supplies for the wireless components. The stepper motors are rated to have a driving voltage of anywhere from 24-48V, and the stepper drivers a driving voltage of 20-50V. Taking the mobility of the components into account, the final decision for the power sources for the different stepper motor components on the whiteboard wound up being three 9V batteries in series for one setup. Ideally, there would be 27V flowing to each stepper motor through the stepper drivers, but when measured in the lab, it wound up being about 24V flowing to each motor system. This is plenty to move the motors the way they need to, so this is the method that was chosen. For the other setup, a more stable power source will be used. This was decided for two reasons: the first being that the X motor system will not be moving, so it can have a dedicated power system that doesn't move, and can therefore be plugged into a power outlet if need be. The second reason for this decision was because the X motor needs a higher current due to the higher torque needed to move the heavier load of the Y-axis components. The following equation can be used to understand the power consumption parameters that were taken into account when making sure the batteries would provide enough current for the mobile part of the system. Figure \ref{fig:power_supply} shows an image of the separate power supply.\\
 
 \begin{center}
 	$ Power Consumption = E_{kWh/day} = \frac{P_{(W)} \times t_{(h/day)}}{1000_{W/kW}} $
@@ -2246,22 +2390,29 @@ Finally, the original plan did not account for how tall the components would be 
 
 \newpage
 
-\subsection*{Appendix 17 - \textit{SMclient.py}}\label{A17}
-\addcontentsline{toc}{section}{Appendix 17 - \textit{SMclient.py}}
+\subsection*{Appendix 17 - \textit{SMclientX.py}}\label{A17}
+\addcontentsline{toc}{section}{Appendix 17 - \textit{SMclientX.py}}
 
-\lstinputlisting{Appendices/SMclient.py}
+\lstinputlisting{Appendices/SMclientX.py}
 
 \newpage
 
-\subsection*{Appendix 18 - \textit{ultrasonic.py}}\label{A18}
-\addcontentsline{toc}{section}{Appendix 18 - \textit{ultrasonic.py}}
+\subsection*{Appendix 18 - \textit{SMclientY.py}}\label{A17}
+\addcontentsline{toc}{section}{Appendix 18 - \textit{SMclientY.py}}
+
+\lstinputlisting{Appendices/SMclientY.py}
+
+\newpage
+
+\subsection*{Appendix 19 - \textit{ultrasonic.py}}\label{A18}
+\addcontentsline{toc}{section}{Appendix 19 - \textit{ultrasonic.py}}
 
 \lstinputlisting{Appendices/ultrasonic.py}
 
 \newpage
 
-\subsection*{Appendix 19 - \textit{np\_lights.py}}\label{A19}
-\addcontentsline{toc}{section}{Appendix 19 - \textit{np\_lights.py}}
+\subsection*{Appendix 20 - \textit{np\_lights.py}}\label{A19}
+\addcontentsline{toc}{section}{Appendix 20 - \textit{np\_lights.py}}
 
 \lstinputlisting{Appendices/np_lights.py}
 
