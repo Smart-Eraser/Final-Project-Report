@@ -322,6 +322,17 @@
 	title			={{Ultrasonic Ranging Module HC - SR04}},
 	note			={\url{https://www.mouser.com/ds/2/813/HCSR04-1022824.pdf}
 	}	
+@misc{supply,
+	author			={Digikey.com},
+	title			={{ TDK Lambda LS 150W Series}},
+	note			={\url{https://www.digikey.com/product-detail/en/tdk-lambda-americas-inc/LS150-15/285-1812-ND/1918823}
+	}	
+@misc{batt,
+	author			={Adafruit.com},
+	title			={{USB Battery Pack - 2200 mAh Capacity - 5V 1A Output}},
+	note			={\url{https://www.adafruit.com/product/1959}
+	}	
+
 }
 \end{filecontents*}
 
@@ -359,9 +370,9 @@ Project Manager: Heather Libecki\\
 \vspace{5pt}
 Team Members: Chris Quesada, Juan Colin \\
 \vspace{5pt}
-Technical Advisors: Dr. Hovannes Kulhandjian, Mr. Roger Moore	\\			
+Technical Advisors: Dr. Hovannes Kulhandjian, Prof. Roger Moore	\\			
 \vspace{12pt} 								
-Thursday, May 9, 2019 \\ 
+Friday, May 10, 2019 \\ 
 \vspace{3.2in}
 ECE 186B - Senior Design II \\ 					
 Spring 2019 - Dr. Aaron Stillmaker \\
@@ -443,8 +454,6 @@ Electrical and Computer Engineering Department \\
  	      &         		 &               			   & Added sections pertaining to SPI and I\textsuperscript{2}C \\
  	      &         		 &              			   & communications, updated information on image \\
  	      &        		 &                 			   &  processing implementation. \\
- 	      &         		 &               			   & \\
- 	      &         		 &              			   & Modified components used to build prototype stand. \\
 		\hline
 \end{tabular} 
 \end{table} 	
@@ -459,6 +468,7 @@ Electrical and Computer Engineering Department \\
 		\multicolumn{1}{|c|}{\textbf{Name of Editor}} & 
 		\multicolumn{1}{|c|}{\textbf{Changes Made}} \\
 		\hline
+		&         		 &              			   & Modified components used to build prototype stand. \\
  	    &          		 &                			   & stay in scope of final product.\\
  	      \hline
 	 4 & 4/12/19  	 & Heather Libecki 		   & Changed the Arduino Uno 3 microcontrollers and  \\ 
@@ -472,6 +482,8 @@ Electrical and Computer Engineering Department \\
  	 6 & 4/21/19  	 & Heather Libecki		   & Put finishing touches on each section in \textit{Analysis}\\ 
  	    &         		 & Chris Quesada  		   & \textit{and Design} section of report.\\
  	    &				 & Juan Colin			& \\
+ 	    &				&						&	Added ultrasonic proximity sensor \\
+ 	    &                &                      & functionality.\\
 	      
 		\hline
 	\end{tabular} 
@@ -481,7 +493,7 @@ Electrical and Computer Engineering Department \\
  \section*{Abstract}
  \addcontentsline{toc}{section}{Abstract}
 
-The Smart Eraser is an apparatus that scans, detects, and intelligently erases markings on a whiteboard. A camera at a fixed location facing the board records an image and sends it wirelessly to a microcontroller where image-processing is performed in order to locate the markings on the whiteboard. Another programmed algorithm then determines a path to erase all markings on the board, and creates instructions that are sent wirelessly to the x-y axis stepper motors. These motors are attached to the pulleys that move the linear tracking system, which allows the eraser to move across the whiteboard to the marking locations. The eraser then returns to its standby position.
+The Smart Eraser is an apparatus that scans, detects, and intelligently erases markings on a whiteboard. A camera at a fixed location facing the board records an image and sends it wirelessly to a microcontroller where image-processing is performed in order to locate the markings on the whiteboard. Another programmed algorithm then determines a path to erase all markings on the board, and creates instructions that are sent wirelessly to the x-y axis stepper motors. These motors are attached to the pulleys that move the linear tracking system, which allows the eraser to move across the whiteboard to the marking locations. The eraser then returns to its standby position. An ultrasonic sensor is also attached to face the front of the whiteboard which detects if an object is too close to the mechanical system. This sensor flashes a warning light when an object is detected to be too close to the board while it is in motion.
 
  \newpage
  \thispagestyle{empty}
@@ -517,8 +529,8 @@ Figure~\ref{fig:rough} shows an overview of the final deliverable's mechanical a
 
 \begin{itemize}
 	\item \textit{Camera}: the Arducam ideally would have captured an image of a predefined (fixed) area on the whiteboard.
-	\item \textit{SPI}: one of two communication protocols that would have been used to communicate with the camera through the microcontroller and trigger a capture of an image.
-	\item \textit{I\textsuperscript{2}C}: the other of two communication protocols that would have been used to initialize the resolution and compression type of the image that is being captured by the camera.
+	\item \textit{SPI}: Serial Peripheral Interface is one of two communication protocols that would have been used to communicate with the camera through the microcontroller and trigger a capture of an image.
+	\item \textit{I\textsuperscript{2}C}: Inter-Integrated Circuit is the other of two communication protocols that would have been used to initialize the resolution and compression type of the image that is being captured by the camera.
 	\item \textit{Smart Phone}: the device that takes an image of the whiteboard for the image processing program.
 	\item \textit{Cloud}: the method of transferring the image taken by the smart phone to the computer that changes its format.
 	\item \textit{Computer}: the system that changes the dimensions and format of the image in order to prepare it to be processed by the microcontroller.
@@ -526,8 +538,8 @@ Figure~\ref{fig:rough} shows an overview of the final deliverable's mechanical a
 	\item \textit{Microcontroller}: the PSoC 6 microcontroller receives the image of the markings on the whiteboard and performs image processing to turn the image to grayscale, then uses sobel edge detection to convert where there are markings on the whiteboard to an array of 0s and Fs (with 0s representing black, blank space and Fs representing white, marked space). It then traverses the array of edges that have been detected and finds the top-most, left-most, bottom-most, and right-most locations of the markings. These four values are put into an array that is sent to the HUZZAH32 board.
 	\item \textit{UART}: serial communication protocol that transfers instruction data between the microcontroller and the HUZZAH32, which sends the instructions to the stepper motors.
 	\item \textit{HUZZAH32}: acts as an intermediary device for the microcontroller and the stepper motors, and acts as the wireless transceivers that allow wireless communication of information between the PSoC 6 board and the stepper motors.
-	\item \textit{Transmitter}: reads in the stepper motor instruction array of top-most, left-most, bottom-most, and right-most values from the microcontroller and sends them sequentially to the stepper motors via a wireless connection.
-	\item \textit{Receiver}: receives the instructions sent by the transmitter and uses an algorithm to create a serpentine-like path from the instructions that the stepper motors will understand and follow. The receiver also controls the stepper motor movement itself.
+	\item \textit{Transmitter}: also known as the server, reads in the stepper motor instruction array of top-most, left-most, bottom-most, and right-most values from the microcontroller and sends them sequentially to the stepper motors via a wireless connection.
+	\item \textit{Receiver}: also known as the client, receives the instructions sent by the transmitter and uses an algorithm to create a serpentine-like path from the instructions that the stepper motors will understand and follow. The receiver also controls the stepper motor movement itself.
 	\item \textit{Battery Pack}: mobile battery unit that is used to power the HUZZAH32s on the receiving end.
 	\item \textit{SM}: stepper motors that allow the eraser to move in the X and Y axis directions. The stepper motors are connected to flanges on the opposite side of their axes with a pulley belt to allow movement.
 	\item \textit{SM Driver}: regulates the voltage, current, and rotation instructions for the stepper motors, allowing them to move the way they should with little to no risk of burnout.
@@ -535,17 +547,19 @@ Figure~\ref{fig:rough} shows an overview of the final deliverable's mechanical a
 	\item \textit{Pulley Belt}: the belt that wraps around the flange on the stepper motor and the other flange attached opposite to the stepper motor that moves the system.
 	\item \textit{Carriage}: component within the track that actually moves back and forth. The carriage connects to the pulley belt that runs between the stepper motors and the flanges via washers and nuts. This connects the devices that need to move to the parts that do the movement.
 	\item \textit{X-Track}: the two tracks that allow the eraser to move in the X-axis direction.
-	\item \textit{Y-Track}: the track that allow the eraser to move in the Y-axis direction.
+	\item \textit{Y-Track}: the track that allows the eraser to move in the Y-axis direction.
 	\item \textit{Eraser Clamp}: metal braces and brackets that clamp to the eraser and connect it to the Y-axis carriage in order to move it.
 	\item \textit{Whiteboard}: surface that is written on and erased.
 	\item \textit{Power Source}: an extra power source, besides the battery packs, which is attached to the back of the finished system. It is used to power the stepper motor drivers, and in turn, also powers the stepper motors themselves.
+	\item \textit{Ultrasonic Sensor}: sensor that detects changes in proximity to it. It is used as a safety precaution to those who may be standing too close to the board while it is moving.
+	\item \textit{Neopixel LEDs}: LEDs connected to the ultrasonic sensor that flash green when no one is close to the board, and red when someone is standing too close to it.
 	 
 \end{itemize} \par
 \subsection{Work Distribution}
 \setlength{\parindent}{2.5ex} Heather Libecki was responsible for being the project manager of the Smart Eraser project. She was in charge of the stepper motors and all of their various components, including their drivers, and connection between the motors and the microcontroller, as well as the code that was written to move them. She also created the wireless connections between the receiver stepper motor HUZZAH32 boards and the transmitter HUZZA32 board. She also had Chris' assistance with writing the code for the wireless communication, as he was more experienced with Micropython. Finally, she was in charge of the algorithms used to find the outer-most edges of the markings on the board based on the array Chris got after processing the image, and using these to create instructions for the stepper motors so it would move the eraser to the markings found on the whiteboard, and erase them in a serpentine-like pattern before moving back to its standby position. Therefore, she was in charge of the setup of the stepper motors, the movement of the Smart Eraser, and the wireless communication between the receiver HUZZAH32 attached to the stepper motors and transmitter HUZZAH32, which got the instructions to where they needed to go. \par
-\setlength{\parindent}{2.5ex} Chris Quesada was in charge of the research into and understanding of the PSoC 6 microcontroller, including its comprehensive Integrated Development Environment (IDE). He was then responsible for developing a working SPI and I\textsuperscript{2}C communication between the PSoC 6 and the camera that was ideally going to be used. The I\textsuperscript{2}C communication was used to configure the image sensor to output RGB565 with a 320x240 resolution, and the reading of the image data was done with SPI. After an image was received, he developed an image processing program which takes in an image, converts it to grayscale, then uses a sobel edge detection algorithm to detect edges of objects in the image. To know if this algorithm worked correctly, he had to set up the PSoC 6 to display images on the included TFT display. He headed the creation of the I\textsuperscript{2}C communication between the HUZZAH32 and the PSoC 6 with assistance from Juan. To allow for easier program management, he was in charge of adding virtual memory to the PSoC 6 to allow for an entire image to be processed, rather than parts of the image. Therefore, he was in charge of the image processing brain behind the Smart Eraser, configuration of the PSoC 6 hardware, graphical display of image, addition of virtual memory, and any wired communications to and from the PSoC 6.
+\setlength{\parindent}{2.5ex} Chris Quesada was in charge of the research into and understanding of the PSoC 6 microcontroller, including its comprehensive Integrated Development Environment (IDE). He was then responsible for developing a working SPI and I\textsuperscript{2}C communication between the PSoC 6 and the camera that was ideally going to be used. The I\textsuperscript{2}C communication was used to configure the image sensor to output RGB565 with a 320x240 resolution, and the reading of the image data was done with SPI. After an image was received, he developed an image processing program which takes in an image, converts it to grayscale, then uses a sobel edge detection algorithm to detect edges of objects in the image. To know if this algorithm worked correctly, he had to set up the PSoC 6 to display images on the included TFT display. He headed the creation of the UART communication between the HUZZAH32 and the PSoC 6 with assistance from Juan. To allow for easier program management, he was in charge of adding virtual memory to the PSoC 6 to allow for an entire image to be processed, rather than parts of the image. Therefore, he was in charge of the image processing brain behind the Smart Eraser, configuration of the PSoC 6 hardware, graphical display of image, addition of virtual memory, and any wired communications to and from the PSoC 6.
  \par
-\setlength{\parindent}{2.5ex} Juan Colin was in charge of the initial conception, design, and execution of the physical mechanical system and its interconnections. He was also in charge of drafting and making the wooden prototype stand and mounting all of the components together so as to ensure spacial efficiency and visual impact. He also assisted in setting up the Arducam via an Arduino platform to analyze the SPI and I\textsuperscript{2}C being sent from the camera. He also created a program on one of the HUZZAH32 boards that would connect to an ultrasonic sensor in order to detect if people were standing to close to the whiteboard while it is moving. Therefore, he was in charge of the entire physical prototype construction of the Smart Eraser, as well as the safety precautions advertised by the board to those around it.
+\setlength{\parindent}{2.5ex} Juan Colin was in charge of the initial conception, design, and execution of the physical mechanical system and its interconnections. He was also in charge of drafting and making the wooden prototype stand and mounting all of the components together so as to ensure spacial efficiency and visual impact. He also assisted in setting up the Arducam via an Arduino platform to analyze the SPI and I\textsuperscript{2}C signals being sent from the camera. He also created a program on one of the HUZZAH32 boards that would connect to an ultrasonic sensor in order to detect if people were standing to close to the whiteboard while it is moving. Therefore, he was in charge of the entire physical prototype construction of the Smart Eraser, as well as the safety precautions advertised by the board to those around it.
  \par
 \setlength{\parindent}{2.5ex} During the project's life cycle, there were a number of deliverables that needed to be submitted to Dr. Stillmaker which were worked on by all three members to ensure a consistent flow of information throughout all written documentation, including the Project Charter and this report.
 
@@ -557,9 +571,9 @@ The main objectives the Smart Eraser have are listed next.
  \item Create a functioning mechanical system that allows the eraser to move in the x and y plane in order to erase the entire whiteboard.
  \item Create a functioning Smart Eraser that erases detected markings in a timely manner.
  \item Create an image processing program to detect said markings on the whiteboard.
- \item Create a coordinate system based on processed image to move the eraser to specific markings.
+ \item Create a coordinate system based on the processed image to move the eraser to specific markings.
  \item Create an algorithm to determine a path for the stepper motors to take in order to eraser all markings.
- \item Create a motion-detection program to check for people to close to the whiteboard while the system is in motion.
+ \item Create a motion-detection program to check for people too close to the whiteboard while the system is in motion.
  \end{itemize} \par
 
 \subsection{Simple success criteria}
@@ -573,6 +587,7 @@ The main objectives the Smart Eraser have are listed next.
 \item Image captured can be processed to find markings on board.
 \item Array with locations of markings can be converted to stepper motor rotations to move eraser to proper destination.
 \item Image processing program on microcontroller works with the image taken to find the markings on the whiteboard.\\
+\item Motion detection is utilized for safety precautions to warn those standing too close to the whiteboard.
 \end{itemize}
 \subsubsection{Not Completed}
 \begin{itemize}
@@ -678,7 +693,7 @@ The following list outlines the relevant courses and the material they contain t
 		\item Development of algorithms
 		\item Basic foundation of and general layout of hardware in microcontrollers, as well as the IDE that is specific to it
 		\item Interfacing with peripherals on the microcontroller
-		\item SPI and I\textsuperscript{2}C communication
+		\item UART, SPI and I\textsuperscript{2}C communication
 	\end{itemize}
 \end{itemize}\par
  
@@ -886,7 +901,7 @@ The motor moves when these steps are sent to their corresponding lead connection
  
  \begin{figure}[H]
  	\centering
- 	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.8]{Images/Ultra2.jpg}}
+ 	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/Ultra2.jpg}}
  	\caption{Ultrasonic sensor \cite{Ultra2}}
  	\label{fig:Ult2}
  \end{figure}
@@ -940,16 +955,34 @@ The HUZZAH32 by Adafruit is the main communication hardware for the stepper moto
 \end{figure}
 
 \subsubsection{PCBs}
-The PCB (Printed Circuit Board) is an intermediary device between the stepper motor drivers and the Feather board, as well as the additional power that is needed to power the motors and their drivers. This PCB was created by the PCB design software DipTrace, and contains connecting pins to ensure spatial efficiency, as well as to make sure all components are connected properly. Due to the wireless system needing to be changed last minute, the PCB will not be used. However, because it is work that was put into the project, it will still be talked about in the \textit{Analysis and Design} section of this report.
+The PCB (Printed Circuit Board) is an intermediary device between the stepper motor drivers and the Feather board, as well as the additional power that is needed to power the motors and their drivers. This PCB was created by the PCB design software DipTrace, and contains connecting pins to ensure spatial efficiency, as well as to make sure all components are connected properly. Due to the wireless system needing to be changed last minute, the PCB will not be used. However, because it is work that was put into the project, it will still be talked about in the \textit{Analysis and Design} section of this report.\\
 
 \subsubsection{Additional Power}
-The chosen stepper motor drivers can handle a voltage input ranging from 20 - 50 V, and the stepper motors themselves can handle a voltage input from 24 - 48V. Therefore, the power source needs to be able to drive enough current to generate that range for the PCB, which the stepper motors are connected to. With this in mind, the 9V rechargeable lithium batteries were chosen for the additional power source. Three of these batteries are connected in series on the PCB to provide the additional power needed to driver the motors and their drivers. The batteries can be recharged when they are depleted, which allow them to be reused many times for the prototype as well.
+The chosen stepper motor drivers can handle a voltage input ranging from 20 - 50 V, and the stepper motors themselves can handle a voltage input from 24 - 48V. Therefore, the power source needs to be able to drive enough current to generate that range for the stepper motors. With this in mind, the 9V rechargeable lithium batteries were chosen for the additional power source when the Arduino and transceivers were being used for the wireless communication. Three of these batteries were connected in series on the PCB to provide the additional power needed to driver the motors and their drivers. The batteries can be recharged when they are depleted, which would allow them to be reused many times for the prototype as well.
 
    \begin{figure}[H]
 	\centering
 	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.4]{Images/charger.png}}
 	\caption{9V lithium rechargeable batteries \cite{ebl}}
 	\label{fig:ebl}
+\end{figure}
+
+However, because the PCBs could no longer be used, additional power was gained from the TDK Lambda power supply. This supplied the stepper motors with the correct voltage.
+
+ \begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/lambda.png}}
+	\caption{TDK Power Supply used to power the stepper motor drivers \cite{supply}}
+	\label{fig:supply}
+\end{figure}
+
+In order to power the HUZZAH32 boards, another type of power supply was used. A 5V battery bank was used to supply a reliable, long-lasting power supply. This was chosen with the length of Projects Day presentations in mind.
+
+ \begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.5]{Images/battery_pack.jpg}}
+	\caption{Battery pack used to power HUZZAH32s reliably \cite{batt}}
+	\label{fig:batt}
 \end{figure}
 
 \subsection{Physical Mechanical Components}
@@ -997,7 +1030,7 @@ The following figure shows a rough view of what the final prototype will look li
    \begin{figure}[H]
 	\centering
 	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.5]{Images/prot.png}}
-	\caption{Rough image of the prototype stand}
+	\caption{Rough image of the original concept for the prototype stand}
 	\label{fig:stand}
 \end{figure}
 
@@ -1022,7 +1055,7 @@ The dimensions of the whiteboard prototype are shown in the next two figures. Mo
 
 \subsection{Boundaries}
 
-\setlength{\parindent}{2.5ex} Because of the problems encountered with the wireless communication via the Arduino and the Kuman wireless transceivers, the wireless communication system had to be completely redesigned using the HUZZAH32 Feather boards. This is a boundary, as this part had to be completely redone with Python, and the PCBs that were designed for the other system were not usable, and were abandonded in favor of mounting the systems separately on the whiteboatdl \par
+\setlength{\parindent}{2.5ex} Because of the problems encountered with the wireless communication via the Arduino and the Kuman wireless transceivers, the wireless communication system had to be completely redesigned using the HUZZAH32 Feather boards. This is a boundary, as this part had to be completely redone with Micropython, and the PCBs that were designed for the other system were not usable, and were abandonded in favor of mounting the systems separately on the whiteboard. \par
 \setlength{\parindent}{2.5ex}
 Unfortunately, configuration of the camera sensor proved to be a major obstacle. It involved writing a driver from scratch that needs to configure hundreds of different registers on the Arducam-5MP-Mini-Plus to output an RGB565 image. In order to show the system working, it was possible to take a picture with a phone and run it through software to convert it to the desired resolution and output format, and pre-load it onto the PSoC 6. It should be stated that the camera does work, and based off examples from the Arducam company, JPEG image data can be received from the camera. However, due to the complexity of JPEG image data and the fact that the image processing program written is for RGB565, there is nothing that can be done with this data in the scope of this project.
 
@@ -1045,6 +1078,7 @@ The following list details the high-level risks of this project and what was don
 		\item Always stand away from whiteboard when in motion
 		\item Always notify those around when it is about to start moving
 		\item Identify the failsafe wire to unplug in order to emergency shutdown the moving parts
+		\item Have a proximity-sensor system that will detect and warn someone who is approaching the whiteboard at too close of a distance
 		\end{itemize}
 	\item Use of power tools to create prototype:
 		\begin{itemize}
@@ -1291,7 +1325,7 @@ The following tables show the milestone schedule for the Smart Eraser project ov
 		\hline
 		All & 5/9/19 					& Final Project report due. \\
 		\hline
-		All & 5/(?)/19 					& Final Project Presentation day. \\
+		All & 5/9/19 					& Final Project Presentation day. \\
 		\hline
 	\end{tabular} 
 	\caption{Senior Design Semester 2 - Implementation Phase - Part 2}
@@ -1430,7 +1464,7 @@ The following table lists the components that were bought in order to complete t
 	\label{table:1}
 \end{table}	
 
-As shown in the table for the budget, this project has exceeded the original expected budget by almost \$300. The original estimate was not taking into account the problems that were run into during the course of the project's life cycle. For example, the Arduino and Kuman wireless transceivers had to be changed to the HUZZAH32 Feather boards for the wireless communications because of their inoperability. This and a few other unforeseen circumstances pushed the budget over the limit.\par
+As shown in the table for the budget, this project has exceeded the original expected budget by almost \$300. The original estimate was not taking into account the problems that were run into during the course of the project's life cycle. For example, the Arduino and Kuman wireless transceivers had to be changed to the HUZZAH32 Feather boards for the wireless communications because of their inoperability. This and a few other unforeseen circumstances pushed the budget over the limit. Now that this experience has been had, for future projects, more research will be done on what exactly will be needed for each step of the way, and which approach will be the best before confirming the budget. This way, perhaps the budget can be more closely followed.\par
 
 \setlength{\parindent}{2.5ex}Along with the components listed in the budget, the following resources were also used to complete the project.
 
@@ -1473,7 +1507,7 @@ As shown in the table for the budget, this project has exceeded the original exp
 \end{table}	
 
 \section{Roles of Team Members}
-This section contains a more in depth look at what the specific roles of each team member were throughout this project. Included in this section is each member’s areas of expertise, areas they were not experienced in, and what they had to work on the most throughout the completion of the Smart Eraser.
+This section contains a more in depth look at what the specific roles of each team member were throughout this project. Included in this section is each member's areas of expertise, areas they were not experienced in, and what they had to work on the most throughout the completion of the Smart Eraser.
 \subsection{Heather Libecki}
 She had the responsibility of being the project manager for the Smart Eraser project. She also wanted to take charge of the stepper motors and their operations. She has had previous experience with stepper motors and how they work, so she was ready to take on this task. The technical advisor Dr. Kulhandjian wanted the project to be as wireless as possible, so wireless transceivers were decided upon to communicate with the stepper motors from a master controller that would send instructions. She decided to take on the task of creating the wireless communications as well, as she has a personal interest in wireless connections and networking programming. Although she had no experience in wireless communications, she wanted to learn this for the project. Finally, because she was in charge of the connections and movement of the stepper motors, she needed to create the algorithms that would actually allow the stepper motors to move the eraser to where they needed to go based on the image processing that Chris did. She was responsible for the algorithm that would find the outer-most edges of the markings on the whiteboard, then for the algorithm that took those coordinates and created a serpentine-like path, out of stepper motor instructions, that the eraser would need to follow. The following list details her strengths and weaknesses that would assist her for this project.
 \begin{itemize}
@@ -1517,7 +1551,7 @@ Has experience in working with embedded systems and developing code for differen
 In this section, the implementation of the components that came together to make the Smart Eraser functional will be described.
 
 \subsection{I\textsuperscript{2}C Communication - PSoC 6 to Arducam}
-Inter-Integrated-Circuit(I\textsuperscript{2}C) is a popular method for interactions between processors and slower ICs. For optimal efficiency, short distances should be used so it is mainly for intra-board connections. The naming scheme used to define the components is referred to as a master/slave relationship where there is one master and one or more slaves. Communication between the master and slave is through messages, with the messages being structured in a specific way. A start and stop bit are used to indicate the start and end of a message. After the start bit, an address is given, usually 7-10 bits, followed by the read/write bit. As was the case with Arducam, the data sheets for slave devices often incorrectly list the slave address with the read/write bit included. Using the PSoC 6 APIs for the I\textsuperscript{2}C Serial Control Block(SCB) added a start and stop bit to the given slave address based on whether it was a read or write. So, after omitting the LSB of the slave address provided from Arducam, communications worked perfectly(0x78 - LSB = 0x3C). This is known as the address frame. There are also 2 data frames that ensue, each a byte wide. Between each frame either an ACK is received from the slave or the communication failed and the ACK bit is set to NACK. The flow of how a message is sent can be seen in figure ~\ref{fig:I2Cmessage}.
+Inter-Integrated-Circuit(I\textsuperscript{2}C) is a popular method for interactions between processors and slower ICs. For optimal efficiency, short distances should be used so it is mainly for intra-board connections. The naming scheme used to define the components is referred to as a master/slave relationship where there is one master and one or more slaves. Communication between the master and slave is through messages, with the messages being structured in a specific way. A start and stop bit are used to indicate the start and end of a message. After the start bit, an address is given, usually 7-10 bits, followed by the read/write bit. As was the case with Arducam, the data sheets for slave devices often incorrectly list the slave address with the read/write bit included. Using the PSoC 6 APIs for the I\textsuperscript{2}C Serial Control Block(SCB) added a start and stop bit to the given slave address based on whether it was a read or write. So, after omitting the LSB of the slave address provided from Arducam, communications worked perfectly(0x78 - LSB = 0x3C). This is known as the address frame. There are also 2 data frames that ensue, each a byte wide. Between each frame either an ACK is received from the slave or the communication failed and the ACK bit is set to NACK. The flow of how a message is sent can be seen in Figure~\ref{fig:I2Cmessage}.
 
  \begin{figure}[H]
 	\centering
@@ -1526,7 +1560,7 @@ Inter-Integrated-Circuit(I\textsuperscript{2}C) is a popular method for interact
 	\label{fig:I2Cmessage}
 \end{figure}
 
-Some confusion may arise when it is stated that in order to communicate with the Arducam module both I\textsuperscript{2}C and SPI are needed to do so. This is because the Arducam is just that, a module, that has different components. The difference between these two types of communication is that I\textsuperscript{2}C is needed to initialize the image sensor on the module, determining what is transferred to the FIFO storage, located on the module as well. For example, with I\textsuperscript{2}C, the resolution, format, and size of the image can be configured. With SPI, the actual capture and transfer of the image data from that FIFO storage is done. Basically, the I\textsuperscript{2}C can only interact with the image sensor itself and the SPI communication is for operating the entire module. The layout of the different components is shown in ~\ref{fig:ArducamBlock}\par
+Some confusion may arise when it is stated that in order to communicate with the Arducam module both I\textsuperscript{2}C and SPI are needed to do so. This is because the Arducam is just that, a module, that has different components. The difference between these two types of communication is that I\textsuperscript{2}C is needed to initialize the image sensor on the module, determining what is transferred to the FIFO storage, located on the module as well. For example, with I\textsuperscript{2}C, the resolution, format, and size of the image can be configured. With SPI, the actual capture and transfer of the image data from that FIFO storage is done. Basically, the I\textsuperscript{2}C can only interact with the image sensor itself and the SPI communication is for operating the entire module. The layout of the different components is shown in Figure~\ref{fig:ArducamBlock}\par
 \setlength{\parindent}{2.5ex}
 
  \begin{figure}[H]
@@ -1784,15 +1818,14 @@ The total magnitude G is now compared against a threshold value, which can be ma
 \subsubsection{Results of Sobel Edge Detection}
 \textcolor{white}{This text is so the following figure will be below this heading!}
 
-
 \begin{figure}[H]
 	\centering
-	{\includegraphics[max size={\textwidth}{\textheight}, scale=.65]{Images/sobelResult.png}}
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/sobelResult.png}}
 	\caption{Results of Sobel edge detection}
 	\label{fig:sobelResults}
 \end{figure}
 
-\subsection{Square\_Detection.C Algorithm}
+\subsection{\textit{Square\_detection.c} Algorithm}
 In order to begin the process of the eraser moving to the correct locations on the whiteboard, a rough detection of where the markings are located on the board needs to be found first. Using the array that the sobel edge detection algorithm produced, an algorithm was created to detect essentially the ``square'' in which the data was located. That is, it detects the top-most, left-most, bottom-most, and right-most locations of the white pixels in the finished array in order to create a virtual ``square'' around the data. The flowchart for the logic of the algorithm is shown in \ref{fig:squaredetect} in the \textit{Project Description and Boundaries} section of this report. See the following figure for a visual representation, with an example of the board being divided into an 8x8 grid. In this example, the ``square'' coordinates for the top, left, bottom, and right-most markings is 2, 3, 6, 7 respectively, with the origin of the x and y axis being at the top-left corner of the board. This is how the system will know where to erase the data. The blue-arrowed path in the next figure represents the serpentine.c program, which is explained in the \textit{Serpentine.c} Algorithm section of this report.
 
 \begin{figure}[H]
@@ -1802,19 +1835,14 @@ In order to begin the process of the eraser moving to the correct locations on t
 	\label{fig:serpentine}
 \end{figure}
 
-The actual code for this algorithm has been completed using a ``dummy'' matrix with random values of 0s and 1s representing blank space and markings. The code for this is in \textit{Appendix 3} of this report. The result with this dummy matrix is shown in the following figure. This program is then combined with the \textit{serpentine.c} algorithm explained in the next section.
+The actual code for this algorithm has been completed using a ``dummy'' matrix with random values of 0s and 1s representing blank space and markings. The code for this is in \textit{Appendix 3} of this report. The result with this dummy matrix is shown in the following figure. This program is then combined with the \textit{serpentine.c} algorithm explained in the \textit{Serpentine.c Algorithm} section of this report.
 
 \begin{figure}[H]
 	\centering
-	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/square_dummy_result.png}}
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.8]{Images/square_dummy_result.png}}
 	\caption{Result of \textit{square\_detection.c} program with the dummy matrix introduced within it for testing}
 	\label{fig:square_result}
 \end{figure}
-
-After combining this program with the image processing program, the results of the program are shown in the following figure.\\
-
-IN PROGRESS. \\
-
 
 \subsection{UART Communication - PSoC 6 to HUZZAH32 (server)}
 Universal Asynchronous Receiver/Transmitter (UART) was chosen as the communication protocol between the main microcontroller (PSoC 6) and server microcontroller (HUZZAH32). This is the simplest of the three communication protocols used in the Smart Eraser. As the name suggests, communication is asynchronous, meaning there is no clock regulating the transfer of data between devices. Instead a baud rate is used, which is defined as the rate information can be transferred along a communication channel. Unlike SPI and I\textsuperscript{2}C, there is no master/slave relationship and thus communication relies on a few, simple parameters. Each device must be set to the same parameters in order to properly communicate. These parameters include; baud rate, parity, stop bit(s). The Smart Eraser system operates with a 115200 baud rate, parity enabled and set to even, with 1 stop bit and aheres to the RS232 standard of serial communication \cite{UARTstandard}.  
@@ -1986,17 +2014,18 @@ lock.release()
 \end{lstlisting}
 \textit{Code is from SMclientX.py located in section ~\ref{A17}}\\
 
-\subsubsection{Serpentine.C Algorithm}
+\subsubsection{\textit{Serpentine.c} Algorithm}
 
 After finding the square in which all the data is contained on the whiteboard, another algorithm takes the edges of the square detected and creates a series of instructions for the stepper motors. The logic flowchart of this algorithm is shown in \ref{fig:serp} These instructions are the number of rotations needed to move the stepper motors in a certain direct, and are given to each motor serially to take a similar path to the one shown in Figure \ref{fig:serpentine}. First, the motors are given the instructions to move to the top-left space of the data square. Then, the X-axis motor is continually given instructions to move from the far left side of the square to the far right of it, and the Y-axis motor is continually given instructions to move down one rotation in order to traverse down the square until all the material is erased. The algorithm then checks to see if the eraser stopped on the right side or the left side of the square based on how many rotations it needed to take to erase the markings. Based on this position, it gives the final instructions to the stepper motors to move the eraser back to its stand-by position at the top left of the entire whiteboard to await the next instructions sent to it.
 When this program is ran with dummy values, it sends the correct sequence of instructions to the x and y stepper motors in the format of the number of rotations it needs to take if it were traversing the same dummy matrix from the \textit{square\_detection.c} algorithm.
 
 \begin{figure}[H]
 	\centering
-	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/square_dummy_result.png}}
-	\caption{Result of \textit{serpentine.c} program with the dummy matrix introduced within it for testing}
-	\label{fig:serp_result}
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.8]{Images/serpentine_dummy_result.png}}
+	\caption{Result of \textit{serpentine.c} program with the dummy values introduced within it for testing}
+	\label{fig:serp_result_dummy}
 \end{figure}
+
 
 \subsubsection{Stepper Motor Movement}
 The stepper motors that were chosen for this project are the NEMA 23 CNC stepper motors. Stepper motors contain magnetic coils surrounding a magnetic rotor that need to be powered in a certain sequence in order for the rotor to turn in either a clockwise (CW) or counter-clockwise (CCW) rotation. This particular stepper motor is a 2-phase bipolar motor, meaning it contains 2 groups of coils, and it uses all coils within the motor to work to turn the motor the direction needed. A layout of the inside of this motor is shown in the following figure, which shows how the coil windings are oriented in comparison with the rotor. The different color names represent the colors of the wires that need to be connected to the stepper motor driver.
@@ -2019,7 +2048,7 @@ The specific combination of pulses in the order they need to be for CW and CCW m
 
 Because of the libraries included in the Arduino library, the code for the stepper motors was as simple as initializing the stepper motor pins being used as shown in Appendix 2, setting the speed in the initialization loop, then putting the number of rotations per minute into the function defined. However, because the wireless communication unfortunately stopped working, the code for the stepper motors to move needed to be redone in Micropython in order to allow the motors to move with the new HUZZAH32 boards being used for the wireless communications.\par
 \setlength{\parindent}{2.5ex}
-With the HUZZAH32 microcontrollers, the stepper motor code is also straight forward, as the coding language they use is Micropython. In this language, the code is as simple as putting the correct phases in 4 steps (as shown in \ref{fig:smdata}) by listing them as numbers in an array, then sending those steps to the stepper motor serially. If the motor needs to rotate in the counter clockwise direction, the array with the 4 steps can be reversed using the \textit{.reverse()}. A check condition checks for a negative number in order to perform this operation. The code for this part is in \textit{Appendix 15} of this report. The results of this code running are the stepper motors rotating depending on the number put into the variable `x'.
+With the HUZZAH32 microcontrollers, the stepper motor code is also straight forward, as the coding language they use is Micropython. In this language, the code is as simple as putting the correct phases in 4 steps (as shown in \ref{fig:smdata}) by listing them as numbers in an array, then sending those steps to the stepper motor serially. If the motor needs to rotate in the counter clockwise direction, the array with the 4 steps can be reversed using the \textit{.reverse()}. A check condition checks for a negative number in order to perform this operation. The code for this part is in \textit{Appendix 15} of this report. The results of this code running are the stepper motors rotating depending on the number put into the variable `x'. \\
 
 \subsubsection{HC-SR04 Ultrasonic Sensor}
 The HC-SR04 is an ultrasonic sensor that can detect objects between the range of 2 cm to 4 m. To detect objects, a pulse is sent via the trigger pin (minimum of 10 µs), which triggers an 8 cycle 40 kHz burst of ultrasound. The time it takes to receive the echo of that burst can be used to calculate the distance of the object. Because the frequency is relatively high, the HC-SR04 Is a shorter-range sensor (4m is approximately 13 feet). This means that to increase the range of detection, the frequency would need to be lowered. The sensor needs to be connected to a microcontroller and be provided with 5V (not 3.3V), a ground, and 2 connections to GPIO pins (for the trigger and echo signals). 
@@ -2043,7 +2072,7 @@ conn.sendall(self.List1)
 time.sleep(2)
 lock.release()
 \end{lstlisting}
-\textit{Code is from SMclientX.py located in section ~\ref{A17}}\\
+\textit{Code is from SMclientX.py located in section ~\ref{A17}}
 
 \subsection{Hardware}
 \subsubsection{Using the Logic Analyzer}
@@ -2061,7 +2090,7 @@ In order to drive a stepper motor, an H-Bridge needs to be used in order for cur
 
 \begin{figure}[H]
 	\centering
-	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/smD.png}}
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.5]{Images/smD.png}}
 	\caption{Stepper motor driver for the NEMA 23 \cite{smdataD}}
 	\label{fig:smdataD}
 \end{figure}
@@ -2083,9 +2112,33 @@ The power rating for each component was important to take into account when thin
 	\label{fig:power_supply}
 \end{figure}
 
-\subsubsection{PCBs}
+\subsubsection{Printed Circuit Boards (PCBs)}
 
-IN PROGRESS.
+In order to connect everything in the original configuration of the wireless communication system, PCBs were made to ensure loose wires would not detract from the overall look of the final prototype. These PCBs were made for each stepper motor in order to connect the wireless transceivers, the Arduino UNO R3 microcontrollers, a 9V battery to the Arduino board for wireless power, and to connect the 3 9V batteries in series that would have powered the stepper motor drivers. The following figure shows the layout of the PCBs.
+
+\begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.8]{Images/PCB_layout.png}}
+	\caption{Layout of PCBs}
+	\label{fig:pcbs}
+\end{figure}
+
+The following figures show a before and after shot of what the components looked like connected before and after using the PCBs. They are much more organized and pleasing to the eye to look at.
+
+\begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/pcb_before.jpg}}
+	\caption{Connection of stepper motor system before PCBs}
+	\label{fig:pcb_b}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/pcb_after.jpg}}
+	\caption{Connection of stepper motor system after PCBs}
+	\label{fig:pcb_a}
+\end{figure}
+
+Unfortunately, because the wireless transceivers stopped working three weeks before the project needed to be completed, the PCBs were not used in the final version of the product.
 
 \subsection{Project Prototype - Planning}
 

@@ -71,24 +71,24 @@
 \BOOKMARK [3][-]{subsubsection.12.3.1}{Resolution}{subsection.12.3}% 71
 \BOOKMARK [3][-]{subsubsection.12.3.2}{Output Format}{subsection.12.3}% 72
 \BOOKMARK [3][-]{subsubsection.12.3.3}{Resolution}{subsection.12.3}% 73
-\BOOKMARK [3][-]{figure.caption.57}{Grayscale Results}{subsection.12.3}% 74
+\BOOKMARK [3][-]{figure.caption.59}{Grayscale Results}{subsection.12.3}% 74
 \BOOKMARK [3][-]{subsubsection.12.3.5}{Sobel Edge Detection}{subsection.12.3}% 75
 \BOOKMARK [3][-]{subsubsection.12.3.6}{Results of Sobel Edge Detection}{subsection.12.3}% 76
-\BOOKMARK [2][-]{subsection.12.4}{Square\137Detection.C Algorithm}{section.12}% 77
+\BOOKMARK [2][-]{subsection.12.4}{Square\137detection.c Algorithm}{section.12}% 77
 \BOOKMARK [2][-]{subsection.12.5}{UART Communication - PSoC 6 to HUZZAH32 \(server\)}{section.12}% 78
 \BOOKMARK [2][-]{subsection.12.6}{The Original Plan for Wireless Communication}{section.12}% 79
 \BOOKMARK [3][-]{subsubsection.12.6.1}{Arduino Wireless Communication}{subsection.12.6}% 80
 \BOOKMARK [2][-]{subsection.12.7}{The Current Wireless Communication System}{section.12}% 81
 \BOOKMARK [3][-]{subsubsection.12.7.1}{Server}{subsection.12.7}% 82
 \BOOKMARK [3][-]{subsubsection.12.7.2}{Clients}{subsection.12.7}% 83
-\BOOKMARK [3][-]{subsubsection.12.7.3}{Serpentine.C Algorithm}{subsection.12.7}% 84
+\BOOKMARK [3][-]{subsubsection.12.7.3}{Serpentine.c Algorithm}{subsection.12.7}% 84
 \BOOKMARK [3][-]{subsubsection.12.7.4}{Stepper Motor Movement}{subsection.12.7}% 85
 \BOOKMARK [3][-]{subsubsection.12.7.5}{HC-SR04 Ultrasonic Sensor}{subsection.12.7}% 86
 \BOOKMARK [2][-]{subsection.12.8}{Hardware}{section.12}% 87
 \BOOKMARK [3][-]{subsubsection.12.8.1}{Using the Logic Analyzer}{subsection.12.8}% 88
 \BOOKMARK [3][-]{subsubsection.12.8.2}{Stepper Motor and Driver Connections}{subsection.12.8}% 89
 \BOOKMARK [3][-]{subsubsection.12.8.3}{Power Parameters}{subsection.12.8}% 90
-\BOOKMARK [3][-]{subsubsection.12.8.4}{PCBs}{subsection.12.8}% 91
+\BOOKMARK [3][-]{subsubsection.12.8.4}{Printed Circuit Boards \(PCBs\)}{subsection.12.8}% 91
 \BOOKMARK [2][-]{subsection.12.9}{Project Prototype - Planning}{section.12}% 92
 \BOOKMARK [3][-]{subsubsection.12.9.1}{Initial Prototype Design}{subsection.12.9}% 93
 \BOOKMARK [3][-]{subsubsection.12.9.2}{Final Prototype Design and Dimensions}{subsection.12.9}% 94
@@ -98,25 +98,25 @@
 \BOOKMARK [1][-]{section.13}{Stakeholder List}{}% 98
 \BOOKMARK [1][-]{section.14}{Project Approval Requirements}{}% 99
 \BOOKMARK [1][-]{section.15}{Approvals}{}% 100
-\BOOKMARK [1][-]{section*.89}{References}{}% 101
+\BOOKMARK [1][-]{section*.94}{References}{}% 101
 \BOOKMARK [1][-]{section.16}{Appendices}{}% 102
-\BOOKMARK [1][-]{section*.90}{Appendix 1 - transmitter\137xy.ino}{}% 103
-\BOOKMARK [1][-]{section*.91}{Appendix 2 - receiver\137x.ino}{}% 104
-\BOOKMARK [1][-]{section*.92}{Appendix 3 - main.c}{}% 105
-\BOOKMARK [1][-]{section*.93}{Appendix 4 - SPImaster.c}{}% 106
-\BOOKMARK [1][-]{section*.94}{Appendix 5 - SPImaster.h}{}% 107
-\BOOKMARK [1][-]{section*.95}{Appendix 6 - I2Cmaster.c}{}% 108
-\BOOKMARK [1][-]{section*.96}{Appendix 7 - I2Cmaster.h}{}% 109
-\BOOKMARK [1][-]{section*.97}{Appendix 8 - Arducam.c}{}% 110
-\BOOKMARK [1][-]{section*.98}{Appendix 9 - Arducam.h}{}% 111
-\BOOKMARK [1][-]{section*.99}{Appendix 10 - Improc.c}{}% 112
-\BOOKMARK [1][-]{section*.100}{Appendix 11 - Improc.h}{}% 113
-\BOOKMARK [1][-]{section*.101}{Appendix 12 - interface.h}{}% 114
-\BOOKMARK [1][-]{section*.102}{Appendix 13 - square\137detection.c}{}% 115
-\BOOKMARK [1][-]{section*.103}{Appendix 14 - serpentine.c}{}% 116
-\BOOKMARK [1][-]{section*.104}{Appendix 15 - stepper\137motors.py}{}% 117
-\BOOKMARK [1][-]{section*.105}{Appendix 16 - SMserver.py}{}% 118
-\BOOKMARK [1][-]{section*.106}{Appendix 17 - SMclientX.py}{}% 119
-\BOOKMARK [1][-]{section*.107}{Appendix 18 - SMclientY.py}{}% 120
-\BOOKMARK [1][-]{section*.108}{Appendix 19 - ultrasonic.py}{}% 121
-\BOOKMARK [1][-]{section*.109}{Appendix 20 - np\137lights.py}{}% 122
+\BOOKMARK [1][-]{section*.95}{Appendix 1 - transmitter\137xy.ino}{}% 103
+\BOOKMARK [1][-]{section*.96}{Appendix 2 - receiver\137x.ino}{}% 104
+\BOOKMARK [1][-]{section*.97}{Appendix 3 - main.c}{}% 105
+\BOOKMARK [1][-]{section*.98}{Appendix 4 - SPImaster.c}{}% 106
+\BOOKMARK [1][-]{section*.99}{Appendix 5 - SPImaster.h}{}% 107
+\BOOKMARK [1][-]{section*.100}{Appendix 6 - I2Cmaster.c}{}% 108
+\BOOKMARK [1][-]{section*.101}{Appendix 7 - I2Cmaster.h}{}% 109
+\BOOKMARK [1][-]{section*.102}{Appendix 8 - Arducam.c}{}% 110
+\BOOKMARK [1][-]{section*.103}{Appendix 9 - Arducam.h}{}% 111
+\BOOKMARK [1][-]{section*.104}{Appendix 10 - Improc.c}{}% 112
+\BOOKMARK [1][-]{section*.105}{Appendix 11 - Improc.h}{}% 113
+\BOOKMARK [1][-]{section*.106}{Appendix 12 - interface.h}{}% 114
+\BOOKMARK [1][-]{section*.107}{Appendix 13 - square\137detection.c}{}% 115
+\BOOKMARK [1][-]{section*.108}{Appendix 14 - serpentine.c}{}% 116
+\BOOKMARK [1][-]{section*.109}{Appendix 15 - stepper\137motors.py}{}% 117
+\BOOKMARK [1][-]{section*.110}{Appendix 16 - SMserver.py}{}% 118
+\BOOKMARK [1][-]{section*.111}{Appendix 17 - SMclientX.py}{}% 119
+\BOOKMARK [1][-]{section*.112}{Appendix 18 - SMclientY.py}{}% 120
+\BOOKMARK [1][-]{section*.113}{Appendix 19 - ultrasonic.py}{}% 121
+\BOOKMARK [1][-]{section*.114}{Appendix 20 - np\137lights.py}{}% 122

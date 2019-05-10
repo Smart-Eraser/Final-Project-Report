@@ -69,6 +69,14 @@ EBL, ``{EBL Li-ion 9V Battery Charger 5 Bay 9V 6F22 Lithium-ion Rechargeable
   Batteries},''
   \url{https://www.amazon.com/dp/B07GB3TSKH/?coliid=I3FJDEJ8MXP6RY\&colid=22YAOKWOJAKA9\&ref\_=lv\_ov\_lig\_dp\_it\&th=1}.
 
+\bibitem{supply}
+Digikey.com, ``{ TDK Lambda LS 150W Series},''
+  \url{https://www.digikey.com/product-detail/en/tdk-lambda-americas-inc/LS150-15/285-1812-ND/1918823}.
+
+\bibitem{batt}
+Adafruit.com, ``{USB Battery Pack - 2200 mAh Capacity - 5V 1A Output},''
+  \url{https://www.adafruit.com/product/1959}.
+
 \bibitem{accuride}
 Accuride, ``{Instructions Manual},''
   \url{https://www.accuride.com/amfile/file/download/file\_id/155/product\_id/2909/}.
