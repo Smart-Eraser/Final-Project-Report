@@ -1,3 +1,5 @@
+#starting code from http://mpy-tut.zoic.org/tut/motors.html
+
 import machine
 import time
 

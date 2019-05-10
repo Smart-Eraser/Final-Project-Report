@@ -19,9 +19,14 @@ I was expecting a `,' or a `}'---line 323 of file reference.bib
  : @misc{batt,
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 328 of file reference.bib
+ : 
+ : @misc{teststandard,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-(There were 4 error messages)
+(There were 5 error messages)

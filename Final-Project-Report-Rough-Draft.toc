@@ -38,7 +38,7 @@
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}5}Sobel Edge Detection}{22}{subsubsection.5.3.5}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}6}Socket Programming for Wireless Communication}{22}{subsubsection.5.3.6}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}7}Stepper Motor Operations}{23}{subsubsection.5.3.7}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}8}Moving the Eraser to the Markings}{24}{subsubsection.5.3.8}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}8}Moving the Eraser to the Markings}{23}{subsubsection.5.3.8}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-C}9}Proximity Sensing Using the Ultrasonic Sensor}{26}{subsubsection.5.3.9}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Physical Technological Components}{27}{subsection.5.4}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-D}1}Arducam}{27}{subsubsection.5.4.1}
@@ -77,18 +77,18 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-D}}\textit {Square\_detection.c} Algorithm}{59}{subsection.12.4}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-E}}UART Communication - PSoC 6 to HUZZAH32 (server)}{60}{subsection.12.5}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}}The Original Plan for Wireless Communication}{61}{subsection.12.6}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}1}Arduino Wireless Communication}{61}{subsubsection.12.6.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-F}1}Arduino Wireless Communication}{62}{subsubsection.12.6.1}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}}The Current Wireless Communication System}{65}{subsection.12.7}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}1}Server}{66}{subsubsection.12.7.1}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}2}Clients}{68}{subsubsection.12.7.2}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}3}\textit {Serpentine.c} Algorithm}{69}{subsubsection.12.7.3}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}4}Stepper Motor Movement}{70}{subsubsection.12.7.4}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-G}5}HC-SR04 Ultrasonic Sensor}{71}{subsubsection.12.7.5}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}}Hardware}{71}{subsection.12.8}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}1}Using the Logic Analyzer}{71}{subsubsection.12.8.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}}Hardware}{72}{subsection.12.8}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}1}Using the Logic Analyzer}{72}{subsubsection.12.8.1}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}2}Stepper Motor and Driver Connections}{72}{subsubsection.12.8.2}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}3}Power Parameters}{73}{subsubsection.12.8.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}4}Printed Circuit Boards (PCBs)}{73}{subsubsection.12.8.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-H}4}Printed Circuit Boards (PCBs)}{74}{subsubsection.12.8.4}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XII-I}}Project Prototype - Planning}{75}{subsection.12.9}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-I}1}Initial Prototype Design}{75}{subsubsection.12.9.1}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {XII-I}2}Final Prototype Design and Dimensions}{76}{subsubsection.12.9.2}
@@ -98,25 +98,26 @@
 \contentsline {section}{\numberline {XIII}Stakeholder List}{80}{section.13}
 \contentsline {section}{\numberline {XIV}Project Approval Requirements}{80}{section.14}
 \contentsline {section}{\numberline {XV}Approvals}{82}{section.15}
-\contentsline {section}{References}{83}{section*.94}
+\contentsline {section}{References}{83}{section*.95}
 \contentsline {section}{\numberline {XVI}Appendices}{84}{section.16}
-\contentsline {section}{Appendix 1 - \textit {transmitter\_xy.ino}}{84}{section*.95}
-\contentsline {section}{Appendix 2 - \textit {receiver\_x.ino}}{85}{section*.96}
-\contentsline {section}{Appendix 3 - \textit {main.c}}{86}{section*.97}
-\contentsline {section}{Appendix 4 - \textit {SPImaster.c}}{94}{section*.98}
-\contentsline {section}{Appendix 5 - \textit {SPImaster.h}}{96}{section*.99}
-\contentsline {section}{Appendix 6 - \textit {I2Cmaster.c}}{97}{section*.100}
-\contentsline {section}{Appendix 7 - \textit {I2Cmaster.h}}{100}{section*.101}
-\contentsline {section}{Appendix 8 - \textit {Arducam.c}}{101}{section*.102}
-\contentsline {section}{Appendix 9 - \textit {Arducam.h}}{112}{section*.103}
-\contentsline {section}{Appendix 10 - \textit {Improc.c}}{113}{section*.104}
-\contentsline {section}{Appendix 11 - \textit {Improc.h}}{117}{section*.105}
-\contentsline {section}{Appendix 12 - \textit {interface.h}}{118}{section*.106}
-\contentsline {section}{Appendix 13 - \textit {square\_detection.c}}{119}{section*.107}
-\contentsline {section}{Appendix 14 - \textit {serpentine.c}}{121}{section*.108}
-\contentsline {section}{Appendix 15 - \textit {stepper\_motors.py}}{123}{section*.109}
-\contentsline {section}{Appendix 16 - \textit {SMserver.py}}{124}{section*.110}
-\contentsline {section}{Appendix 17 - \textit {SMclientX.py}}{127}{section*.111}
-\contentsline {section}{Appendix 18 - \textit {SMclientY.py}}{130}{section*.112}
-\contentsline {section}{Appendix 19 - \textit {ultrasonic.py}}{135}{section*.113}
-\contentsline {section}{Appendix 20 - \textit {np\_lights.py}}{136}{section*.114}
+\contentsline {section}{Appendix 1 - \textit {transmitter\_xy.ino}}{84}{section*.96}
+\contentsline {section}{Appendix 2 - \textit {receiver\_x.ino}}{85}{section*.97}
+\contentsline {section}{Appendix 3 - \textit {main.c}}{86}{section*.98}
+\contentsline {section}{Appendix 4 - \textit {SPImaster.c}}{94}{section*.99}
+\contentsline {section}{Appendix 5 - \textit {SPImaster.h}}{96}{section*.100}
+\contentsline {section}{Appendix 6 - \textit {I2Cmaster.c}}{97}{section*.101}
+\contentsline {section}{Appendix 7 - \textit {I2Cmaster.h}}{100}{section*.102}
+\contentsline {section}{Appendix 8 - \textit {Arducam.c}}{101}{section*.103}
+\contentsline {section}{Appendix 9 - \textit {Arducam.h}}{112}{section*.104}
+\contentsline {section}{Appendix 10 - \textit {Improc.c}}{113}{section*.105}
+\contentsline {section}{Appendix 11 - \textit {Improc.h}}{117}{section*.106}
+\contentsline {section}{Appendix 12 - \textit {interface.h}}{118}{section*.107}
+\contentsline {section}{Appendix 13 - \textit {square\_detection.c}}{119}{section*.108}
+\contentsline {section}{Appendix 14 - \textit {serpentine.c}}{121}{section*.109}
+\contentsline {section}{Appendix 15 - \textit {stepper\_motors.py}}{123}{section*.110}
+\contentsline {section}{Appendix 16 - \textit {SMserver.py}}{124}{section*.111}
+\contentsline {section}{Appendix 17 - \textit {SMclientX.py}}{127}{section*.112}
+\contentsline {section}{Appendix 18 - \textit {SMclientY.py}}{132}{section*.113}
+\contentsline {section}{Appendix 19 - \textit {ultrasonic.py}}{137}{section*.114}
+\contentsline {section}{Appendix 20 - \textit {np\_lights.py}}{138}{section*.115}
+\contentsline {section}{Appendix 21 - \textit {UART.py}}{139}{section*.116}

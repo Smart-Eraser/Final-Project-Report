@@ -332,6 +332,11 @@
 	title			={{USB Battery Pack - 2200 mAh Capacity - 5V 1A Output}},
 	note			={\url{https://www.adafruit.com/product/1959}
 	}	
+@misc{teststandard,
+	author			={standards.ieee.org},
+	title			={{IEEE 829-2008 - IEEE Standard for Software and System Test Documentation}},
+	note			={\url{https://standards.ieee.org/standard/829-2008.html}
+	}	
 
 }
 \end{filecontents*}
@@ -479,8 +484,8 @@ Electrical and Computer Engineering Department \\
  	 5 & 4/21/19  	 & Heather Libecki		   & Updated Milestone Schedule, GANTT Charts, and \\ 
  	    &         		 & Chris Quesada  		   & Test Plan.	\\ 	
  	    \hline
- 	 6 & 4/21/19  	 & Heather Libecki		   & Put finishing touches on each section in \textit{Analysis}\\ 
- 	    &         		 & Chris Quesada  		   & \textit{and Design} section of report.\\
+ 	 6 & 4/21/19  	 & Heather Libecki		   & Put finishing touches on each section in Section~\ref{AnD}\\ 
+ 	    &         		 & Chris Quesada  		   & of the report.\\
  	    &				 & Juan Colin			& \\
  	    &				&						&	Added ultrasonic proximity sensor \\
  	    &                &                      & functionality.\\
@@ -525,7 +530,7 @@ The Smart Eraser is an apparatus that scans, detects, and intelligently erases m
 	\label{fig:rough}
 \end{figure}
 
-Figure~\ref{fig:rough} shows an overview of the final deliverable's mechanical and electrical components assembled with names of each item. These components and a small description of their role are listed next. For a more detailed description of each component and its role, see the \textit{Project Description and Boundaries} section of this report.
+Figure~\ref{fig:rough} shows an overview of the final deliverable's mechanical and electrical components assembled with names of each item. These components and a small description of their role are listed next. For a more detailed description of each component and its role, see Section~\ref{PDB} of this report.
 
 \begin{itemize}
 	\item \textit{Camera}: the Arducam ideally would have captured an image of a predefined (fixed) area on the whiteboard.
@@ -564,7 +569,7 @@ Figure~\ref{fig:rough} shows an overview of the final deliverable's mechanical a
 \setlength{\parindent}{2.5ex} During the project's life cycle, there were a number of deliverables that needed to be submitted to Dr. Stillmaker which were worked on by all three members to ensure a consistent flow of information throughout all written documentation, including the Project Charter and this report.
 
  \section{Project Objectives and Success Criteria}
-This section describes the objectives of the Smart Eraser. A more detailed description of the project can be found in the \textit{Project Description and Boundaries} section of this report.
+This section describes the objectives of the Smart Eraser. A more detailed description of the project can be found in Section~\ref{PDB} of this report.
 \subsection{Main Objectives}
 The main objectives the Smart Eraser have are listed next.
  \begin{itemize}
@@ -697,12 +702,12 @@ The following list outlines the relevant courses and the material they contain t
 	\end{itemize}
 \end{itemize}\par
  
-Based on the courses provided in the previous list, the following information was extracted from the knowledge gained while taking these classes over the last 3-4 years. Because the following information is from notes taken during these courses, there are no sources provided for where it was learned. More in depth research obtained from external sources and their references are located in the \textit{Project Description and Boundaries} section of this report.\\
+Based on the courses provided in the previous list, the following information was extracted from the knowledge gained while taking these classes over the last 3-4 years. Because the following information is from notes taken during these courses, there are no sources provided for where it was learned. More in depth research obtained from external sources and their references are located in Section~\ref{PDB} of this report.\\
 
 \subsubsection{Data Storage}
 The images taken from the camera need to be saved to the microcontroller in order to allow the image processing program to access them. Due to knowledge gained from the \textit{Computer Architecture and Organization} class, attempts at adding memory were made in order to account for the minimal memory provided by the 1 MB of flash. However, after ample time was spent trying to get it to work, this was abandoned in order to focus on delivering a working prototype that met our simple success criteria. Because virtual memory was not able to be added, only the flash memory was used to run our entire system which led to design changes in our algorithms. For example, only 80 rows of pixels could be stored in an array during a given processing cycle. This means that one-third of the image is processed at a time and then overwritten by the next one-third instead of being able to process all image data at once.\\
 \subsubsection{Translate Detected Markings into Coordinate System (Stepper Motor Rotations)}
-Through team collaboration, it was decided that each stepper motor rotation would represent one pixel length. This is how a coordinate system can be developed. For example, if the image processing algorithm picks up a mark that is 56 pixels from the left of the image, and 178 pixels from the top of the image, this would result in 56 partial rotations to the right on the x-axis motor and 178 partial rotations down on the y-axis motor. Further testing determined the partial angle of rotation needed to represent one pixel length, and is discussed further in the \textit{Stepper Motor Movement} sub-subsection of \textit{The Current Wireless Communication System} subsection of the \textit{Analysis and Design} section of this report. In order to line up the physical layout of the board with a 320x240 image window, indicators are placed on the board in order to know where the image area actually is.\\
+Through team collaboration, it was decided that each stepper motor rotation would represent one pixel length. This is how a coordinate system can be developed. For example, if the image processing algorithm picks up a mark that is 56 pixels from the left of the image, and 178 pixels from the top of the image, this would result in 56 partial rotations to the right on the x-axis motor and 178 partial rotations down on the y-axis motor. Further testing determined the partial angle of rotation needed to represent one pixel length, and is discussed further in Section~\ref{SMM} of this report. In order to line up the physical layout of the board with a 320x240 image window, indicators are placed on the board in order to know where the image area actually is.\\
 \subsubsection{Stepper Motor System Design}
 The stepper motors themselves have 6.35mm teeth bore flanges. These ``teeth'' are used to grip the pulleys that drive the movement of the linear motion system. In order to rotate the stepper motors. Specific stepper motor drivers (DM542T) are used in order to drive them. This stepper motor ``system'' is designed on a PCB in order to minimize odd connections and loose wires in the final product. Also attached to these stepper motor system's PCBs are an Adafruit HUZZAH32 Feather Board microcontroller that receives the instructions needed to make the stepper motors rotate the desired distance.\\
 \subsubsection{Microcontroller Involvement}
@@ -720,7 +725,7 @@ The instructions for the stepper motors need to be received wirelessly from the 
 \subsubsection{Ultrasonic Sensor Proximity Detection}
 One of the original goals for this project was to have a motion detection system to detect if a person was moving in front of the whiteboard. Rather than detecting motion, however, the ultrasonic sensor that is used in the project detects a change in proximity of an object to the sensor. Therefore, if it detects an object to be a specified distance away, it will warn the object that it is getting too close to the system. The Micropython and mechanics behind the sensor were learned about and used in the \textit{Micropython Lab} course.\\
 
-Additional research pertaining to these topics and how they were implemented in the project are in the \textit{Project Description and Boundaries} section of this report.   
+Additional research pertaining to these topics and how they were implemented in the project are in Section~\ref{PDB} of this report.   
 
 \subsection{Standards}
 \setlength{\parindent}{2.5ex} Based on the components and parts that were used in this project, the following standards were found to apply, and were followed during the creation and implementation of the Smart Eraser.
@@ -737,14 +742,8 @@ Additional research pertaining to these topics and how they were implemented in 
 	\begin{itemize}
 		\item Applies to the stepper motors being used and their operation \cite{nema1}
 	\end{itemize}
-	\item SPI Communications
-	\begin{itemize}
-		\item Defacto standard
-	\end{itemize}
-	\item I\textsuperscript{2}C Communications
-	\begin{itemize}
-		\item Defacto standard
-	\end{itemize}
+	\item SPI Standard of Communication
+	\item I\textsuperscript{2}C Standard of Communication
 	\item ITU-R Recommendation BT.709
 	\begin{itemize}
 		\item Applies to the coefficients used in the grayscale algorithm conversion \cite{rec709}
@@ -753,11 +752,15 @@ Additional research pertaining to these topics and how they were implemented in 
 	\begin{itemize}
 		\item Applies to the UART communication between the PSoC 6 and HUZZAH32 \cite{UARTstandard}
 	\end{itemize}
+	\item IEEE 829-2008 - IEEE Standard for Software and System Test Documentation \cite{teststandard}
+	\begin{itemize}
+		\item Applies to organization and carry-out of test plan and other testing documentation.
+	\end{itemize}
 \end{itemize}
  
-\section{Project Description and Boundaries}
-This section contains a list of the major and minor components that are used in this project, as well as a quick overview of each of these components and how they play a role in the Smart Eraser project, and some boundaries that were overcome in order to ensure the success of this project. For a more detailed description of the procedure followed and the actual implementation of each part, see the \textit{Analysis and Design} section of this report. \par
-\setlength{\parindent}{2.5ex}The following lists contain the major and minor components used in this project. More details about each major component's specifications and model numbers can be found in the \textit{Equipment and Budget} section of this report.
+\section{Project Description and Boundaries} \label{PDB}
+This section contains a list of the major and minor components that are used in this project, as well as a quick overview of each of these components and how they play a role in the Smart Eraser project, and some boundaries that were overcome in order to ensure the success of this project. For a more detailed description of the procedure followed and the actual implementation of each part, see Section~\ref{AnD} of this report. \par
+\setlength{\parindent}{2.5ex}The following lists contain the major and minor components used in this project. More details about each major component's specifications and model numbers can be found in Section~\ref{EB} of this report.
 
 
 \subsection{Major Components}
@@ -816,8 +819,8 @@ The purpose of including I\textsuperscript{2}C communication is both to initiali
  	\label{fig:I2Cwrite}
  \end{figure}
  
- \subsubsection{UART Communication}
-The communication of choice between two micro controllers is often UART as it allows for the simplest method to communicate. Since there is no master and no slave packet transmission is done through a 1 receiver and a 1 transmitter. 
+\subsubsection{UART Communication}
+The communication of choice between two micro controllers is often UART as it allows for the simplest method to communicate. Since there is no master and no slave, packet transmission is done through 1 receiver and 1 transmitter. Hardware was configured according to the RS-232 standard of serial communication \cite{UARTstandard} which means there is only 1 transmitter and one receiver on both ends. The communication mode is full duplex which allows for communication in both directions as well as at the same time. The interfaces of both will expect a baud rate of 9600, parity of even, 1 stop bit and a data frame that is 8 bits long.
 \begin{figure}[H]
 	\centering
 	{\includegraphics[max size={\textwidth}{\textheight}, scale=.85]{Images/UART.png}}
@@ -852,7 +855,7 @@ The communication of choice between two micro controllers is often UART as it al
 \subsubsection{Socket Programming for Wireless Communication}
  Due to malfunctioning hardware concerning the Arduinos and the Kuman wireless transceivers, the original idea for the wireless communication system had to be abandoned. The new concept is to use the HUZZAH32 Feather boards as the wireless transceivers that send and receive instructions for the stepper motors to execute. These boards can be programmed with either Micropython or Arduino programming languages, but in this project, they use Micropython to perform their tasks. One HUZZAH32 board is initialized as a transmitter (server) that connect to the PSoC 6 via an UART connection and receive the stepper motor instructions, then send these instructions to the stepper motors. Two other HUZZAH32 boards act as receivers (clients); one is attached to each stepper motor, and they receive the instructions for the stepper motors. They then give them the directions to move according to the instructions received. \par
  \setlength{\parindent}{2.5ex}
- Figure~\ref{fig:socket_comm} shows an example of a client-server interaction using socket programming. First a socket connection is created between the client and server. This establishes a connection between the two entities so they are able to communicate with one another. On the server side, the socket must be bound to the server's IP address, and then issued a command to listen for incoming connections. Once the client sends a request to connect, the server accepts the command if the proper authorization is followed. In this project's case, a password and server name was created to ensure no other connections could be made to the system when it was being presented on Projects Day. After the two systems have connected, they enter a client/server session where they can communicate and send data between each other. However, once a ``close'' signal is sent to the server, or when a file has completed transmission (this depends on how the cease to connect condition is set), the server finishes reading the data sent, sees the ``close'' command, then closes the connection between the two entities. To learn more about the actual implementation of this type of programming and how it was used in the project, see the \textit{The Current Wireless Communication System} subsection of the \textit{Analysis and Design} section of this report.
+ Figure~\ref{fig:socket_comm} shows an example of a client-server interaction using socket programming. First a socket connection is created between the client and server. This establishes a connection between the two entities so they are able to communicate with one another. On the server side, the socket must be bound to the server's IP address, and then issued a command to listen for incoming connections. Once the client sends a request to connect, the server accepts the command if the proper authorization is followed. In this project's case, a password and server name was created to ensure no other connections could be made to the system when it was being presented on Projects Day. After the two systems have connected, they enter a client/server session where they can communicate and send data between each other. However, once a ``close'' signal is sent to the server, or when a file has completed transmission (this depends on how the cease to connect condition is set), the server finishes reading the data sent, sees the ``close'' command, then closes the connection between the two entities. To learn more about the actual implementation of this type of programming and how it was used in the project, see Section~\ref{wireless} of this report.
  
    \begin{figure}[H]
  	\centering
@@ -875,7 +878,7 @@ The motor moves when these steps are sent to their corresponding lead connection
  \subsubsection{Moving the Eraser to the Markings}
  In order to move the stepper motors to the markings on the whiteboard, there are two algorithms: one detects the outermost edges of the markings, which essentially creates a ``square'' surrounding the markings, and the other creates a serpentine-like path within the square in order to eraser the markings. Figure~\ref{fig:serpconcept} shows the concept behind these two algorithms, if the whiteboard was divided into an 8x8 matrix. Figure~\ref{fig:squaredetect} shows the flowchart of the \textit{square\_detection.c} program that detects the square around the markings, and Figure~\ref{fig:serp} shows the flowchart of the \textit{serpentine.c} program that moves the eraser to erase the markings. \par
  \setlength{\parindent}{2.5ex}
- In order to create the correct rotation sequence for each motor, the serpentine code had to be split into two separate files for each motor and modified accordingly. For more information on this implementation, see the \textit{The Current Wireless Communication System} subsection of the \textit{Analysis and Design} section of this report.
+ In order to create the correct rotation sequence for each motor, the serpentine code had to be split into two separate files for each motor and modified accordingly. For more information on this implementation, see Section~\ref{wireless} of this report.
  
     \begin{figure}[H]
  	\centering
@@ -955,7 +958,7 @@ The HUZZAH32 by Adafruit is the main communication hardware for the stepper moto
 \end{figure}
 
 \subsubsection{PCBs}
-The PCB (Printed Circuit Board) is an intermediary device between the stepper motor drivers and the Feather board, as well as the additional power that is needed to power the motors and their drivers. This PCB was created by the PCB design software DipTrace, and contains connecting pins to ensure spatial efficiency, as well as to make sure all components are connected properly. Due to the wireless system needing to be changed last minute, the PCB will not be used. However, because it is work that was put into the project, it will still be talked about in the \textit{Analysis and Design} section of this report.\\
+The PCB (Printed Circuit Board) is an intermediary device between the stepper motor drivers and the Feather board, as well as the additional power that is needed to power the motors and their drivers. This PCB was created by the PCB design software DipTrace, and contains connecting pins to ensure spatial efficiency, as well as to make sure all components are connected properly. Due to the wireless system needing to be changed last minute, the PCB will not be used. However, because it is work that was put into the project, it will still be talked about in Section~\ref{AnD} of this report.\\
 
 \subsubsection{Additional Power}
 The chosen stepper motor drivers can handle a voltage input ranging from 20 - 50 V, and the stepper motors themselves can handle a voltage input from 24 - 48V. Therefore, the power source needs to be able to drive enough current to generate that range for the stepper motors. With this in mind, the 9V rechargeable lithium batteries were chosen for the additional power source when the Arduino and transceivers were being used for the wireless communication. Three of these batteries were connected in series on the PCB to provide the additional power needed to driver the motors and their drivers. The batteries can be recharged when they are depleted, which would allow them to be reused many times for the prototype as well.
@@ -1038,7 +1041,7 @@ The main screws used were 3 inch T-25 star-headed screws. These were used to att
 \setlength{\parindent}{2.5ex}
 Washers and nuts were used to connect the pulley belt to the carriages on the x and y axes, which allow the eraser to move when the stepper motors rotate. Nuts and bolts were then used to connect the stepper motor system to the y axis. A metal L brace was used to mount the other flange to the opposite side of each axis from the stepper motors. Finally, braces were used to clamp the eraser to the carriage that moves across the Y axis.\par
 \setlength{\parindent}{2.5ex}
-The dimensions of the whiteboard prototype are shown in the next two figures. More information and details about how the system was created, built, and complete can be found in the \textit{Project Prototype} section of this report.
+The dimensions of the whiteboard prototype are shown in the next two figures. More information and details about how the system was created, built, and complete can be found in Section~\ref{mount} of this report.
 
    \begin{figure}[H]
 	\centering
@@ -1189,9 +1192,9 @@ Table~\ref{table:3}, Table~\ref{table:4}, and Table~\ref{table:5} show the miles
 		\hline
 		All & 1/6/19 - 1/9/19 			& Complete budget increase justification and send to Dr. Stillmaker. \\
 		\hline
-		Juan C. & 1/6/19-1/16/19	 	& Assist in research of how to get Linux onto DE1\_SoC Board; research the \\
-				&						& micro SD card needed and the how to implement the QSYS system \\
-				&						& to run with Linux. \\
+		Juan C. & 1/6/19-1/16/19	 	& Assist in research of how to get Linux onto DE1\_SoC Board; \\
+				&						& research the micro SD card needed and the how to implement the \\
+				&						& QSYS system to run with Linux. \\
 		\hline
 		Heather L. & 1/15/19 - 1/20/19 	& Figure out how stepper motors programmed with Arduino. \\
 		\hline
@@ -1389,7 +1392,7 @@ Figure~\ref{fig:GANTT186A} and Figure~\ref{fig:GANTT186B} show the GANTT chart s
 	\label{fig:GANTT186B}
 \end{figure}
 
-\section{Equipment and Budget}
+\section{Equipment and Budget} \label{EB}
 Table~\ref{table:1} lists the components that were bought in order to complete the Smart Eraser, as well as the company that made them and their cost. The costs are listed without taxes and shipping costs taken into account, but the total of the budget at the bottom of the table includes these. The components are listed in alphanumeric order.
 \setlength{\parindent}{5ex}
 \begin{table} [H]
@@ -1546,7 +1549,7 @@ Has experience in working with embedded systems and developing code for differen
 	tabsize=3
 }
 
-\section{Analysis and Design}
+\section{Analysis and Design} \label{AnD}
 
 In this section, the implementation of the components that came together to make the Smart Eraser functional will be described.
 
@@ -1577,7 +1580,7 @@ In the file Arducam.C, found in ~\ref{A8}, MyCam\_Init() uses the Write\_I2C() f
  \begin{figure}[H]
 	\centering
 	{\includegraphics[max size={\textwidth}{\textheight}, scale=1]{Images/I2Chardware.png}}
-	\caption{Hardware Configuration of I2C}
+	\caption{Hardware Configuration of I2C using Modus Toolbox}
 	\label{fig:I2Chardware}
 \end{figure}
 
@@ -1614,14 +1617,14 @@ The Write\_SPI() function uses a combination of the APIs provided by Cypress in 
  \begin{figure}[H]
 	\centering
 	{\includegraphics[max size={\textwidth}{\textheight}, scale=.9]{Images/SPIconfig1.png}}
-	\caption{Hardware configuration of SPI (1)}
+	\caption{Hardware configuration of SPI in Modus Toolbox (1)}
 	\label{fig:SPIconfig1}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	{\includegraphics[max size={\textwidth}{\textheight}, scale=.9]{Images/SPIconfig2.png}}
-	\caption{Hardware configuration of SPI (2)}
+	\caption{Hardware configuration of SPI in Modus Toolbox (2)}
 	\label{fig:SPIconfig2}
 \end{figure}
 
@@ -1682,7 +1685,7 @@ Once again, which method that is used is not important, it is separating the int
 	\label{fig:Seperate_Intensities}
 \end{figure}
 
-With the newly separated values as is, R and B represent shades of gray on a scale of 0 to 32 whereas G represents shades of gray on a scale of 0 to 64. If these values were to be used in one of the grayscale conversion algorithms, an image in shades of purple would be generated. This is known because it isn’t clearly stated anywhere that when using these conversion formulas, the intensities have to be represented by the same number of bits and therefore initial trials did not take this into account. Therefore some simple shifting is required before the formulas can be used. All intensities were upscaled to 8 bits so that values are compared on the complete range of grays (0 - 255) rather than descaling the green intensity down to 5 bits so that values are compared on a smaller, incomplete range of grays (0 - 32). 
+With the newly separated values as is, R and B represent shades of gray on a scale of 0 to 32 whereas G represents shades of gray on a scale of 0 to 64. If these values were to be used in one of the grayscale conversion algorithms, an image in shades of purple would be generated. This is known because it isn't clearly stated anywhere that when using these conversion formulas, the intensities have to be represented by the same number of bits and therefore initial trials did not take this into account. Therefore some simple shifting is required before the formulas can be used. All intensities were upscaled to 8 bits so that values are compared on the complete range of grays (0 - 255) rather than descaling the green intensity down to 5 bits so that values are compared on a smaller, incomplete range of grays (0 - 32). 
 
 \begin{figure}[H]
 	\centering
@@ -1699,7 +1702,7 @@ B	= (pixel \& 0b0000000000011111) << 3;
 \end{lstlisting}
 \textit{Code is from conv2gray() in ImProc.C located in section ~\ref{A10}}\\
 
-At this point the RGB values are ready to be run through the conversion formula to generate a gray pixel value, in 8 bits. This gray value will then be used as the new R, G and B intensities of the original pixel, creating a shade of gray in the RGB565 format.  To build this new RGB565 pixel, the process up until now is done in reverse. New variables are created to hold “processed” values of RGB that are of type uint16\_t, to match the original pixel data length. 
+At this point the RGB values are ready to be run through the conversion formula to generate a gray pixel value, in 8 bits. This gray value will then be used as the new R, G and B intensities of the original pixel, creating a shade of gray in the RGB565 format.  To build this new RGB565 pixel, the process up until now is done in reverse. New variables are created to hold ``processed'' values of RGB that are of type uint16\_t, to match the original pixel data length. 
 
 \begin{figure}[H]
 	\centering
@@ -1745,7 +1748,7 @@ pixel = (uint16\_t)(R\_processed + G\_processed + B\_processed);
 \FloatBarrier
 
 \subsubsection{Sobel Edge Detection}
-Sobel edge detection is an edge detection algorithm that uses a sobel kernel to detect differences in intensities at each pixel location. This is done by convolving a sobel kernel through each pixel in an image array. The pixel information must be grayscale in order for changes in intensity to be seen. A sobel kernel is a 3x3 array containing specific values to determine changes in values (gradients) from one edge to another. This has to be done for both vertical and horizontal edges, so there will be a kernel for each. The values inside the kernel are what make it a Sobel kernel. Using different values would classify it as a different type such as, Sobel–Feldman or Scharr. 
+Sobel edge detection is an edge detection algorithm that uses a sobel kernel to detect differences in intensities at each pixel location. This is done by convolving a sobel kernel through each pixel in an image array. The pixel information must be grayscale in order for changes in intensity to be seen. A sobel kernel is a 3x3 array containing specific values to determine changes in values (gradients) from one edge to another. This has to be done for both vertical and horizontal edges, so there will be a kernel for each. The values inside the kernel are what make it a Sobel kernel. Using different values would classify it as a different type such as, Sobel-Feldman or Scharr. 
 
 \begin{figure}[H]
 	\centering
@@ -1813,20 +1816,20 @@ G = (sqrt(pow(Gx,2) + pow(Gy,2)));
 
 \textit{Code is from sobel() in ImProc.C located in section ~\ref{A10}}
 
-The total magnitude G is now compared against a threshold value, which can be manipulated to adjust the strength of edge detection. If only sharp changes in intensity are desired, to be recognized as an edge then you would set the threshold value very high and if any change of intensity is desired then the threshold will be set very low. It is a trial and error to see if the image turns out correctly or not and is easily adjustable. Conditional statements are used to then compare against this threshold to set a pixel value to either white (detected edge, G is above threshold) or black (nothing detected, G is below threshold).
+The total magnitude G is now compared against a threshold value, which can be manipulated to adjust the strength of edge detection. If only sharp changes in intensity are desired, to be recognized as an edge then you would set the threshold value very high and if any change of intensity is desired then the threshold will be set very low. It is a trial and error to see if the image turns out correctly or not and is easily adjustable. Conditional statements are used to then compare against this threshold to set a pixel value to either white (detected edge, G is above threshold) or black (nothing detected, G is below threshold).\\
 
 \subsubsection{Results of Sobel Edge Detection}
 \textcolor{white}{This text is so the following figure will be below this heading!}
 
 \begin{figure}[H]
 	\centering
-	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/sobelResult.png}}
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.5]{Images/sobelResult.png}}
 	\caption{Results of Sobel edge detection}
 	\label{fig:sobelResults}
 \end{figure}
 
 \subsection{\textit{Square\_detection.c} Algorithm}
-In order to begin the process of the eraser moving to the correct locations on the whiteboard, a rough detection of where the markings are located on the board needs to be found first. Using the array that the sobel edge detection algorithm produced, an algorithm was created to detect essentially the ``square'' in which the data was located. That is, it detects the top-most, left-most, bottom-most, and right-most locations of the white pixels in the finished array in order to create a virtual ``square'' around the data. The flowchart for the logic of the algorithm is shown in \ref{fig:squaredetect} in the \textit{Project Description and Boundaries} section of this report. See Figure~\ref{fig:serpentine} for a visual representation, with an example of the board being divided into an 8x8 grid. In this example, the ``square'' coordinates for the top, left, bottom, and right-most markings is 2, 3, 6, 7 respectively, with the origin of the x and y axis being at the top-left corner of the board. This is how the system will know where to erase the data. The blue-arrowed path in the next figure represents the serpentine.c program, which is explained in the \textit{Serpentine.c} Algorithm section of this report.
+In order to begin the process of the eraser moving to the correct locations on the whiteboard, a rough detection of where the markings are located on the board needs to be found first. Using the array that the sobel edge detection algorithm produced, an algorithm was created to detect essentially the ``square'' in which the data was located. That is, it detects the top-most, left-most, bottom-most, and right-most locations of the white pixels in the finished array in order to create a virtual ``square'' around the data. The flowchart for the logic of the algorithm is shown in \ref{fig:squaredetect} in Section~\ref{PDB} of this report. See Figure~\ref{fig:serpentine} for a visual representation, with an example of the board being divided into an 8x8 grid. In this example, the ``square'' coordinates for the top, left, bottom, and right-most markings is 2, 3, 6, 7 respectively, with the origin of the x and y axis being at the top-left corner of the board. This is how the system will know where to erase the data. The blue-arrowed path in the next figure represents the serpentine.c program, which is explained in Section~\ref{serp} of this report.
 
 \begin{figure}[H]
 	\centering
@@ -1835,7 +1838,7 @@ In order to begin the process of the eraser moving to the correct locations on t
 	\label{fig:serpentine}
 \end{figure}
 
-The actual code for this algorithm has been completed using a ``dummy'' matrix with random values of 0s and 1s representing blank space and markings. The code for this is in \textit{Appendix 3} of this report. The result with this dummy matrix is shown in Figure~\ref{fig:square_result}. This program is then combined with the \textit{serpentine.c} algorithm explained in the \textit{Serpentine.c Algorithm} section of this report.
+The actual code for this algorithm has been completed using a ``dummy'' matrix with random values of 0s and 1s representing blank space and markings. The code for this is in Appendix~\ref{A3} of this report. The result with this dummy matrix is shown in Figure~\ref{fig:square_result}. This program is then combined with the \textit{serpentine.c} algorithm explained in Section~\ref{serp} of this report.
 
 \begin{figure}[H]
 	\centering
@@ -1852,6 +1855,13 @@ Universal Asynchronous Receiver/Transmitter (UART) was chosen as the communicati
 	{\includegraphics[max size={\textwidth}{\textheight}, scale=.95]{Images/UARTpacket.png}}
 	\caption{UART packet contents \cite{UARTmessage}}
 	\label{fig:UARTpacket}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=.95]{Images/UARThardware.png}}
+	\caption{Hardware configuration of UART SCB using Modus Toolbox}
+	\label{fig:UARThardware}
 \end{figure}
 
 \noindent The original plan was to communicate with I\textsuperscript{2}C because the PSoC 6 already had a configured SCB for master I\textsuperscript{2}C transferring capabilities. However, due to limitations with the HUZZAH32 (currently only configurable as master (both SPI and I\textsuperscript{2}C)) UART was chosen instead. While researching UART it was found that this is often the chosen method of communication between MCUs so it worked out being the best option anyways. The code implementation of sending packets to the server (written in C) and how the server receives the packets (written in Python) is shown below:\\
@@ -1879,7 +1889,7 @@ def UARTread():
 
 \subsection{The Original Plan for Wireless Communication}
 
-When this project was originally started, the idea was to use wires to connect all of the components. This meant that a long wire would need to be used to connect the components on the Y-axis of the whiteboard in order to allow it to move. This idea was abandoned when everyone involved realized that not only would wireless communication allow for a more “pleasing to the eye” design, but would also add a layer of complexity to the project’s difficulty. \par
+When this project was originally started, the idea was to use wires to connect all of the components. This meant that a long wire would need to be used to connect the components on the Y-axis of the whiteboard in order to allow it to move. This idea was abandoned when everyone involved realized that not only would wireless communication allow for a more ``pleasing to the eye'' design, but would also add a layer of complexity to the project's difficulty. \par
 \setlength{\parindent}{2.5ex}
 The original plan for the wireless communication was to use Raspberry Pi boards that would connect to the DE1\_SoC wirelessly via a wireless dongle that would plug into the DE1\_SoC. However, the transceivers that were found that would allow the Raspberry Pi boards to be wireless were only compatible with Arduino boards, so the Raspberry Pi was changed to Arduino. Soon after, problems arose from using the DE1\_SoC, so the microcontroller changed to the PSoC 6, and the new plan became to hardwire the transmitter Arduino to the PSoC 6. \\
 
@@ -1938,7 +1948,7 @@ For the code of the receiver, the template code was taken from the example shown
 When both of these programs ran, they each received the instructions wirelessly and were able to move the stepper motors the right degree of rotation. However, unfortunately, due to an unknown reason the wireless communication stopped working with about 30 days left to complete the project. The most likely culprit for the malfunction may have been due to faulty transceivers; upon further inspection of the reviews left by those who have used these devices in the past, many did not work correctly upon arrival. Therefore, this method of wireless communication had to be replaced with three HUZZAH32 Feather boards by Adafruit, with one being used as a host server (a.k.a. the transmitter) and two being used as clients to the server (a.k.a. the receivers). This leads to the current wireless communication system, which is a connection between a `host' or `server' (which acts as the transmitter) and the `client' (which acts as the receievr).\\
 
 
-\subsection{The Current Wireless Communication System}
+\subsection{The Current Wireless Communication System} \label{wireless}
 The decided upon wireless communication system was to use a client/server implemented on HUZZAH32s. One would act as the server, directly interacting with the PSoC 6 and the other two would be clients, attached to the stepper motor systems. Using micropython, the server uses libraries and socket programming in order to achieve this. Both clients and server will be set up as stations and a router will be used in order for the server to talk to the clients. There are few things that are necessary in order for this to work. There needs to be two separate IP addresses for the network and server as well as defining a port on the server side so that the clients know what to look for. Lastly, as this is a TCP connection, there must be acknowledgment for every packet sent. These ACKs are handled behind the scenes through the Python socket library. 
 
 \begin{figure}[H]
@@ -2014,7 +2024,7 @@ lock.release()
 \end{lstlisting}
 \textit{Code is from SMclientX.py located in section ~\ref{A17}}\\
 
-\subsubsection{\textit{Serpentine.c} Algorithm}
+\subsubsection{\textit{Serpentine.c} Algorithm} \label{serp}
 
 After finding the square in which all the data is contained on the whiteboard, another algorithm takes the edges of the square detected and creates a series of instructions for the stepper motors. The logic flowchart of this algorithm is shown in Figure~\ref{fig:serp} These instructions are the number of rotations needed to move the stepper motors in a certain direct, and are given to each motor serially to take a similar path to the one shown in Figure~\ref{fig:serpentine}. First, the motors are given the instructions to move to the top-left space of the data square. Then, the X-axis motor is continually given instructions to move from the far left side of the square to the far right of it, and the Y-axis motor is continually given instructions to move down one rotation in order to traverse down the square until all the material is erased. The algorithm then checks to see if the eraser stopped on the right side or the left side of the square based on how many rotations it needed to take to erase the markings. Based on this position, it gives the final instructions to the stepper motors to move the eraser back to its stand-by position at the top left of the entire whiteboard to await the next instructions sent to it.
 When this program is ran with dummy values, it sends the correct sequence of instructions to the x and y stepper motors in the format of the number of rotations it needs to take if it were traversing the same dummy matrix from the \textit{square\_detection.c} algorithm.
@@ -2027,13 +2037,13 @@ When this program is ran with dummy values, it sends the correct sequence of ins
 \end{figure}
 
 
-\subsubsection{Stepper Motor Movement}
+\subsubsection{Stepper Motor Movement} \label{SMM}
 The stepper motors that were chosen for this project are the NEMA 23 CNC stepper motors. Stepper motors contain magnetic coils surrounding a magnetic rotor that need to be powered in a certain sequence in order for the rotor to turn in either a clockwise (CW) or counter-clockwise (CCW) rotation. This particular stepper motor is a 2-phase bipolar motor, meaning it contains 2 groups of coils, and it uses all coils within the motor to work to turn the motor the direction needed. A layout of the inside of this motor is shown in Figure~\ref{fig:rotor}, which shows how the coil windings are oriented in comparison with the rotor. The different color names represent the colors of the wires that need to be connected to the stepper motor driver.
 
 \begin{figure}[H]
 	\centering
 	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/rotor.png}}
-	\caption{Rotor and coil layout in the bipolar 2-phase NEMA 23 stepper motor}
+	\caption{Rotor and coil layout in the bipolar 2-phase NEMA 23 stepper motor \cite{smdataR}}
 	\label{fig:rotor}
 \end{figure}
 
@@ -2042,13 +2052,13 @@ The specific combination of pulses in the order they need to be for CW and CCW m
 \begin{figure}[H]
 	\centering
 	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.6]{Images/bipolar_table.png}}
-	\caption{Labeling of lead colors corresponding to winding inputs}
+	\caption{Labeling of lead colors corresponding to winding inputs \cite{smdataR}}
 	\label{fig:bipolar}
 \end{figure}
 
 Because of the libraries included in the Arduino library, the code for the stepper motors was as simple as initializing the stepper motor pins being used as shown in Appendix 2, setting the speed in the initialization loop, then putting the number of rotations per minute into the function defined. However, because the wireless communication unfortunately stopped working, the code for the stepper motors to move needed to be redone in Micropython in order to allow the motors to move with the new HUZZAH32 boards being used for the wireless communications.\par
 \setlength{\parindent}{2.5ex}
-With the HUZZAH32 microcontrollers, the stepper motor code is also straight forward, as the coding language they use is Micropython. In this language, the code is as simple as putting the correct phases in 4 steps (as shown in Figure~\ref{fig:smdata}) by listing them as numbers in an array, then sending those steps to the stepper motor serially. If the motor needs to rotate in the counter clockwise direction, the array with the 4 steps can be reversed using the \textit{.reverse()}. A check condition checks for a negative number in order to perform this operation. The code for this part is in \textit{Appendix 15} of this report. The results of this code running are the stepper motors rotating depending on the number put into the variable `x'. \\
+With the HUZZAH32 microcontrollers, the stepper motor code is also straight forward, as the coding language they use is Micropython. In this language, the code is as simple as putting the correct phases in 4 steps (as shown in Figure~\ref{fig:smdata}) by listing them as numbers in an array, then sending those steps to the stepper motor serially. If the motor needs to rotate in the counter clockwise direction, the array with the 4 steps can be reversed using the \textit{.reverse()}. A check condition checks for a negative number in order to perform this operation. The code for this part is in Appendix~\ref{A15} of this report. The results of this code running are the stepper motors rotating depending on the number put into the variable `x'. \\
 
 \subsubsection{HC-SR04 Ultrasonic Sensor}
 The HC-SR04 is an ultrasonic sensor that can detect objects between the range of 2 cm to 4 m. To detect objects, a pulse is sent via the trigger pin (minimum of 10 µs), which triggers an 8 cycle 40 kHz burst of ultrasound. The time it takes to receive the echo of that burst can be used to calculate the distance of the object. Because the frequency is relatively high, the HC-SR04 Is a shorter-range sensor (4m is approximately 13 feet). This means that to increase the range of detection, the frequency would need to be lowered. The sensor needs to be connected to a microcontroller and be provided with 5V (not 3.3V), a ground, and 2 connections to GPIO pins (for the trigger and echo signals). 
@@ -2169,8 +2179,8 @@ After the initial conception of the prototype stand, more definitive dimensions 
 
 \begin{figure}[H]
 	\centering
-	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.65]{Images/front_view.png}}
-	\caption{The front view of the prototype stand schematic}
+	{\includegraphics[max size={\textwidth}{\textheight}, scale=0.5]{Images/front_view.png}}
+	\caption{The front view of the prototype stand schematic with dimensions}
 	\label{fig:sideview}
 \end{figure}
 
@@ -2187,7 +2197,7 @@ After finishing the conception of the prototype, building it and putting everyth
 \subsection{Project Prototype - Building}
 Building the prototype took approximately 3 days; one day for connecting all of the wood pieces, and 2 for connecting all of the tracks, stepper motors, and making sure they would all be able to work together if motors rotated the pieces. An additional day was needed a couple weeks later to mount the smaller pieces, including the motor drivers and power systems. The following sections detail the steps that were took to put the system together, and they also contain images of the finished product.
 
-\subsubsection{Component Mounting Steps}
+\subsubsection{Component Mounting Steps} \label{mount}
 
 The following list contains the steps that were followed when putting the stand together.
 
@@ -2468,6 +2478,12 @@ Finally, the original plan did not account for how tall the components would be 
 \addcontentsline{toc}{section}{Appendix 20 - \textit{np\_lights.py}}
 
 \lstinputlisting{Appendices/np_lights.py}
+\newpage
+
+\subsection*{Appendix 21 - \textit{UART.py}}\label{A21}
+\addcontentsline{toc}{section}{Appendix 21 - \textit{UART.py}}
+
+\lstinputlisting{Appendices/UART.py}
 
  
 \end{document}

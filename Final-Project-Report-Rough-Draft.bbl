@@ -151,6 +151,11 @@ W.~contributors, ``{Rec. 709},'' \url{https://en.wikipedia.org/wiki/Rec._709}.
 electronicsnotes, ``{Serial data transmission standards},''
   \url{https://www.electronics-notes.com/articles/connectivity/serial-data-communications/transmission-standards.php}.
 
+\bibitem{teststandard}
+standards.ieee.org, ``{IEEE 829-2008 - IEEE Standard for Software and System
+  Test Documentation},''
+  \url{https://standards.ieee.org/standard/829-2008.html}.
+
 \bibitem{Helland}
 T.~Helland, ``{Seven grayscale conversion algorithms (with pseudocode and VB6
   source code)},''
