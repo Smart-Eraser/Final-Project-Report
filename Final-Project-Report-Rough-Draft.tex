@@ -516,7 +516,7 @@ The Smart Eraser is an apparatus that scans, detects, and intelligently erases m
 \setlength{\parindent}{2.5ex}Due to memory constraints in place on the microcontroller used to do all of the image processing, the final rendition of the project needed the instructions for the stepper motors to be split into 3 parts: the top 1/3 of the board, the middle 1/3, and the bottom 1/3. Therefore, the program tells the eraser to move to the markings in the top 1/3, then the middle, then the bottom. In between each step, the eraser moves back to its stand by position to get ready for the next set of instructions. 
 \newpage
 \par
-\setlength{\parindent}{2.5ex}The following figure is a simple pictorial representation of the final product.
+\setlength{\parindent}{2.5ex}Figure~\ref{fig:rough} is a simple pictorial representation of the final product.
 
 \begin{figure}[H]
 	\centering
@@ -791,7 +791,7 @@ This section contains a list of the major and minor components that are used in 
 
 \subsection{Software Components}
 \subsubsection{SPI Communication}
-SPI communication is used in order to talk to the SPI interface of the Arducam-5MP- mini- plus. The PSoC 6 acts as the master and the Arducam acts as the slave. In order for successful communication between the the two, the PSoC 6 needs to send a command byte where the MSB is either a 1 for `write' or 0 for `read' and the other 6 bits represent an address in the Arducam. If the command bytes sent is a write command, the byte sent directly after is the data to be written to the register address. If the command byte sent is a read command, the byte sent directly after does not matter, often referred to as a dummy byte. The purpose of the SPI communication is to initiate captures from the image sensor and to then poll register 0x41 for a capture complete signal of 0x08. Once a capture complete signal has been read, transferring of the image data can ensue. These processes are shown in the following figures.
+SPI communication is used in order to talk to the SPI interface of the Arducam-5MP- mini- plus. The PSoC 6 acts as the master and the Arducam acts as the slave. In order for successful communication between the the two, the PSoC 6 needs to send a command byte where the MSB is either a 1 for `write' or 0 for `read' and the other 6 bits represent an address in the Arducam. If the command bytes sent is a write command, the byte sent directly after is the data to be written to the register address. If the command byte sent is a read command, the byte sent directly after does not matter, often referred to as a dummy byte. The purpose of the SPI communication is to initiate captures from the image sensor and to then poll register 0x41 for a capture complete signal of 0x08. Once a capture complete signal has been read, transferring of the image data can ensue. These processes are shown in Figure~\ref{fig:spiread} and Figure~\ref{fig:spiwrite}.
 
 \begin{figure}[H]
 	\centering
@@ -840,7 +840,7 @@ The communication of choice between two micro controllers is often UART as it al
  \end{figure}
  
  \subsubsection{Sobel Edge Detection}
- After grayscale pixels have been generated, a sobel edge detection algorithm is used in order to detect edges in an image. This is done by convolving sobel kernels, one vertical one horizontal, through the array of gray pixels. This is shown in the following figure. By doing this, you can find the gradients in both the X and Y direction which is eventually be used in the Pythagorean Theorem to determine the magnitude of the gradient at that pixel location. The magnitude value is then compared against a threshold value (this threshold value can be altered to fit one's needs).
+ After grayscale pixels have been generated, a sobel edge detection algorithm is used in order to detect edges in an image. This is done by convolving sobel kernels, one vertical one horizontal, through the array of gray pixels. This is shown in Figure~\ref{fig:sobel}. By doing this, you can find the gradients in both the X and Y direction which is eventually be used in the Pythagorean Theorem to determine the magnitude of the gradient at that pixel location. The magnitude value is then compared against a threshold value (this threshold value can be altered to fit one's needs).
  
   \begin{figure}[H]
  	\centering
@@ -852,7 +852,7 @@ The communication of choice between two micro controllers is often UART as it al
 \subsubsection{Socket Programming for Wireless Communication}
  Due to malfunctioning hardware concerning the Arduinos and the Kuman wireless transceivers, the original idea for the wireless communication system had to be abandoned. The new concept is to use the HUZZAH32 Feather boards as the wireless transceivers that send and receive instructions for the stepper motors to execute. These boards can be programmed with either Micropython or Arduino programming languages, but in this project, they use Micropython to perform their tasks. One HUZZAH32 board is initialized as a transmitter (server) that connect to the PSoC 6 via an UART connection and receive the stepper motor instructions, then send these instructions to the stepper motors. Two other HUZZAH32 boards act as receivers (clients); one is attached to each stepper motor, and they receive the instructions for the stepper motors. They then give them the directions to move according to the instructions received. \par
  \setlength{\parindent}{2.5ex}
- The following figure shows an example of a client-server interaction using socket programming. First a socket connection is created between the client and server. This establishes a connection between the two entities so they are able to communicate with one another. On the server side, the socket must be bound to the server's IP address, and then issued a command to listen for incoming connections. Once the client sends a request to connect, the server accepts the command if the proper authorization is followed. In this project's case, a password and server name was created to ensure no other connections could be made to the system when it was being presented on Projects Day. After the two systems have connected, they enter a client/server session where they can communicate and send data between each other. However, once a ``close'' signal is sent to the server, or when a file has completed transmission (this depends on how the cease to connect condition is set), the server finishes reading the data sent, sees the ``close'' command, then closes the connection between the two entities. To learn more about the actual implementation of this type of programming and how it was used in the project, see the \textit{The Current Wireless Communication System} subsection of the \textit{Analysis and Design} section of this report.
+ Figure~\ref{fig:socket_comm} shows an example of a client-server interaction using socket programming. First a socket connection is created between the client and server. This establishes a connection between the two entities so they are able to communicate with one another. On the server side, the socket must be bound to the server's IP address, and then issued a command to listen for incoming connections. Once the client sends a request to connect, the server accepts the command if the proper authorization is followed. In this project's case, a password and server name was created to ensure no other connections could be made to the system when it was being presented on Projects Day. After the two systems have connected, they enter a client/server session where they can communicate and send data between each other. However, once a ``close'' signal is sent to the server, or when a file has completed transmission (this depends on how the cease to connect condition is set), the server finishes reading the data sent, sees the ``close'' command, then closes the connection between the two entities. To learn more about the actual implementation of this type of programming and how it was used in the project, see the \textit{The Current Wireless Communication System} subsection of the \textit{Analysis and Design} section of this report.
  
    \begin{figure}[H]
  	\centering
@@ -989,7 +989,7 @@ In order to power the HUZZAH32 boards, another type of power supply was used. A 
 
 \subsubsection{Linear Motion Track System}
 
-The model 115RC linear motion track system allows the eraser to move in the x-axis direction of the whiteboard. There are two tracks mounted above and below the whiteboard, and attached to the cassettes with washers and nuts is a third track that allows the eraser to move in the y-axis direction of the whiteboard. The y-axis of the tracking system was pre-drilled at both ends with a 7/32 inch drill bit in order to be placed on the m5 screw of the x-axis carriages. The y-axis was also pre-drilled with a 11/32 inch drill bit in order to attach the housing unit of the stepper motor system. The dimensions of the track systems and the carriages in them are shown in the following figure.
+The model 115RC linear motion track system allows the eraser to move in the x-axis direction of the whiteboard. There are two tracks mounted above and below the whiteboard, and attached to the cassettes with washers and nuts is a third track that allows the eraser to move in the y-axis direction of the whiteboard. The y-axis of the tracking system was pre-drilled at both ends with a 7/32 inch drill bit in order to be placed on the m5 screw of the x-axis carriages. The y-axis was also pre-drilled with a 11/32 inch drill bit in order to attach the housing unit of the stepper motor system. The dimensions of the track systems and the carriages in them are shown in Figure~\ref{fig:accuride}.
 
    \begin{figure}[H]
 	\centering
@@ -1025,7 +1025,7 @@ The pulley system consists of two components: a GT2 40-teeth 6.35 mm bore timing
 \end{figure}
 
 \subsection{Prototype Mounting Components}
-The following figure shows a rough view of what the final prototype will look like when it is mounted on the mobile station. The specifics components for this prototype and how it was built are explained after it.
+Figure~\ref{fig:stand} shows a rough view of what the final prototype will look like when it is mounted on the mobile station. The specifics components for this prototype and how it was built are explained after it.
 
    \begin{figure}[H]
 	\centering
@@ -1089,7 +1089,7 @@ The following list details the high-level risks of this project and what was don
 \end{itemize}
 
 \section{Milestone Schedule}
-The following tables show the milestone schedule for the Smart Eraser project over the next two semesters.
+Table~\ref{table:3}, Table~\ref{table:4}, and Table~\ref{table:5} show the milestone schedule for the Smart Eraser project over two semesters.
 \setlength{\parindent}{5ex}
 \begin{table} [H]	
 	\normalsize
@@ -1334,13 +1334,13 @@ The following tables show the milestone schedule for the Smart Eraser project ov
 
 \section{Test Plan}
 
-The following Test Plan was made to test the features of the Smart Eraser as they are completed. The test plan includes what feature is being tested, who is in charge of creating that feature, and who is in charge of testing that feature. It then lists the success criteria, which is what determines if the test was a success, and the stopping criteria, which is what determines if a test needs to be stopped.
+The Test Plan in Figure~\ref{fig:test1}, Figure~\ref{fig:test2}, Figure~\ref{fig:test3}, Figure~\ref{fig:test4}, and Figure~\ref{fig:test5} was made to test the features of the Smart Eraser as they are completed. The test plan includes what feature is being tested, who is in charge of creating that feature, and who is in charge of testing that feature. It then lists the success criteria, which is what determines if the test was a success, and the stopping criteria, which is what determines if a test needs to be stopped.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[max size={\textwidth}{\textheight}]{Images/testplan1V.png}
 	\caption{Test Plan for the Smart Eraser - Part 1}
-	\label{fig:test}
+	\label{fig:test1}
 \end{figure}
 
 \begin{figure}[H]
@@ -1354,26 +1354,26 @@ The following Test Plan was made to test the features of the Smart Eraser as the
 	\centering
 	\includegraphics[max size={\textwidth}{\textheight}]{Images/testplan3V.png}
 	\caption{Test Plan for the Smart Eraser - Part 3}
-	\label{fig:test2}
+	\label{fig:test3}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[max size={\textwidth}{\textheight}]{Images/testplan4V.png}
 	\caption{Test Plan for the Smart Eraser - Part 4}
-	\label{fig:test2}
+	\label{fig:test4}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[max size={\textwidth}{\textheight}]{Images/testplan5V.png}
 	\caption{Test Plan for the Smart Eraser - Part 5}
-	\label{fig:test2}
+	\label{fig:test5}
 \end{figure}
 
 \section{Gantt Charts}
 
-The following figures show the GANTT chart schedules over the next two semesters. These list the tasks to be completed, who is in charge of what task, and the time duration the task is expected to take.
+Figure~\ref{fig:GANTT186A} and Figure~\ref{fig:GANTT186B} show the GANTT chart schedules over the next two semesters. These list the tasks to be completed, who is in charge of what task, and the time duration the task is expected to take.
 
 \begin{figure}[H]
 	\centering
@@ -1390,7 +1390,7 @@ The following figures show the GANTT chart schedules over the next two semesters
 \end{figure}
 
 \section{Equipment and Budget}
-The following table lists the components that were bought in order to complete the Smart Eraser, as well as the company that made them and their cost. The costs are listed without taxes and shipping costs taken into account, but the total of the budget at the bottom of the table includes these. The components are listed in alphanumeric order.
+Table~\ref{table:1} lists the components that were bought in order to complete the Smart Eraser, as well as the company that made them and their cost. The costs are listed without taxes and shipping costs taken into account, but the total of the budget at the bottom of the table includes these. The components are listed in alphanumeric order.
 \setlength{\parindent}{5ex}
 \begin{table} [H]
 	\normalsize
@@ -1466,7 +1466,7 @@ The following table lists the components that were bought in order to complete t
 
 As shown in the table for the budget, this project has exceeded the original expected budget by almost \$300. The original estimate was not taking into account the problems that were run into during the course of the project's life cycle. For example, the Arduino and Kuman wireless transceivers had to be changed to the HUZZAH32 Feather boards for the wireless communications because of their inoperability. This and a few other unforeseen circumstances pushed the budget over the limit. Now that this experience has been had, for future projects, more research will be done on what exactly will be needed for each step of the way, and which approach will be the best before confirming the budget. This way, perhaps the budget can be more closely followed.\par
 
-\setlength{\parindent}{2.5ex}Along with the components listed in the budget, the following resources were also used to complete the project.
+\setlength{\parindent}{2.5ex}Along with the components listed in the budget, the resources in Table~\ref{table:2} were also used to complete the project.
 
 \begin{table} [H]
 	\normalsize
@@ -1826,7 +1826,7 @@ The total magnitude G is now compared against a threshold value, which can be ma
 \end{figure}
 
 \subsection{\textit{Square\_detection.c} Algorithm}
-In order to begin the process of the eraser moving to the correct locations on the whiteboard, a rough detection of where the markings are located on the board needs to be found first. Using the array that the sobel edge detection algorithm produced, an algorithm was created to detect essentially the ``square'' in which the data was located. That is, it detects the top-most, left-most, bottom-most, and right-most locations of the white pixels in the finished array in order to create a virtual ``square'' around the data. The flowchart for the logic of the algorithm is shown in \ref{fig:squaredetect} in the \textit{Project Description and Boundaries} section of this report. See the following figure for a visual representation, with an example of the board being divided into an 8x8 grid. In this example, the ``square'' coordinates for the top, left, bottom, and right-most markings is 2, 3, 6, 7 respectively, with the origin of the x and y axis being at the top-left corner of the board. This is how the system will know where to erase the data. The blue-arrowed path in the next figure represents the serpentine.c program, which is explained in the \textit{Serpentine.c} Algorithm section of this report.
+In order to begin the process of the eraser moving to the correct locations on the whiteboard, a rough detection of where the markings are located on the board needs to be found first. Using the array that the sobel edge detection algorithm produced, an algorithm was created to detect essentially the ``square'' in which the data was located. That is, it detects the top-most, left-most, bottom-most, and right-most locations of the white pixels in the finished array in order to create a virtual ``square'' around the data. The flowchart for the logic of the algorithm is shown in \ref{fig:squaredetect} in the \textit{Project Description and Boundaries} section of this report. See Figure~\ref{fig:serpentine} for a visual representation, with an example of the board being divided into an 8x8 grid. In this example, the ``square'' coordinates for the top, left, bottom, and right-most markings is 2, 3, 6, 7 respectively, with the origin of the x and y axis being at the top-left corner of the board. This is how the system will know where to erase the data. The blue-arrowed path in the next figure represents the serpentine.c program, which is explained in the \textit{Serpentine.c} Algorithm section of this report.
 
 \begin{figure}[H]
 	\centering
@@ -1835,7 +1835,7 @@ In order to begin the process of the eraser moving to the correct locations on t
 	\label{fig:serpentine}
 \end{figure}
 
-The actual code for this algorithm has been completed using a ``dummy'' matrix with random values of 0s and 1s representing blank space and markings. The code for this is in \textit{Appendix 3} of this report. The result with this dummy matrix is shown in the following figure. This program is then combined with the \textit{serpentine.c} algorithm explained in the \textit{Serpentine.c Algorithm} section of this report.
+The actual code for this algorithm has been completed using a ``dummy'' matrix with random values of 0s and 1s representing blank space and markings. The code for this is in \textit{Appendix 3} of this report. The result with this dummy matrix is shown in Figure~\ref{fig:square_result}. This program is then combined with the \textit{serpentine.c} algorithm explained in the \textit{Serpentine.c Algorithm} section of this report.
 
 \begin{figure}[H]
 	\centering
@@ -1887,7 +1887,7 @@ The original plan for the wireless communication was to use Raspberry Pi boards 
 
 Arduino microcontrollers are notoriously straightforward to use because of their open-sourced nature, meaning that there are already many libraries that are made for the board for various other external devices they can be used with, as well as applications that they can be used for. Therefore, the wireless communication between the transmitter and receiver Arduinos was straightforward, as well as the connections between the board and the transceiver. \par
 \setlength{\parindent}{2.5ex}
-The transmitter Arduino that would send instructions to the stepper motors was the model MKR1000, and the transceiver that could process the wireless communication and send the information needed was a Kuman nRF24L01 with an attachable antenna to extend the range that the wireless radio signal could reach. The pin layouts for the MKR1000 and the transceiver are shown in the following figures.
+The transmitter Arduino that would send instructions to the stepper motors was the model MKR1000, and the transceiver that could process the wireless communication and send the information needed was a Kuman nRF24L01 with an attachable antenna to extend the range that the wireless radio signal could reach. The pin layouts for the MKR1000 and the transceiver are shown in Figure~\ref{fig:mkr} and Figure~\ref{fig:trans1}.
 
 \begin{figure}[H]
 	\centering
@@ -1902,7 +1902,7 @@ The transmitter Arduino that would send instructions to the stepper motors was t
 	\label{fig:trans1}
 \end{figure}
 
-A diagram showing the connections between these two chips is in the following figure.
+A diagram showing the connections between these two chips is in Figure~\ref{fig:conn1}.
 
 \begin{figure}[H]
 	\centering
@@ -1915,7 +1915,7 @@ For the code of the transmitter, the template code was taken from the example sh
 \setlength{\parindent}{2.5ex}
 Next, in the main loop of the program, in order to send a signal to a specific address, a writing pipe needs to be opened to that address. Only one writing pipe can be open at a time, so separate writing pipes to each receiver were opened and continuously alternated between in the loop. The number for the stepper motors to rotate a certain degree were then sent using the radio.write() function, whos parameters include a pointer to the name of the variable to send to the receiver, and the length of the data.\par
 \setlength{\parindent}{2.5ex}
-The receivers that were attached to each stepper motor were the Arduino UNO R3, and the transceivers were the same model used for the transmitter. The Arduino UNO R3 used is shown in the following figure.
+The receivers that were attached to each stepper motor were the Arduino UNO R3, and the transceivers were the same model used for the transmitter. The Arduino UNO R3 used is shown in Figure~\ref{fig:uno}.
 
 \begin{figure}[H]
 	\centering
@@ -1924,7 +1924,7 @@ The receivers that were attached to each stepper motor were the Arduino UNO R3, 
 	\label{fig:uno}
 \end{figure}
 
-The pin connections between the UNO R3 and the wireless transceiver are shown in the following figure.
+The pin connections between the UNO R3 and the wireless transceiver are shown in Figure~\ref{fig:conn2}.
 
 \begin{figure}[H]
 	\centering
@@ -2028,7 +2028,7 @@ When this program is ran with dummy values, it sends the correct sequence of ins
 
 
 \subsubsection{Stepper Motor Movement}
-The stepper motors that were chosen for this project are the NEMA 23 CNC stepper motors. Stepper motors contain magnetic coils surrounding a magnetic rotor that need to be powered in a certain sequence in order for the rotor to turn in either a clockwise (CW) or counter-clockwise (CCW) rotation. This particular stepper motor is a 2-phase bipolar motor, meaning it contains 2 groups of coils, and it uses all coils within the motor to work to turn the motor the direction needed. A layout of the inside of this motor is shown in the following figure, which shows how the coil windings are oriented in comparison with the rotor. The different color names represent the colors of the wires that need to be connected to the stepper motor driver.
+The stepper motors that were chosen for this project are the NEMA 23 CNC stepper motors. Stepper motors contain magnetic coils surrounding a magnetic rotor that need to be powered in a certain sequence in order for the rotor to turn in either a clockwise (CW) or counter-clockwise (CCW) rotation. This particular stepper motor is a 2-phase bipolar motor, meaning it contains 2 groups of coils, and it uses all coils within the motor to work to turn the motor the direction needed. A layout of the inside of this motor is shown in Figure~\ref{fig:rotor}, which shows how the coil windings are oriented in comparison with the rotor. The different color names represent the colors of the wires that need to be connected to the stepper motor driver.
 
 \begin{figure}[H]
 	\centering
@@ -2086,7 +2086,7 @@ The logic analyzer is vital to figuring out how data is actually being transferr
 \end{figure}
 
 \subsubsection{Stepper Motor and Driver Connections}
-In order to drive a stepper motor, an H-Bridge needs to be used in order for current to flow to the correct coils, which supply the amperage needed to rotate the internal magnetic coil. In this project, the DM542T stepper drivers act as the H-bridge needed. The four different-colored leads (black, green, red, blue) are plugged into the A+, A-, B+, B- nodes, respectively. These nodes will send out the proper pulse signals to the stepper motor, as well as the voltage and current needed to drive them, depending on the inputs given to the PUL and DIR nodes. The PUL+, PUL-, DIR+, and DIR- nodes are connected to the HUZZAH32 Feather board in order to control the stepper motors. These signals are those that need to be coded into the microcontroller in order to be the control behind the motors. The PUL nodes control the pulse signals sent to the bipolar motor coils, and the DIR nodes control the direction of the flow of current into the coils, thus allowing the motors to run both CW and CCW. The driver used is shown in the following figure.
+In order to drive a stepper motor, an H-Bridge needs to be used in order for current to flow to the correct coils, which supply the amperage needed to rotate the internal magnetic coil. In this project, the DM542T stepper drivers act as the H-bridge needed. The four different-colored leads (black, green, red, blue) are plugged into the A+, A-, B+, B- nodes, respectively. These nodes will send out the proper pulse signals to the stepper motor, as well as the voltage and current needed to drive them, depending on the inputs given to the PUL and DIR nodes. The PUL+, PUL-, DIR+, and DIR- nodes are connected to the HUZZAH32 Feather board in order to control the stepper motors. These signals are those that need to be coded into the microcontroller in order to be the control behind the motors. The PUL nodes control the pulse signals sent to the bipolar motor coils, and the DIR nodes control the direction of the flow of current into the coils, thus allowing the motors to run both CW and CCW. The driver used is shown in Figure~\ref{fig:smdataD}.
 
 \begin{figure}[H]
 	\centering
@@ -2099,7 +2099,7 @@ The stepper driver is able to be modified to alter the current flowing out to th
 
 \subsubsection{Power Parameters}
 
-The power rating for each component was important to take into account when thinking about the power supplies for the wireless components. The stepper motors are rated to have a driving voltage of anywhere from 24-48V, and the stepper drivers a driving voltage of 20-50V. Taking the mobility of the components into account, the final decision for the power sources for the different stepper motor components on the whiteboard wound up being three 9V batteries in series for one setup. Ideally, there would be 27V flowing to each stepper motor through the stepper drivers, but when measured in the lab, it wound up being about 24V flowing to each motor system. This is plenty to move the motors the way they need to, so this is the method that was chosen. For the other setup, a more stable power source will be used. This was decided for two reasons: the first being that the X motor system will not be moving, so it can have a dedicated power system that doesn't move, and can therefore be plugged into a power outlet if need be. The second reason for this decision was because the X motor needs a higher current due to the higher torque needed to move the heavier load of the Y-axis components. The following equation can be used to understand the power consumption parameters that were taken into account when making sure the batteries would provide enough current for the mobile part of the system. Figure \ref{fig:power_supply} shows an image of the separate power supply.\\
+The power rating for each component was important to take into account when thinking about the power supplies for the wireless components. The stepper motors are rated to have a driving voltage of anywhere from 24-48V, and the stepper drivers a driving voltage of 20-50V. Taking the mobility of the components into account, the final decision for the power sources for the different stepper motor components on the whiteboard wound up being three 9V batteries in series for one setup. Ideally, there would be 27V flowing to each stepper motor through the stepper drivers, but when measured in the lab, it wound up being about 24V flowing to each motor system. This is plenty to move the motors the way they need to, so this is the method that was chosen. For the other setup, a more stable power source will be used. This was decided for two reasons: the first being that the X motor system will not be moving, so it can have a dedicated power system that doesn't move, and can therefore be plugged into a power outlet if need be. The second reason for this decision was because the X motor needs a higher current due to the higher torque needed to move the heavier load of the Y-axis components. The following equation can be used to understand the power consumption parameters that were taken into account when making sure the batteries would provide enough current for the mobile part of the system. Figure~\ref{fig:power_supply} shows an image of the separate power supply.\\
 
 \begin{center}
 	$ Power Consumption = E_{kWh/day} = \frac{P_{(W)} \times t_{(h/day)}}{1000_{W/kW}} $
@@ -2114,7 +2114,7 @@ The power rating for each component was important to take into account when thin
 
 \subsubsection{Printed Circuit Boards (PCBs)}
 
-In order to connect everything in the original configuration of the wireless communication system, PCBs were made to ensure loose wires would not detract from the overall look of the final prototype. These PCBs were made for each stepper motor in order to connect the wireless transceivers, the Arduino UNO R3 microcontrollers, a 9V battery to the Arduino board for wireless power, and to connect the 3 9V batteries in series that would have powered the stepper motor drivers. The following figure shows the layout of the PCBs.
+In order to connect everything in the original configuration of the wireless communication system, PCBs were made to ensure loose wires would not detract from the overall look of the final prototype. These PCBs were made for each stepper motor in order to connect the wireless transceivers, the Arduino UNO R3 microcontrollers, a 9V battery to the Arduino board for wireless power, and to connect the 3 9V batteries in series that would have powered the stepper motor drivers. Figure~\ref{fig:pcbs} shows the layout of the PCBs.
 
 \begin{figure}[H]
 	\centering
@@ -2123,7 +2123,7 @@ In order to connect everything in the original configuration of the wireless com
 	\label{fig:pcbs}
 \end{figure}
 
-The following figures show a before and after shot of what the components looked like connected before and after using the PCBs. They are much more organized and pleasing to the eye to look at.
+Figure~\ref{fig:pcb_b} and Figure~\ref{fig:pcb_a} show a before and after shot of what the components looked like connected before and after using the PCBs. They are much more organized and pleasing to the eye to look at.
 
 \begin{figure}[H]
 	\centering
@@ -2146,7 +2146,7 @@ This section contains all information about the conception, creation, and finali
 
 \subsubsection{Initial Prototype Design}
 
-The following images show the initial conception of the prototype stand, as well as some rough dimensions.
+Figure~\ref{fig:prtrough} and Figure~\ref{fig:prtsiderough} show the initial conception of the prototype stand, as well as some rough dimensions.
 
 \begin{figure}[H]
 	\centering
@@ -2165,7 +2165,7 @@ These images helped to think of how large the stand should be.\\
 
 \subsubsection{Final Prototype Design and Dimensions}
 
-After the initial conception of the prototype stand, more definitive dimensions were found for the different components that would be connected to the board. The following figures show the more detailed dimensions, as well as a more detailed figure that shows where everything would be placed relative to each other.
+After the initial conception of the prototype stand, more definitive dimensions were found for the different components that would be connected to the board. Figure~\ref{fig:sideview} and Figure~\ref{fig:frontview} show the more detailed dimensions, as well as a more detailed figure that shows where everything would be placed relative to each other.
 
 \begin{figure}[H]
 	\centering
@@ -2213,7 +2213,7 @@ The following list contains the steps that were followed when putting the stand 
 
 \subsubsection{Final Product}
 
-The final product in progress showing how the components were mounted to the front of the board, as well as the finished final product, are shown in the following figures.
+The final product in progress showing how the components were mounted to the front of the board, as well as the finished final product, are shown in Figure~\ref{fig:ipboard}, Figure~\ref{fig:actualfront}, and Figure~\ref{fig:actualside}.
 
 \begin{figure}[H]
 	\centering
